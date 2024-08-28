@@ -1,0 +1,283 @@
+﻿@neg1_min = 0.45
+@neg1_max = 0.55
+
+@neg2_min = 0.4
+@neg2_max = 0.6
+
+@neg3_min = 0.35
+@neg3_max = 0.65
+
+@pos1_min = 0.5
+@pos1_max = 0.6
+
+@pos2_min = 0.6
+@pos2_max = 0.7
+
+@pos3_min = 0.7
+@pos3_max = 0.9
+
+@beauty1min = 0.0
+@beauty1max = 0.0
+
+@beauty2min = 0.0
+@beauty2max = 0.0
+
+@beauty3min = 0.0
+@beauty3max = 0.0
+
+@blend1min = 0.0
+@blend1max = 0.2
+
+@blend2min = 0.2
+@blend2max = 0.5
+
+@blend3min = 0.5
+@blend3max = 0.8
+
+race_kanuryai = {
+	template = "race_altmer_pure_1"
+	using = "kanuryai"
+
+	skin_color = {
+		10 = { 0.3 0.55 0.7 0.75}
+	}
+
+	hair_color = {
+		# Gingerish
+		60 = { 0.0 0.0 0.8 1.0 }
+		# Red
+		40 = { 0.57 0.5 0.88 0.7 }
+	}
+	
+	gene_eyebrows_fullness = {
+		6 = { name = no_eyebrows			range = { 0.0 0.0 } }
+	}	
+	
+	gene_eyebrows_shape = {
+		6 = { name = close_spacing_lower_thickness			range = { 0.5 0.55 } }
+	}
+
+
+	race_gene_skin_color = {
+		3 = { name = kanuryai_skin	range = { 0.0 1.0 } }
+	}
+	
+	gene_height = {
+		2 = { name = normal_height		range = { 0.52 0.54 }		} #altmer short 	(-0.2)
+		12 = { name = normal_height		range = { 0.54 0.56 }		} #altmer		
+		4 = { name = normal_height		range = { 0.56 0.58 }		} #altmer tall		(+0.2)
+		1 = { name = normal_height		range = { 0.58 0.61 }		} #altmer very tall (+0.2)
+	}
+	
+	race_gene_skin_metallic = {
+		1 = { name = metallic_skin				range = { 0.1 0.25 } }
+	}
+	
+	hair_color_hue = {
+		#desaturated
+		1 = { name = hair_color_hue			range = { 0.49 0.49 } }
+	}
+
+	
+	eye_color = {
+		12 = { 0.84 1.0 0.1 1.0 }  # attempt at yellow
+	}
+
+	gene_bs_eye_size = {
+		10 = { name = eye_size_pos			range = {0.0 0.5 } }
+		4 = { name = eye_size_neg			range = {0.0 0.1 } }
+	}
+
+	gene_eye_size = {
+		10 = { name = eye_size		range = { 0.2 0.35 } }
+	}
+	
+	gene_eye_shut = {
+		20 = { name = eye_shut_neg	range = { 0.4 0.6 }	}
+	}
+
+	complexion = {
+		10 = { name = complexion_kanuryai 	range = { 0.0  1.0 } }
+		
+		#beauty
+        0 = { name = complexion_kanuryai   range = { 0.0 0.1 }   traits = { beauty_1 } }
+        0 = { name = complexion_kanuryai   range = { 0.0 0.1 }   traits = { beauty_2 } }
+        0 = { name = complexion_kanuryai   range = { 0.0 0.1 }   traits = { beauty_3 } }
+
+	}
+
+	eye_color_saturation = {
+		10 = { name = eye_color_saturation		range = { 0.0 0.7 } }
+	}
+
+	eye_sclera = {
+		15 = {  name = colored_sclera		range = { 0.0 0.0 } }
+	}
+	
+	eye_pupil = {
+		10 = {	name = dremora_pupils			range = { 0.0 0.05 }	}
+	}
+
+	gene_mouth_upper_lip_size = {
+		1 = { name = mouth_upper_lip_size_neg		range = { 0.25 0.55 } } 
+		1 = { name = mouth_upper_lip_size_neg		range = { 0.25 0.45 } } 
+	}
+	
+	gene_mouth_lower_lip_size = {
+		1 = { name = mouth_lower_lip_size_neg		range = { 0.25 0.55 } } 
+		1 = { name = mouth_lower_lip_size_neg		range = { 0.25 0.45 } } 
+	}
+
+	# hair_color_hue = {
+		# 5 = { name = default_1		range = { 0.0 1.0 } }
+	# }
+
+	gene_body_hair = {
+		10 = {	name = body_hair_sparse					range = { 0.0 0.4 }	}
+		10 = {	name = body_hair_sparse_low_stubble		range = { 0.0 0.4 }	}
+	}
+	
+	race_gene_mer_forehead = {
+		1 = { name = mer_forehead			range = { 0.5 1.0 } }
+	}
+
+	race_gene_mer_nose = {
+		1 = { name = mer_nose			range = { 0.4 1.0 } }
+	}
+
+	gene_bs_eye_fold_shape = {
+		1 = { name = eye_fold_shape_pos	range = { 0.0 0.1}}
+	}
+
+}
+
+race_kanuryai = {
+	template = "race_altmer_pure_2"
+	using = "kanuryai"
+
+	skin_color = {
+		10 = { 0.3 0.55 0.7 0.75}
+	}
+
+#	skin_color_hue = {
+#		2 = { name = skin_color_hue_red			range = { 0.6 0.9 } }
+#		8 = { name = skin_color_hue_red			range = { 0.8 0.8 } }
+#	}
+#	skin_color_saturation = {
+#		#desaturated
+#		7 = { name = skin_color_saturation			range = { 0.75 0.75 } }
+#	}
+
+	race_gene_skin_color = {
+		6 = { name = altmer_skin		range = { 0.0 1.0 } }
+	}
+
+	gene_height = {
+		2 = { name = normal_height		range = { 0.52 0.54 }		} #altmer short 	(-0.2)
+		12 = { name = normal_height		range = { 0.54 0.56 }		} #altmer		
+		4 = { name = normal_height		range = { 0.56 0.58 }		} #altmer tall		(+0.2)
+		1 = { name = normal_height		range = { 0.58 0.61 }		} #altmer very tall (+0.2)
+	}
+
+	
+	race_gene_skin_metallic = {
+		6 = { name = metallic_skin		range = { 0.1 0.25 } }
+	}
+
+	eye_color = {
+		12 = { 0.84 1.0 0.1 1.0 }  # yellow
+	}
+	
+
+	
+	eye_pupil = {
+		10 = {	name = dremora_pupils			range = { 0.0 0.05 }	}
+	}
+
+	hair_color = {
+		# Reds
+		60 = { 0.57 0.5 0.88 0.7 }
+
+		# Redder
+		30 = {  0.8 0.1 0.88 0.9 }
+
+		# White/Blonde
+		10 = { 0.0 0.0 0.09 0.1 }
+	}
+
+	# hair_color_hue = {
+		# 5 = { name = default_1		range = { 0.0 1.0 } }
+	# }
+
+	gene_body_hair = {
+		10 = {	name = body_hair_sparse					range = { 0.0 0.3 }	}
+		10 = {	name = body_hair_sparse_low_stubble		range = { 0.0 0.3 }	}
+	}
+}
+
+
+race_kanuryai_2 = {
+	template = "race_altmer_pure_2"
+	using = "kanuryai_2"
+
+	skin_color = {
+		10 = { 0.0 0.87 0.4 1.0 }
+	}
+
+#	skin_color_hue = {
+#		2 = { name = skin_color_hue_red			range = { 0.6 0.9 } }
+#		8 = { name = skin_color_hue_red			range = { 0.8 0.8 } }
+#	}
+#	skin_color_saturation = {
+#		#desaturated
+#		7 = { name = skin_color_saturation			range = { 0.75 0.75 } }
+#	}
+
+	race_gene_skin_color = {
+		6 = { name = kanuryai_skin		range = { 0.0 1.0 } }
+	}
+
+	gene_height = {
+		2 = { name = normal_height		range = { 0.52 0.54 }		} #altmer short 	(-0.2)
+		12 = { name = normal_height		range = { 0.54 0.56 }		} #altmer		
+		4 = { name = normal_height		range = { 0.56 0.58 }		} #altmer tall		(+0.2)
+		1 = { name = normal_height		range = { 0.58 0.61 }		} #altmer very tall (+0.2)
+	}
+
+	
+	race_gene_skin_metallic = {
+		6 = { name = metallic_skin		range = { 0.1 0.25 } }
+	}
+
+	eye_color = {
+		12 = { 0.84 1.0 0.1 1.0 }  # yellow
+	}
+	
+
+	
+	eye_pupil = {
+		10 = {	name = dremora_pupils			range = { 0.0 0.05 }	}
+	}
+
+	hair_color = {
+		# Reds
+		#60 = { 0.57 0.5 0.88 0.7 }
+
+		# Redder
+		30 = {  0.8 0.4 0.4 0.9 }
+
+		# White/Blonde
+		10 = { 0.0 0.0 0.09 0.1 }
+	}
+
+	# hair_color_hue = {
+		# 5 = { name = default_1		range = { 0.0 1.0 } }
+	# }
+
+	gene_body_hair = {
+		10 = {	name = body_hair_sparse					range = { 0.0 0.3 }	}
+		10 = {	name = body_hair_sparse_low_stubble		range = { 0.0 0.3 }	}
+	}
+}
+
+

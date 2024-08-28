@@ -1,0 +1,10 @@
+﻿l_english:
+
+ ###Miscmer
+ 
+ race_kanuryai_name:0 "Kanuryai I"
+ race_kanuryai:0 "[Select_CString( Or(Not(GetVariableSystem.HasValue( 'ek_ruler_designer_open', 'true' )), GetVariableSystem.HasValue( 'ek_race', Localize('RACE_MER') ) ), Localize('race_kanuryai_name'), 'no' )]"
+
+ race_kanuryai_2_name:0 "Kanuryai II"
+ race_kanuryai_2:0 "[Select_CString( Or(Not(GetVariableSystem.HasValue( 'ek_ruler_designer_open', 'true' )), GetVariableSystem.HasValue( 'ek_race', Localize('RACE_MER') ) ), Localize('race_kanuryai_2_name'), 'no' )]"
+
