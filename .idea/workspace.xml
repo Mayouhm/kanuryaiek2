@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9cbc5e8d-104b-4ed7-ba34-5201386806c3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/sinistral.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/culture/cultures/ek_aldmeri.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kanuryai.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/ethnicities/001_ek_ethnicities_mer_kanuryai.txt" beforeDir="false" afterPath="$PROJECT_DIR$/common/ethnicities/001_ek_ethnicities_mer_kanuryai.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/localization/english/culture/ek_culture_name_lists_l_english.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/localization/english/ek_ruler_designer_l_english.yml" beforeDir="false" afterPath="$PROJECT_DIR$/localization/english/ek_ruler_designer_l_english.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/localization/replace/english/ek_ruler_designer_l_english.yml" beforeDir="false" afterPath="$PROJECT_DIR$/localization/replace/english/ek_ruler_designer_l_english.yml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2lLcvMFjpukcvOa3d6lUCXN0hap" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/User/Documents/Paradox Interactive/Crusader Kings III/mod/sinistral/common/scripted_effects",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Documents\Paradox Interactive\Crusader Kings III\mod\sinistral\common\scripted_effects" />
+      <recent name="C:\Users\User\Documents\Paradox Interactive\Crusader Kings III\mod\sinistral\localization\english\culture" />
+      <recent name="C:\Users\User\Documents\Paradox Interactive\Crusader Kings III\mod\sinistral\common\on_action" />
+      <recent name="C:\Users\User\Documents\Paradox Interactive\Crusader Kings III\mod\sinistral\common\culture\cultures" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9cbc5e8d-104b-4ed7-ba34-5201386806c3" name="Changes" comment="" />
+      <created>1724963026854</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1724963026854</updated>
+    </task>
+    <servers />
+  </component>
+</project>

@@ -1,0 +1,47 @@
+﻿kanuryai = {
+    # graphical_cultures = { ... }
+
+    color = { 1 0.5 0.2 }	# The color of the culture, used e.g. on the map
+
+    created = 350.1.1 # Optional creation date
+    history_loc_override = mystery_history_loc # specify a customloc key for history rather than the default one
+
+    traditions = {
+        tradition_shattered_continent
+        tradition_ruling_caste
+        tradition_dryland_dwellers
+        tradition_attuned_to_magicka
+    }
+    ethos = ethos_stoic
+    heritage = heritage_kanuryai
+    language = language_kanuryai
+    martial_custom = martial_custom_equal
+    name_list = name_list_altmer			# How to name things. You can have multiple of these entries. The first one is the primary one and will be used for things like prefixes where it doesn't make much sense to randomize between the lists
+
+    dlc_fallback_pillar = {
+        # Replace with this pillar if you lack the DLC feature
+        fallback = martial_custom_female_only
+        requires_dlc_flag = the_northern_lords
+    }
+    dlc_tradition = {
+        # Add this if you don't. Optional
+        fallback = tradition_blah_blah
+    }
+
+    character_modifier = {	# Modifier effects on all characters of the culture
+        martial = 1
+    }
+
+    ethnicities = {
+        10 = race_kanuryai
+        10 = race_kanuryai_2
+    }
+
+    coa_gfx = { redguard_group_coa_gfx }
+    building_gfx = { ek_aldmer_building_gfx }
+    clothing_gfx = { ek_redguard_clothing_gfx }
+    unit_gfx = { altmer_unit_gfx }
+    #clothing_gfx/unit_gfx/coa_gfx Same as building_gfx
+    #For clothing and CoAs, you can have multiple sections to represent hybrids
+    #The first key in the sequence is used for naming the GFX culture. The sequence must be the same for every set that starts with the same GFX culture (otherwise, "western_coa_gfx some_other" and "western_coa_gfx" are impossible to differentiate)
+}

@@ -1,0 +1,4078 @@
+﻿clear_aging_modifier_effect = { #probably a cleaner way of doing this with $$ stuff
+	remove_character_modifier = ek_age_40_penalty
+	remove_character_modifier = ek_age_45_penalty
+	remove_character_modifier = ek_age_50_penalty
+	remove_character_modifier = ek_age_55_penalty
+	remove_character_modifier = ek_age_60_penalty
+	remove_character_modifier = ek_age_65_penalty
+	remove_character_modifier = ek_age_70_penalty
+	remove_character_modifier = ek_age_75_penalty
+	remove_character_modifier = ek_age_80_penalty
+	remove_character_modifier = ek_age_85_penalty
+	remove_character_modifier = ek_age_90_penalty
+	remove_character_modifier = ek_age_95_penalty
+	remove_character_modifier = ek_age_100_penalty
+	remove_character_modifier = ek_age_105_penalty
+	remove_character_modifier = ek_age_110_penalty
+	remove_character_modifier = ek_age_115_penalty
+	remove_character_modifier = ek_age_120_penalty
+	remove_character_modifier = ek_age_125_penalty
+	remove_character_modifier = ek_age_130_penalty
+	remove_character_modifier = ek_age_135_penalty
+	remove_character_modifier = ek_age_140_penalty
+	remove_character_modifier = ek_age_145_penalty
+	remove_character_modifier = ek_age_150_penalty
+	remove_character_modifier = ek_age_155_penalty
+	remove_character_modifier = ek_age_160_penalty
+	remove_character_modifier = ek_age_165_penalty
+	remove_character_modifier = ek_age_170_penalty
+	remove_character_modifier = ek_age_175_penalty
+	remove_character_modifier = ek_age_180_penalty
+	remove_character_modifier = ek_age_195_penalty
+	remove_character_modifier = ek_age_200_penalty
+
+	remove_character_modifier = ek_age_40_penalty_no_prowess_loss_from_age
+	remove_character_modifier = ek_age_45_penalty_no_prowess_loss_from_age
+	remove_character_modifier = ek_age_50_penalty_no_prowess_loss_from_age
+	remove_character_modifier = ek_age_55_penalty_no_prowess_loss_from_age
+	remove_character_modifier = ek_age_60_penalty_no_prowess_loss_from_age
+	remove_character_modifier = ek_age_65_penalty_no_prowess_loss_from_age
+	remove_character_modifier = ek_age_70_penalty_no_prowess_loss_from_age
+	remove_character_modifier = ek_age_75_penalty_no_prowess_loss_from_age
+	remove_character_modifier = ek_age_80_penalty_no_prowess_loss_from_age
+	remove_character_modifier = ek_age_85_penalty_no_prowess_loss_from_age
+	remove_character_modifier = ek_age_90_penalty_no_prowess_loss_from_age
+	remove_character_modifier = ek_age_95_penalty_no_prowess_loss_from_age
+	remove_character_modifier = ek_age_100_penalty_no_prowess_loss_from_age
+	remove_character_modifier = ek_age_105_penalty_no_prowess_loss_from_age
+	remove_character_modifier = ek_age_110_penalty_no_prowess_loss_from_age
+	remove_character_modifier = ek_age_115_penalty_no_prowess_loss_from_age
+	remove_character_modifier = ek_age_120_penalty_no_prowess_loss_from_age
+	remove_character_modifier = ek_age_125_penalty_no_prowess_loss_from_age
+	remove_character_modifier = ek_age_130_penalty_no_prowess_loss_from_age
+	remove_character_modifier = ek_age_135_penalty_no_prowess_loss_from_age
+	remove_character_modifier = ek_age_140_penalty_no_prowess_loss_from_age
+	remove_character_modifier = ek_age_145_penalty_no_prowess_loss_from_age
+	remove_character_modifier = ek_age_150_penalty_no_prowess_loss_from_age
+	remove_character_modifier = ek_age_155_penalty_no_prowess_loss_from_age
+	remove_character_modifier = ek_age_160_penalty_no_prowess_loss_from_age
+	remove_character_modifier = ek_age_165_penalty_no_prowess_loss_from_age
+	remove_character_modifier = ek_age_170_penalty_no_prowess_loss_from_age
+	remove_character_modifier = ek_age_175_penalty_no_prowess_loss_from_age
+	remove_character_modifier = ek_age_180_penalty_no_prowess_loss_from_age
+	remove_character_modifier = ek_age_195_penalty_no_prowess_loss_from_age
+	remove_character_modifier = ek_age_200_penalty_no_prowess_loss_from_age
+}
+
+startup_culture_effect = {
+	save_culture_in_global_list = { CULTURE = culture:$CULTURE$ }
+	culture_key_setup = { CULTURE = $CULTURE$ }
+}
+
+culture_key_setup = {
+	culture:$CULTURE$ = {
+		set_variable = { name = culture_key value = flag:$CULTURE$_ }
+		if = { limit = { var:culture_key = flag:$CULTURE$_ } }
+	}
+}
+
+interregnum_potentate_death_early_trigger = {
+	## The Potentate is shattered
+	hidden_effect = { destroy_title = title:e_cyrodiilic_potentate }
+	
+	### We create the vassal in the Imperial Isles (Imperial Commune)
+	# If Caius Lex is still alive, get him
+	if = {
+		limit = { any_living_character = { has_character_modifier = caius_lex_chosen_ec_modifier } }
+		random_living_character = {
+			limit = { has_character_modifier = caius_lex_chosen_ec_modifier }
+			save_scope_as = title_recipient
+		}
+	}
+	# Otherwise, just create someone else
+	else = {
+		create_character = {
+			location = title:c_imperial_city.title_province
+			template = pool_repopulate_stewardship
+			faith = faith:imperial_cult
+			culture = culture:heartlander
+			save_scope_as = title_recipient
+			gender_female_chance = {
+				if = {
+					limit = { faith:imperial_cult = { has_doctrine = doctrine_gender_male_dominated } }
+					add = 0
+				}
+				else_if = {
+					limit = { faith:imperial_cult = { has_doctrine = doctrine_gender_female_dominated } }
+					add = 100
+				}
+				else = {
+					add = 50
+				}
+			}
+		}
+		scope:title_recipient = { ek_character_setup_effect = yes }
+	}
+
+	### The Imperial Isle is seized
+	custom_tooltip = imperial_commune_creation_tooltip
+	title:d_imperial_isle = { add_to_list = titles_to_give }
+	title:c_imperial_city = { add_to_list = titles_to_give }
+	every_held_title = {
+		limit = { target_is_de_jure_liege_or_above = title:k_heartlands }
+		add_to_list = titles_to_give
+	}
+
+	custom_tooltip = imperial_commune_creation_not_full_heartlands_tooltip
+
+	hidden_effect = {
+		every_vassal = {
+			limit = { capital_province = { duchy = title:d_imperial_isle } }
+			add_to_list = vassals_to_give
+		}
+
+		create_title_and_vassal_change = {
+			type = conquest
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+
+		every_in_list = {
+			list = titles_to_give
+			change_title_holder = {
+				holder = scope:title_recipient
+				change = scope:change
+				take_baronies = yes
+			}
+		}
+		
+		every_in_list = {
+			list = vassals_to_give
+			change_liege = {
+				liege = scope:title_recipient
+				change = scope:change
+			}
+		}
+
+		resolve_title_and_vassal_change = scope:change
+
+		# Then they become independent
+		create_title_and_vassal_change = {
+			type = independency
+			save_scope_as = change_2
+			add_claim_on_loss = yes
+		}
+		scope:title_recipient = {
+			becomes_independent = {
+				change = scope:change_2
+			}
+		}
+		
+		scope:title_recipient = {
+			every_vassal = {
+				limit = { NOT = { is_in_list = vassals_to_give } }
+				becomes_independent = {
+					change = scope:change_2
+				}
+			}
+
+			resolve_title_and_vassal_change = scope:change_2
+		}
+	}
+
+	interregnum_post_shatter_effect = yes
+}
+
+### Destroy the Empire of Cyrodiil and create the k_heartlands
+interregnum_shatter_cyrodiil = {
+	### We create the vassal in the Imperial Isles (Imperial Commune)
+	# If Caius Lex is still alive, get him
+	if = {
+		limit = { any_living_character = { has_character_modifier = caius_lex_chosen_ec_modifier } }
+		random_living_character = {
+			limit = { has_character_modifier = caius_lex_chosen_ec_modifier }
+			save_scope_as = title_recipient
+		}
+	}
+	# Otherwise, just create someone else
+	else = {
+		create_character = {
+			location = title:c_imperial_city.title_province
+			template = pool_repopulate_stewardship
+			faith = faith:imperial_cult
+			culture = culture:heartlander
+			save_scope_as = title_recipient
+			gender_female_chance = {
+				if = {
+					limit = { faith:imperial_cult = { has_doctrine = doctrine_gender_male_dominated } }
+					add = 0
+				}
+				else_if = {
+					limit = { faith:imperial_cult = { has_doctrine = doctrine_gender_female_dominated } }
+					add = 100
+				}
+				else = {
+					add = 50
+				}
+			}
+		}
+		scope:title_recipient = { ek_character_setup_effect = yes }
+	}
+
+	### The Imperial Isle is seized
+	custom_tooltip = imperial_commune_creation_tooltip
+	title:d_imperial_isle = { add_to_list = titles_to_give }
+	title:c_imperial_city = { add_to_list = titles_to_give }
+	every_held_title = {
+		limit = { target_is_de_jure_liege_or_above = title:k_heartlands }
+		add_to_list = titles_to_give
+	}
+
+	### If the 'Secure the Heartlands' task has been fulfilled, they get everything within the Heartlands
+	if = {
+		limit = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:attrebus_secure_heartlands_decision
+			}
+		}
+
+		custom_tooltip = imperial_commune_creation_full_heartlands_tooltip
+
+		hidden_effect = {
+			# Lord-Protector of the Heartlands
+			title:k_heartlands = { add_to_list = titles_to_give }
+
+			# Every vassal within the Heartlands is given to them
+			every_vassal = {
+				limit = { capital_province = { kingdom = title:k_heartlands } }
+				add_to_list = vassals_to_give
+			}
+
+			create_title_and_vassal_change = {
+				type = independency
+				save_scope_as = change
+				add_claim_on_loss = no
+			}
+
+			every_in_list = {
+				list = titles_to_give
+				change_title_holder = {
+					holder = scope:title_recipient
+					change = scope:change
+					take_baronies = yes
+				}
+			}
+
+			every_in_list = {
+				list = vassals_to_give
+				change_liege = {
+					liege = scope:title_recipient
+					change = scope:change
+				}
+			}
+
+			resolve_title_and_vassal_change = scope:change
+
+			# Then they become independent
+			create_title_and_vassal_change = {
+				type = independency
+				save_scope_as = change
+				add_claim_on_loss = yes
+			}
+			scope:title_recipient = {
+				becomes_independent = {
+					change = scope:change
+				}
+			}
+
+			resolve_title_and_vassal_change = scope:change
+		}
+	}
+	### Otherwise, they only get the Imperial Isle and c_ vassals who wish to join them
+	else = {
+		custom_tooltip = imperial_commune_creation_not_full_heartlands_tooltip
+
+		hidden_effect = {
+			every_vassal = {
+				limit = { capital_province = { duchy = title:d_imperial_isle } }
+				add_to_list = vassals_to_give
+			}
+
+			create_title_and_vassal_change = {
+				type = conquest
+				save_scope_as = change
+				add_claim_on_loss = no
+			}
+
+			every_in_list = {
+				list = titles_to_give
+				change_title_holder = {
+					holder = scope:title_recipient
+					change = scope:change
+					take_baronies = yes
+				}
+			}
+			
+			every_in_list = {
+				list = vassals_to_give
+				change_liege = {
+					liege = scope:title_recipient
+					change = scope:change
+				}
+			}
+
+			resolve_title_and_vassal_change = scope:change
+
+			# Then they become independent
+			create_title_and_vassal_change = {
+				type = independency
+				save_scope_as = change_2
+				add_claim_on_loss = yes
+			}
+			scope:title_recipient = {
+				becomes_independent = {
+					change = scope:change_2
+				}
+			}
+
+			resolve_title_and_vassal_change = scope:change_2
+		}
+	}
+
+
+	### Vassals become independent
+	hidden_effect = {
+		every_vassal = {
+			# Any vassal who does not hold land within de jure titles you own becomes independent
+			limit = {
+				NOT = {
+					this.primary_title.kingdom = {
+						any_in_de_jure_hierarchy = {
+							holder = root
+						}
+					}
+				}
+			}
+			create_title_and_vassal_change = {
+				type = independency
+				save_scope_as = change
+				add_claim_on_loss = yes
+			}
+			becomes_independent = {
+				change = scope:change
+			}
+
+			resolve_title_and_vassal_change = scope:change
+		}
+
+		### Any county that isn't de Jure under our primary title becomes independent
+		#every_in_list = {
+			# EK TODO: set up that list
+		#	list = titles_to_make_independent
+		#	save_scope_as = current_title
+		#	create_character = {
+		#		location = scope:current_title.location
+		#		template = new_commander_character ### EK TODO: Not that (lol)
+		#		faith = scope:current_title.faith
+		#		culture = scope:current_title.culture
+		#		save_scope_as = title_recipient
+		#		gender_female_chance = {
+		#			if = {
+		#				limit = { scope:current_title.faith = { has_doctrine = doctrine_gender_male_dominated } }
+		#				add = 0
+		#			}
+		#			else_if = {
+		#				limit = { scope:current_title.faith = { has_doctrine = doctrine_gender_female_dominated } }
+		#				add = 100
+		#			}
+		#			else = {
+		#				add = 50
+		#			}
+		#		}
+		#	}
+		#	scope:title_recipient = { ek_character_setup_effect = yes }
+		#	# We give them the title
+		#	create_title_and_vassal_change = {
+		#		type = independency
+		#		save_scope_as = change
+		#		add_claim_on_loss = no
+		#	}
+		#	change_title_holder = {
+		#		holder = scope:title_recipient
+		#		change = scope:change
+		#		take_baronies = yes
+		#	}
+		#	# And we make them independent
+		#	scope:title_recipient = {
+		#		becomes_independent = {
+		#			change = scope:change
+		#		}
+		#	}
+		#	resolve_title_and_vassal_change = scope:change
+		#}
+	}
+
+	custom_tooltip = rest_cyrodiil_independent_tooltip
+
+	if = {
+		limit = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:attrebus_repay_debts_decision
+			}
+		}
+		custom_tooltip = attrebus_repay_debts_decision_effect_shattering
+
+		hidden_effect = {
+			scope:title_recipient = { add_gold = 1000 }
+		}
+	}
+	
+	interregnum_post_shatter_effect = yes
+}
+
+interregnum_post_shatter_effect = {
+	### If we still have the pseudo-Emperor years countdown, remove that
+	if = {
+		limit = { exists = var:attrebus_years_pseudo_emperor_left }
+		remove_variable = attrebus_years_pseudo_emperor_left
+	}
+
+	### EK TODO: Once Lingua Tamrielis and the Tamrielic tongue are updated, change that
+	# We (Cyrodiilic culture group) lose the Lingua Tamrielis innovation
+	custom_tooltip = interregnum_loses_lingua_tamrielis
+	hidden_effect = {
+		every_culture_global = {
+			limit = {
+				has_cultural_pillar = heritage_cyrodiilic
+				has_innovation = innovation_lingua_tamrielis
+			}
+			remove_innovation = innovation_lingua_tamrielis
+		}
+	}
+	
+	## Now we destroy some stuff, and the Interregnum begins...
+	hidden_effect = {
+		destroy_title = title:e_cyrodiilic_potentate
+	}
+	custom_tooltip = line_break
+	custom_tooltip = interregnum_starts_tooltip
+}
+
+#Dissolution of Elsweyr
+dissolve_elsweyr_scripted_effect = {
+	title:e_elsweyr.holder = {save_scope_as = mane}
+	#Anequina
+	title:k_anequina = { set_de_jure_liege_title = title:e_anequina }
+	if = {
+		limit = { title:e_elsweyr = { is_de_jure_liege_or_above_target = title:k_rimmen }}
+		title:k_rimmen = { set_de_jure_liege_title = title:e_anequina }
+	}
+	if = {
+		limit = { title:e_elsweyr = { is_de_jure_liege_or_above_target = title:k_orcrest }}
+		title:k_orcrest = { set_de_jure_liege_title = title:e_anequina  }
+	}
+	if = {
+		limit = { title:e_elsweyr = { is_de_jure_liege_or_above_target = title:k_riverhold }}
+		title:k_riverhold = { set_de_jure_liege_title = title:e_anequina  }
+	}
+	if = {
+		limit = { title:e_elsweyr = { is_de_jure_liege_or_above_target = title:k_dune }}
+		title:k_dune = { set_de_jure_liege_title = title:e_anequina  }
+	}
+	if = { #If Elsweyr somehow managed to grab Arenthia before falling apart, then it goes back to Bosmers
+		limit = { title:e_elsweyr = { is_de_jure_liege_or_above_target = title:k_arenthia }}
+		title:k_arenthia = { set_de_jure_liege_title = title:e_valenwood  }
+	}
+	#Pellitine
+	title:k_pellitine = { set_de_jure_liege_title = title:e_pellitine }
+	if = {
+		limit = { title:e_elsweyr = { is_de_jure_liege_or_above_target = title:k_alabaster }}
+		title:k_alabaster = { set_de_jure_liege_title = title:e_pellitine }
+	}
+	if = {
+		limit = { title:e_elsweyr = { is_de_jure_liege_or_above_target = title:k_corinthe }}
+		title:k_corinthe = { set_de_jure_liege_title = title:e_pellitine }
+	}
+	if = {
+		limit = { title:e_elsweyr = { is_de_jure_liege_or_above_target = title:k_senchal }}
+		title:k_senchal = { set_de_jure_liege_title = title:e_pellitine }
+	}
+	if = {
+		limit = { title:e_elsweyr = { is_de_jure_liege_or_above_target = title:k_torval }}
+		title:k_torval = { set_de_jure_liege_title = title:e_pellitine }
+	}
+	#Formables
+	if = {
+		limit = { title:e_elsweyr = { is_de_jure_liege_or_above_target = title:k_helkarn }}
+		title:k_helkarn = { set_de_jure_liege_title = title:e_anequina }
+	}
+	if = {
+		limit = { title:e_elsweyr = { is_de_jure_liege_or_above_target = title:k_verkaht }}
+		title:k_verkaht = { set_de_jure_liege_title = title:e_anequina }
+	}
+	if = {
+		limit = { title:e_elsweyr = { is_de_jure_liege_or_above_target = title:k_meirvale }}
+		title:k_meirvale = { set_de_jure_liege_title = title:e_anequina }
+	}
+	if = {
+		limit = { title:e_elsweyr = { is_de_jure_liege_or_above_target = title:k_brukreich }}
+		title:k_brukreich = { set_de_jure_liege_title = title:e_pellitine }
+	}
+	if = {
+		limit = { title:e_elsweyr = { is_de_jure_liege_or_above_target = title:k_tenmar }}
+		title:k_tenmar = { set_de_jure_liege_title = title:e_pellitine }
+	}
+	if = {
+		limit = { title:e_elsweyr = { is_de_jure_liege_or_above_target = title:k_khenarthi_roost }}
+		title:k_khenarthi_roost = { set_de_jure_liege_title = title:e_pellitine }
+	}
+	#Checking for Leyawiin decision
+	if = { #If Elsweyr managed to get Leyawiin before falling apart, Alabaster gets de jure ownership of it
+		limit = { title:e_elsweyr = { is_de_jure_liege_or_above_target = title:d_leyawiin }}
+		title:d_leyawiin = { set_de_jure_liege_title = title:k_alabaster }
+	}
+	if = { #If Elsweyr managed to get Nomore before falling apart, Rimmen gets de jure ownership of it
+		limit = { title:e_elsweyr = { is_de_jure_liege_or_above_target = title:d_nomore }}
+		title:d_nomore = { set_de_jure_liege_title = title:k_rimmen }
+	}
+	add_to_global_variable_list = {
+		name = elsweyr_variables
+		target = flag:elsweyr_dissolved
+	}
+	every_player = { 
+		trigger_event = {
+			id = elsweyr.0005 
+			days = 1 #this delay allows some scopes to fall properly into place
+		}
+	}
+}
+
+# Attrebus stuff
+attrebus_fulfill_required_task = {
+	$ATTREBUS$ = {
+		if = {
+			limit = { NOT = { has_variable = attrebus_required_tasks_complete } }
+			set_variable = {
+				name = attrebus_required_tasks_complete
+				value = 1
+			}
+		}
+		else = {
+			change_variable = {
+				name = attrebus_required_tasks_complete
+				add = 1
+			}
+		}
+
+		change_variable = {
+			name = attrebus_years_pseudo_emperor_left
+			add = 5
+		}
+	}
+}
+attrebus_fulfill_optional_task = {
+	$ATTREBUS$ = {
+		if = {
+			limit = { NOT = { has_variable = attrebus_optional_tasks_complete } }
+			set_variable = {
+				name = attrebus_optional_tasks_complete
+				value = 1
+			}
+		}
+		else = {
+			change_variable = {
+				name = attrebus_optional_tasks_complete
+				add = 1
+			}
+		}
+	}
+}
+# Functions to increase/decrease the number of years Attrebus has in his pseudo-Emperor path
+attrebus_increase_amount_pseudo_emperor_years = {
+	attrebus_change_amount_pseudo_emperor_years = { OPERATION = add AMOUNT = $AMOUNT$ }
+}
+attrebus_decrease_amount_pseudo_emperor_years = {
+	if = {
+		limit = { var:attrebus_years_pseudo_emperor_left <= $AMOUNT$ }
+
+		custom_tooltip = attrebus_change_amount_pseudo_emperor_years_ec_immediate_action_ct
+	}
+
+	attrebus_change_amount_pseudo_emperor_years = { OPERATION = subtract AMOUNT = $AMOUNT$ }
+}
+attrebus_change_amount_pseudo_emperor_years = {
+	change_variable = {
+		name = attrebus_years_pseudo_emperor_left
+		$OPERATION$ = $AMOUNT$
+	}
+
+	if = {
+		limit = { var:attrebus_years_pseudo_emperor_left < 1 }
+
+		custom_tooltip = attrebus_change_amount_pseudo_emperor_years_ec_immediate_action_ct
+
+		trigger_event = ek_attrebus_potentate.0051
+	}
+}
+
+# Tsaesci Act stuff
+attrebus_take_akaviri_county = {
+	$COUNTY$ = {
+		random_in_list = {
+			variable = native_culture_list
+			limit = { has_same_culture_heritage = $ATTREBUS$.culture }
+			save_scope_as = new_culture
+		}
+		if = { # Just in case
+			limit = { NOT = { exists = scope:new_culture } }
+			$ATTREBUS$.culture = { save_scope_as = new_culture }
+		}
+		set_county_culture = scope:new_culture
+		
+		set_variable = {
+			name = curr_dev
+			value = development_level
+		}
+		change_variable = {
+			name = curr_dev
+			divide = -2
+		}
+		change_development_level = var:curr_dev
+	}
+	$ATTREBUS$ = {
+		send_interface_toast = {
+			type = event_generic_neutral
+			title = attrebus_tsaesci_county_title
+			custom_tooltip = attrebus_tsaesci_county_desc
+			
+			show_as_tooltip = {
+				$COUNTY$ = {
+					set_county_culture = scope:new_culture
+					change_development_level = var:curr_dev
+				}
+			}
+		}
+	}
+}
+
+attrebus_take_akaviri_vassal = {
+	$VASSAL$ = {
+		# Kingdom -> Duchies -> Counties -> Baronies
+		create_title_and_vassal_change = {
+			type = revoked
+			save_scope_as = title_change
+			add_claim_on_loss = no
+		}
+		every_held_title = {
+			limit = { tier = tier_kingdom }
+			change_title_holder = {
+				holder = $ATTREBUS$
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		#
+		create_title_and_vassal_change = {
+			type = revoked
+			save_scope_as = title_change
+			add_claim_on_loss = no
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			change_title_holder = {
+				holder = $ATTREBUS$
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		#
+		create_title_and_vassal_change = {
+			type = revoked
+			save_scope_as = title_change
+			add_claim_on_loss = no
+		}
+		every_held_title = {
+			limit = { tier = tier_county }
+			change_title_holder = {
+				holder = $ATTREBUS$
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		#
+		create_title_and_vassal_change = {
+			type = revoked
+			save_scope_as = title_change
+			add_claim_on_loss = no
+		}
+		every_held_title = {
+			limit = { tier = tier_barony }
+			change_title_holder = {
+				holder = $ATTREBUS$
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+	}
+}
+
+### To easily apply the effects of the Plunderer perks
+# Needs RAIDER because... it's about... the effects... of the perks... the raider has...
+# Fired in the raiding army scope
+calculate_bonus_resources_from_loot = {
+	# Grand Raider - Loot * 1.25
+	if = {
+		limit = { $RAIDER$ = { has_perk = grand_raider_perk } }
+
+		change_variable = {
+			name = raid_loot
+			multiply = 1.25
+		}
+	}
+
+	# Loot & Prisoners - Loot / 5
+	set_variable = {
+		name = bonus_dev
+		value = {
+			value = var:raid_loot
+			divide = 5
+		}
+	}
+
+	# Raider blood - Loot / 20
+	set_variable = {
+		name = bonus_renown
+		value = {
+			value = var:raid_loot
+			divide = 20
+		}
+	}
+
+	# Pirate grandeur - Loot / 10
+	set_variable = {
+		name = bonus_grandeur
+		value = {
+			value = var:raid_loot
+			divide = 10
+		}
+	}
+	
+	# Pirate redistribution
+	if = {
+		limit = { $RAIDER$ = { government_has_flag = government_is_pirate has_royal_court = yes } }
+		
+		### Given to commoners
+		set_variable = {
+			name = pirate_redistribution_commoners
+			value = {
+				value = var:raid_loot
+				divide = 20
+				multiply = $RAIDER$.pirate_court_redistribution_level.sub1
+			}
+		}
+		### Given to the crew
+		set_variable = {
+			name = pirate_redistribution_crew
+			value = {
+				value = var:raid_loot
+				divide = 20
+				multiply = $RAIDER$.pirate_court_crew_level.sub1
+			}
+		}
+		### Given to Knights
+		set_variable = {
+			name = pirate_redistribution_knights
+			value = {
+				value = var:raid_loot
+				divide = 20
+				multiply = $RAIDER$.pirate_court_knights_level.sub1
+			}
+		}
+		### Turned into Grandeur
+		set_variable = {
+			name = pirate_redistribution_court
+			value = {
+				value = var:raid_loot
+				divide = 20
+				multiply = $RAIDER$.pirate_court_court_level.sub1
+			}
+		}
+	}
+}
+
+### ! Requires you to use calculate_bonus_resources_from_loot at some point before
+# Needs ARMY since it's the scope whith the "var:raid_loot"
+get_resources_from_loot = {
+	save_scope_value_as = {
+		name = raid_loot
+		value = $ARMY$.var:raid_loot
+	}
+	save_scope_value_as = {
+		name = bonus_dev
+		value = {
+			value = scope:raid_loot
+			divide = 5
+		}
+	}
+	save_scope_value_as = {
+		name = bonus_renown
+		value = {
+			value = scope:raid_loot
+			divide = 20
+		}
+	}
+	
+	# Not everyone gets prestige
+	hidden_effect = {
+		if = {
+			limit = {
+				OR = {
+					government_has_flag = government_can_raid_rule
+					has_perk = raider_perk
+				}
+			}
+			add_prestige = scope:raid_loot
+		}
+		else = {
+			add_prestige = {
+				value = root.var:raid_loot
+				multiply = not_tribal_raid_prestige_multiplier
+				multiply = -1
+			}
+		}
+	}
+	
+	# Pacifist faiths lose piety
+	hidden_effect = {
+		if = {
+			limit = {
+				faith = { has_doctrine_parameter = holy_wars_forbidden }
+				NOT = { has_perk = sacred_raids_perk }
+			}
+			add_piety = {
+				value = root.var:raid_loot
+				multiply = -1
+			}
+		}
+	}
+
+	### Gold gain is hardcoded and given when the raid army comes back, so we remove the gains and we add them again once we did our stuff
+	hidden_effect = { remove_short_term_gold = scope:raid_loot }
+	set_variable = {
+		name = gold_gained
+		value = scope:raid_loot
+	}
+	# Pirates can share the loot with their knights (actually given to them) and/or commoners (just lost)
+	if = {
+		limit = { government_has_flag = government_is_pirate has_royal_court = yes exists = scope:raid_loot}
+		
+		### Given to commoners
+		save_scope_value_as = {
+			name = pirate_loot_redistribution_commoners
+			value = {
+				value = scope:raid_loot
+				divide = 20
+				multiply = pirate_court_redistribution_level.sub1
+			}
+		}
+		### Given to the crew
+		save_scope_value_as = {
+			name = pirate_loot_redistribution_crew
+			value = {
+				value = scope:raid_loot
+				divide = 20
+				multiply = pirate_court_crew_level.sub1
+			}
+		}
+		### Given to Knights
+		save_scope_value_as = {
+			name = pirate_loot_redistribution_knights
+			value = {
+				value = scope:raid_loot
+				divide = 20
+				multiply = pirate_court_knights_level.sub1
+			}
+		}
+		### Turned into Grandeur
+		save_scope_value_as = {
+			name = pirate_loot_redistribution_court
+			value = {
+				value = scope:raid_loot
+				divide = 20
+				multiply = pirate_court_court_level.sub1
+			}
+		}
+		
+		if = {
+			limit = { number_of_knights >= 1 scope:pirate_loot_redistribution_knights > 0 }
+			
+			# How much is given to a single knight?
+			save_scope_value_as = {
+				name = pirate_loot_redistribution_knights_individual_gain
+				value = {
+					value = scope:pirate_loot_redistribution_knights
+					divide = number_of_knights
+				}
+			}
+			
+			# Give it to 'em
+			if = {
+				limit = { scope:pirate_loot_redistribution_knights_individual_gain > 0 }
+				every_knight = {
+					add_gold = scope:pirate_loot_redistribution_knights_individual_gain
+				}
+			}
+		}
+		
+		# Get the grandeur
+		if = {
+			limit = { exists = scope:pirate_loot_redistribution_court scope:pirate_loot_redistribution_court > 0 }
+			change_current_court_grandeur = scope:pirate_loot_redistribution_court
+		}
+	}
+	
+	#Subtract the distributed gold from the gold gained by the ruler
+	if = {
+		limit = { exists = scope:pirate_loot_redistribution_commoners scope:pirate_loot_redistribution_commoners > 0 }
+		change_variable = {
+			name = gold_gained
+			subtract = scope:pirate_loot_redistribution_commoners
+		}
+	}
+	if = {
+		limit = { exists = scope:pirate_loot_redistribution_crew scope:pirate_loot_redistribution_crew > 0 }
+		change_variable = {
+			name = gold_gained
+			subtract = scope:pirate_loot_redistribution_crew
+		}
+	}
+	if = {
+		limit = { exists = scope:pirate_loot_redistribution_knights scope:pirate_loot_redistribution_knights > 0 }
+		change_variable = {
+			name = gold_gained
+			subtract = scope:pirate_loot_redistribution_knights
+		}
+	}
+	if = {
+		limit = { exists = scope:pirate_loot_redistribution_court scope:pirate_loot_redistribution_court > 0 }
+		change_variable = {
+			name = gold_gained
+			subtract = scope:pirate_loot_redistribution_court
+		}
+	}
+	
+	#Give remaining gold to ruler
+	save_scope_value_as = {
+		name = gold_gained
+		value = var:gold_gained
+	}
+	if = {
+		limit = { scope:gold_gained > 0 }
+		hidden_effect = { add_gold = scope:gold_gained }
+	}
+	
+	# Sacred Raids - Give piety too
+	if = {
+		limit = { has_perk = sacred_raids_perk }
+		hidden_effect = { add_piety = scope:raid_loot }
+	}
+	
+	# Loot and Prisoners - Get some development growth
+	# TODO: Dev growth impact modifier - Terrain, existing dev?
+	set_while_counter_variable_effect = yes
+	while = {
+		limit = {
+			var:while_counter < scope:bonus_dev
+		}
+		random_held_title = {
+			limit = { tier = tier_county }
+			change_development_progress_with_overflow = 1
+		}
+		increase_while_counter_variable_effect = yes
+	}
+	remove_while_counter_variable_effect = yes
+	
+	# Raider Blood - Give renown too
+	if = {
+		limit = { has_perk = raider_blood_perk exists = dynasty }
+		hidden_effect = { dynasty = { add_dynasty_prestige = scope:bonus_renown } }
+	}
+}
+
+### Checks if you should fire the blood price event
+# Fired from the imprison character scripted effects
+# Needs $TARGET$ and $IMPRISONER$
+ek_fire_blood_price_event = {
+	if = {
+		limit = { $IMPRISONER$.culture = { has_innovation = innovation_blood_price } }
+		$TARGET$ = { add_character_flag = ek_fire_blood_price_flag }
+	}
+}
+
+### Checks if you should fire the ashlander exile event
+# Fired from the imprison character scripted effects
+# Needs $TARGET$ and $IMPRISONER$
+ek_fire_ashlander_exile_event = {
+	if = {
+		limit = { 
+			$IMPRISONER$.culture = { has_innovation = innovation_ashlander_customs }
+			$TARGET$.liege = $IMPRISONER$
+		}
+		$TARGET$ = { add_character_flag = ek_ashlander_exile }
+	}
+}
+
+### Wound two times in a row
+# commenting out because it was throwing errors
+# EK TODO: find a way to reenable this
+#increase_wounds_two_times_no_death_effect = {
+#	save_temporary_scope_value_as = {
+#		name = treatment_type
+#		value = flag:$REASON$
+#	}
+#
+#	change_trait_rank = {
+#		trait = wounded
+#		rank = 2
+#		max = 3
+#	}
+#
+#	if = { #Wounds from treatments give no infection and no additional treatment
+#		limit = { NOT = { scope:treatment_type = flag:treatment } }
+#
+#		#CHANCE OF INFECTION
+#		hidden_effect = {
+#			random = {
+#				chance = 10
+#				trigger_event = {
+#					id = health.0201
+#					days = { 30 60 }
+#				}
+#			}
+#		}
+#
+#		#HANDLE TREATMENT
+#		if = { #To send notification message or trigger the right event
+#			limit = {
+#				has_trait_rank = {
+#					trait = wounded
+#					rank = 1
+#				}
+#				court_physician_available_trigger = yes
+#			}
+#			save_scope_as = sick_character
+#			safe_wound_treatment_effect = yes #Wounded 1 only gives a "result of treatment" notification" if you have a physician, i.e. you get no events about it.
+#		}
+#		else_if = {
+#			limit = {
+#				has_trait_rank = {
+#					trait = wounded
+#					rank = 2
+#				}
+#				has_recent_wound_treatment_trigger = no
+#			}
+#			#A "real" event if you're not receiving treatment
+#			#Nothing happens if you're already being treated for wounds
+#			trigger_event = {
+#				id = health.0102
+#				days = { 2 3 }
+#			}
+#		}
+#		else_if = {
+#			limit = {
+#				has_trait_rank = {
+#					trait = wounded
+#					rank = 3
+#				}
+#				has_recent_wound_treatment_trigger = no
+#			}
+#			#A "real" event if you're not receiving treatment
+#			#Nothing happens if you're already being treated for wounds
+#			trigger_event = {
+#				id = health.0104
+#				days = { 2 3 }
+#			}
+#
+#			#Epilepsy risk
+#			epilepsy_brain_trauma_risk_effect = { CHANCE = 5 }
+#		}
+#	}
+#	flag:$REASON$ = {} #to stop the game from complaining about unused character flags
+#}
+#
+##increase_wounds_two_times_effect
+#increase_wounds_two_times_effect = {
+#	if = {
+#		limit = {
+#			has_trait_rank = {
+#				trait = wounded
+#				rank < 2
+#			}
+#		}
+#		increase_wounds_two_times_no_death_effect = { REASON = $REASON$ }
+#	}
+#	else_if = { #Using an if because this needs to never go wrong
+#		limit = {
+#			has_trait_rank = {
+#				trait = wounded
+#				rank >= 2
+#			}
+#		}
+#		death = {
+#			death_reason = death_$REASON$
+#		}
+#	}
+#}
+
+# Inflict the Blood Price on someone - blood
+# Need a prisoner and an imprisoner
+inflict_bloodprice = {
+	$PRISONER$ = {
+		if = { # No reason? Small health penalty
+			limit = {
+				$JAILOR$ = {
+					NOR = {
+						has_imprisonment_reason = $PRISONER$
+						has_execute_reason = $PRISONER$
+					}
+				}
+			}
+
+			custom_tooltip = extract_blood_price_effect_no_reason_tooltip
+			add_character_modifier = {
+				modifier = small_blood_price_modifier
+				years = 5
+			}
+		}
+		else_if = { # Imprisonment reason? +1 Wound
+			limit = { $JAILOR$ = { NOT = { has_execute_reason = $PRISONER$ } } }
+
+			custom_tooltip = extract_blood_price_effect_imprisonment_reason_tooltip
+
+			increase_wounds_effect = { REASON = execution_blood_price }
+		}
+		else = { # Execution reason? +2 Wound
+			custom_tooltip = extract_blood_price_effect_execution_reason_tooltip
+			# effect disabled due to throwing errors
+			#increase_wounds_two_times_effect = { REASON = execution_blood_price }
+		}
+
+		consume_all_criminal_reasons_effect = {
+			LIEGE = $JAILOR$
+			CRIMINAL = $PRISONER$
+		}
+
+		$JAILOR$ = {
+			add_prestige = miniscule_prestige_value
+			if = {
+				limit = { faith = { has_doctrine = tenet_legalism } }
+				custom_tooltip = tenet_legalism_respecting_traditions_ct
+				add_piety = miniscule_piety_value
+			}
+		}
+
+		custom_tooltip = extract_blood_price_effect_survival_release_tooltip
+
+		release_from_prison = yes
+	}
+}
+
+# House of Reveries, new name effect
+house_of_reveries_name_effect = {
+	random_list = {
+		1 = { give_nickname = nick_fire_bird }
+		1 = { give_nickname = nick_silver_finger }
+		1 = { give_nickname = nick_feather_moth }
+		1 = { give_nickname = nick_candle_light }
+		1 = { give_nickname = nick_bramble_bush }
+		1 = { give_nickname = nick_lark_song }
+		1 = { give_nickname = nick_sparkle_stone }
+		1 = { give_nickname = nick_star_catcher }
+		1 = { give_nickname = nick_word_weaver }
+		1 = { give_nickname = nick_brush }
+		1 = { give_nickname = nick_dancer }
+		1 = { give_nickname = nick_wish }
+		1 = { give_nickname = nick_clever }
+		1 = { give_nickname = nick_swift }
+		1 = { give_nickname = nick_enigma }
+		1 = { give_nickname = nick_elegance }
+		1 = { give_nickname = nick_dreamer }
+		1 = { give_nickname = nick_alchemy }
+		1 = { give_nickname = nick_illusion }
+		1 = { give_nickname = nick_melody }
+		1 = { give_nickname = nick_serenade }
+		1 = { give_nickname = nick_juggler }
+		1 = { give_nickname = nick_paint }
+		1 = { give_nickname = nick_daring }
+		1 = { give_nickname = nick_diversion }
+		1 = { give_nickname = nick_forte }
+		1 = { give_nickname = nick_minstrel }
+		1 = { give_nickname = nick_echo }
+		1 = { give_nickname = nick_euphony }
+		1 = { give_nickname = nick_harmony }
+		1 = { give_nickname = nick_cadence }
+		1 = { give_nickname = nick_solace }
+		1 = { give_nickname = nick_lullaby }
+		1 = { give_nickname = nick_glisten }
+		1 = { give_nickname = nick_dazzle }
+		1 = { give_nickname = nick_rig }
+		1 = { give_nickname = nick_zigzag }
+		1 = { give_nickname = nick_vibrancy }
+		1 = { give_nickname = nick_nimble }
+		1 = { give_nickname = nick_jewelry }
+		1 = { give_nickname = nick_sorrow_stealer }	
+		1 = { give_nickname = nick_ringtail }	
+		1 = { give_nickname = nick_laughter }	
+		1 = { give_nickname = nick_mirror }	
+		1 = { give_nickname = nick_stick }	
+		1 = { give_nickname = nick_fey }	
+		1 = { give_nickname = nick_many_toes }	
+		1 = { give_nickname = nick_trick }	
+		1 = { give_nickname = nick_handstand }		
+	}
+}
+
+house_of_reveries_remove_name_effect = {
+	if = {
+		limit = {
+			OR = {
+				has_nickname = nick_fire_bird
+				has_nickname = nick_silver_finger	
+				has_nickname = nick_feather_moth	
+				has_nickname = nick_candle_light	
+				has_nickname = nick_bramble_bush	
+				has_nickname = nick_lark_song	
+				has_nickname = nick_sparkle_stone	
+				has_nickname = nick_star_catcher	
+				has_nickname = nick_word_weaver
+				has_nickname = nick_brush	
+				has_nickname = nick_dancer	
+				has_nickname = nick_wish	
+				has_nickname = nick_clever	
+				has_nickname = nick_swift	
+				has_nickname = nick_enigma	
+				has_nickname = nick_elegance	
+				has_nickname = nick_dreamer
+				has_nickname = nick_alchemy
+				has_nickname = nick_illusion	
+				has_nickname = nick_melody
+				has_nickname = nick_serenade
+				has_nickname = nick_juggler
+				has_nickname = nick_paint
+				has_nickname = nick_daring
+				has_nickname = nick_diversion	
+				has_nickname = nick_forte
+				has_nickname = nick_minstrel	
+				has_nickname = nick_echo
+				has_nickname = nick_euphony
+				has_nickname = nick_harmony
+				has_nickname = nick_cadence	
+				has_nickname = nick_solace 
+				has_nickname = nick_lullaby
+				has_nickname = nick_glisten
+				has_nickname = nick_dazzle	
+				has_nickname = nick_rig
+				has_nickname = nick_zigzag 
+				has_nickname = nick_vibrancy	
+				has_nickname = nick_nimble 
+				has_nickname = nick_jewelry
+				has_nickname = nick_sorrow_stealer	
+				has_nickname = nick_ringtail 
+				has_nickname = nick_laughter 
+				has_nickname = nick_mirror	
+				has_nickname = nick_stick 
+				has_nickname = nick_fey 
+				has_nickname = nick_many_toes 
+				has_nickname = nick_trick 
+				has_nickname = nick_handstand
+				}
+			}
+		remove_nickname = yes
+	}
+}
+
+create_undead_thrall_effect = {
+	$MASTER$ = { save_scope_as = master }
+	$THRALL$ = { save_scope_as = thrall }
+
+	set_variable = {
+        name = thrall_prowess
+		value = scope:thrall.prowess
+    }
+
+	create_character = {
+        gender = scope:thrall
+        age = scope:thrall.age
+        random_traits = no
+        save_scope_as = cloned_thrall
+        culture = scope:thrall.culture
+        faith = scope:master.faith
+        diplomacy = 0
+        martial = 0
+        stewardship = 0
+        learning = 0
+        intrigue = 0
+        prowess = var:thrall_prowess
+        location = scope:master.capital_province
+        template_character = scope:thrall
+        trait = undead_character
+		trait = education_martial_1
+        dynasty = none
+
+        after_creation = {	
+			ek_character_setup_effect = yes	
+            add_character_flag = summoned_undead
+			set_predetermined_decay_effect = { DECAY = 0.3 }
+            set_sexuality = asexual
+            copy_inheritable_appearance_from = scope:thrall
+            change_first_name = { template_character = scope:thrall }
+            add_opinion = {
+                target = scope:master
+                modifier = thrall_opinion
+            }
+			if = { 
+                limit = { scope:master = { any_equipped_character_artifact = { has_artifact_modifier = bloodworm_helmet_modifier } } }
+                scope:thrall = { add_prowess_skill = { 2 4 } }
+            }
+        }
+    }
+
+	hidden_effect = {
+		scope:master = {
+			create_character_memory = {
+				type = claimed_thrall_memory
+				participants = {
+					thrall = scope:thrall
+				}
+			}
+			add_courtier = scope:cloned_thrall
+			add_hook = {
+				type = loyalty_hook
+				target = scope:cloned_thrall
+			}  
+		}
+
+		scope:thrall = {
+			create_character_memory = {
+				type = became_thrall_memory
+				participants = {
+					master = scope:master
+				}
+			}
+		}
+
+		consume_all_criminal_reasons_effect = {
+            LIEGE = scope:master
+            CRIMINAL = scope:cloned_thrall
+        }
+	}
+}
+
+empower_thrall_arcana = {
+	if = {
+		limit = {
+			has_character_flag = thrall_arcana
+		}
+		scope:undead_clone = {
+			add_arcana_skill = { VALUE = "{ 10 20 }" }
+		}
+		remove_character_flag = thrall_arcana
+	}
+}
+
+empower_thrall_prowess = {
+	if = {
+		limit = {
+			has_character_flag = thrall_prowess
+		}
+		scope:undead_clone = {
+			add_prowess_skill = { 10 20 }
+		}
+		remove_character_flag = thrall_prowess
+	}
+}
+
+summon_undead_skeleton_effect = {
+	$MASTER$ = { save_scope_as = master }
+
+	random_list = {
+		30 = {
+			# Normal skeleton
+			create_character = {
+				template = undead_skeleton_template
+				location = scope:master.location
+				gender_female_chance = 50
+				dynasty = none
+				save_scope_as = undead_skeleton
+				after_creation = {
+					if = {
+						limit = { exists = location.county }
+						set_culture = location.county.culture
+					}					
+				}
+			}			
+		}
+#EK TODO: change that into some more special decisions with the next lich/magic rework 
+		10 = {
+			# Nord Hero
+			trigger = {
+				any_realm_county = {
+					any_county_province = {
+						has_building = heroes_graveyard_01
+					}
+				}
+			}
+			create_character = {
+				template = undead_skeleton_nord_hero_template
+				location = scope:master.location
+				dynasty = none
+				save_scope_as = undead_skeleton
+			}
+		}
+		10 = {
+			# Redguard Hero
+			trigger = {
+				any_realm_county = {
+					any_county_province = {
+						has_building = motalion_necropolis_01
+					}
+				}
+			}
+			create_character = {
+				template = undead_skeleton_redguard_hero_template
+				location = scope:master.location
+				dynasty = none
+				save_scope_as = undead_skeleton
+			}
+		}
+		10 = {
+			# Khajiit Hero
+			trigger = {
+				any_realm_county = {
+					any_county_province = {
+						has_building = rimmen_necropolis_01
+					}
+				}
+			}
+			create_character = {
+				template = undead_skeleton_khajiit_hero_template
+				location = scope:master.location
+				dynasty = none
+				save_scope_as = undead_skeleton
+			}
+		}
+	}
+	
+	scope:undead_skeleton = {
+		add_character_flag = summoned_undead
+		add_opinion = {
+			target = scope:master
+        	modifier = thrall_opinion
+		}
+		if = {
+			limit = {
+				any_realm_county = {
+					any_county_province = {
+						has_building = hidden_moon_crypts_01
+					}
+				}
+			}
+			add_prowess_skill = 2
+		}
+	}
+
+	add_hook = {
+		type = thrall_hook
+		target = scope:undead_skeleton
+	}
+                           
+	add_courtier = scope:undead_skeleton
+
+	consume_all_criminal_reasons_effect = {
+        LIEGE = scope:master
+        CRIMINAL = scope:undead_skeleton
+    }
+}
+
+# Disrupt someones magic attunement, giving them Negative Arcana Affinity or removing their positive one
+# Need a prisoner and an imprisoner
+
+disrupt_arcana_effect = {
+	scope:recipient = {
+		add_trait_force_tooltip = disrupted
+
+		add_character_modifier = {
+			modifier = recently_disrupted
+			years = 1
+		}
+		blind_and_castrated_recipient_support_effect = yes
+	}
+}
+
+#generate a three part name for summoned dragons
+get_dragon_name = {
+	save_scope_value_as = { name = max_length value = { integer_range = { min = 13 max = 16 } } } #13-16 feels good. longest named dragon is 14, location is 15
+
+	# save length scopes for maths, need them to exist
+	save_scope_value_as = { name = part_1_length value = 0 }
+	save_scope_value_as = { name = part_2_length value = 0 }
+	save_scope_value_as = { name = part_3_length value = 0 }
+
+	# get part sizes and numbers
+	get_dragon_name_part_size = { X = 1 }
+	get_dragon_name_part_size = { X = 2 }
+	get_dragon_name_part_size = { X = 3 }
+
+	# if any are the same, get another
+	# also some filtering
+	while = { #part 1. 'the'/'of' dont tend to fit at the start
+		limit = {
+			OR = {
+				AND = { #The
+					scope:part_1_length = 3
+					scope:part_1 = 5
+				}
+				AND = { #Of
+					scope:part_1_length = 2
+					scope:part_1 = 11
+				}
+			}
+		}
+		save_scope_value_as = { name = part_1_length value = 0 }
+		get_dragon_name_part_size = { X = 1 }
+	}
+	while = { #part 2. cant be same as part 1
+		limit = {
+			scope:part_2_length = scope:part_1_length
+			scope:part_2 = scope:part_1
+		}
+		save_scope_value_as = { name = part_2_length value = 0 }
+		get_dragon_name_part_size = { X = 2 }
+	}
+	while = { #part 3. 'the'/'of' dont tend to fit at the end, cant be same as part 1 or 2
+		limit = {
+			OR = {
+				AND = {
+					scope:part_3_length = scope:part_1_length
+					scope:part_3 = scope:part_1
+				}
+				AND = {
+					scope:part_3_length = scope:part_2_length
+					scope:part_3 = scope:part_2
+				}
+				AND = { #The
+					scope:part_3_length = 3
+					scope:part_3 = 5
+				}
+				AND = { #Of
+					scope:part_3_length = 2
+					scope:part_3 = 11
+				}
+			}
+		}
+		save_scope_value_as = { name = part_3_length value = 0 }
+		get_dragon_name_part_size = { X = 3 }
+	}
+
+	# convert number to name flag with switch
+	set_dragon_name_part = { X = 1 }
+	set_dragon_name_part = { X = 2 }
+	set_dragon_name_part = { X = 3 }
+}
+get_dragon_name_part_size = {
+	save_scope_value_as = { #save current length
+		name = current_length
+		value = {
+			value = scope:part_1_length
+			add = scope:part_2_length
+			add = scope:part_3_length
+		}
+	}
+
+	random_list = {
+		100 = {
+			trigger = { #would any of the options go over the max length? add 2 as min part length
+				save_temporary_scope_value_as = { name = trig_0 value = { value = scope:current_length add = 2 } }
+				scope:max_length < scope:trig_0
+			}
+			save_scope_value_as = { name = part_$X$_length value = 0 }
+			save_scope_value_as = { name = part_$X$ value = 0 }
+		}
+		14 = {
+			trigger = { #would this option be below max length?
+				save_temporary_scope_value_as = { name = trig_2 value = { value = scope:current_length add = 2 } }
+				scope:max_length >= scope:trig_2
+			}
+			save_scope_value_as = { name = part_$X$_length value = 2 }
+			save_scope_value_as = { name = part_$X$ value = { integer_range = { min = 1 max = 14 } } }
+		}
+		40 = {
+			trigger = { #would this option be below max length?
+				save_temporary_scope_value_as = { name = trig_3 value = { value = scope:current_length add = 3 } }
+				scope:max_length >= scope:trig_3
+			}
+			save_scope_value_as = { name = part_$X$_length value = 3 }
+			save_scope_value_as = { name = part_$X$ value = { integer_range = { min = 1 max = 40 } } }
+		}
+		41 = {
+			trigger = { #would this option be below max length?
+				save_temporary_scope_value_as = { name = trig_4 value = { value = scope:current_length add = 4 } }
+				scope:max_length >= scope:trig_4
+			}
+			save_scope_value_as = { name = part_$X$_length value = 4 }
+			save_scope_value_as = { name = part_$X$ value = { integer_range = { min = 1 max = 41 } } }
+		}
+		10 = {
+			trigger = { #would this option be below max length?
+				save_temporary_scope_value_as = { name = trig_5 value = { value = scope:current_length add = 5 } }
+				scope:max_length >= scope:trig_5
+			}
+			save_scope_value_as = { name = part_$X$_length value = 5 }
+			save_scope_value_as = { name = part_$X$ value = { integer_range = { min = 1 max = 10 } } }
+		}
+		6 = {
+			trigger = { #would this option be below max length?
+				save_temporary_scope_value_as = { name = trig_6 value = { value = scope:current_length add = 6 } }
+				scope:max_length >= scope:trig_6
+			}
+			save_scope_value_as = { name = part_$X$_length value = 6 }
+			save_scope_value_as = { name = part_$X$ value = { integer_range = { min = 1 max = 6 } } }
+		}
+		2 = {
+			trigger = { #would this option be below max length?
+				save_temporary_scope_value_as = { name = trig_7 value = { value = scope:current_length add = 7 } }
+				scope:max_length >= scope:trig_7
+			}
+			save_scope_value_as = { name = part_$X$_length value = 7 }
+			save_scope_value_as = { name = part_$X$ value = { integer_range = { min = 1 max = 2 } } }
+		}
+		1 = {
+			trigger = { #would this option be below max length?
+				save_temporary_scope_value_as = { name = trig_8 value = { value = scope:current_length add = 8 } }
+				scope:max_length >= scope:trig_8
+			}
+			save_scope_value_as = { name = part_$X$_length value = 8 }
+			save_scope_value_as = { name = part_$X$ value = { integer_range = { min = 1 max = 1 } } }
+		}
+	}
+}
+set_dragon_name_part = {
+	switch = {
+		trigger = scope:part_$X$_length
+
+		0 = { set_dragon_name_flag = { X = $X$ NAME = dn_blank } } #Blank
+
+		2 = {
+			switch = {
+				trigger = scope:part_$X$
+				1 = { set_dragon_name_flag = { X = $X$ NAME = ag } } #Burn
+				2 = { set_dragon_name_flag = { X = $X$ NAME = ah } } #Hunter
+				3 = { set_dragon_name_flag = { X = $X$ NAME = al } } #Destroyer
+				4 = { set_dragon_name_flag = { X = $X$ NAME = du } } #Devour
+				5 = { set_dragon_name_flag = { X = $X$ NAME = fo } } #Frost
+				6 = { set_dragon_name_flag = { X = $X$ NAME = in } } #Master
+				7 = { set_dragon_name_flag = { X = $X$ NAME = lo } } #Deceive
+				8 = { set_dragon_name_flag = { X = $X$ NAME = od } } #Snow
+				9 = { set_dragon_name_flag = { X = $X$ NAME = on } } #Spirit
+				10 = { set_dragon_name_flag = { X = $X$ NAME = qo } } #Lightning
+				11 = { set_dragon_name_flag = { X = $X$ NAME = se } } #Of
+				12 = { set_dragon_name_flag = { X = $X$ NAME = su } } #Air
+				13 = { set_dragon_name_flag = { X = $X$ NAME = tu } } #Hammer
+				14 = { set_dragon_name_flag = { X = $X$ NAME = ul } } #Eternity
+			}
+		}
+
+		3 = {
+			switch = {
+				trigger = scope:part_$X$
+				1 = { set_dragon_name_flag = { X = $X$ NAME = bah } } #Wrath
+				2 = { set_dragon_name_flag = { X = $X$ NAME = dun } } #Grace
+				3 = { set_dragon_name_flag = { X = $X$ NAME = dur } } #Curse
+				4 = { set_dragon_name_flag = { X = $X$ NAME = fel } } #Feral
+				5 = { set_dragon_name_flag = { X = $X$ NAME = fin } } #The
+				6 = { set_dragon_name_flag = { X = $X$ NAME = fus } } #Force
+				7 = { set_dragon_name_flag = { X = $X$ NAME = hah } } #Mind
+				8 = { set_dragon_name_flag = { X = $X$ NAME = iiz } } #Ice
+				9 = { set_dragon_name_flag = { X = $X$ NAME = jot } } #Maw
+				10 = { set_dragon_name_flag = { X = $X$ NAME = kah } } #Pride
+				11 = { set_dragon_name_flag = { X = $X$ NAME = kro } } #Sorcerer
+				12 = { set_dragon_name_flag = { X = $X$ NAME = kun } } #Moonlight
+				13 = { set_dragon_name_flag = { X = $X$ NAME = lok } } #Rise
+				14 = { set_dragon_name_flag = { X = $X$ NAME = lot } } # Great
+				15 = { set_dragon_name_flag = { X = $X$ NAME = luv } } #Tear
+				16 = { set_dragon_name_flag = { X = $X$ NAME = mah } } #Fall/Fell
+				17 = { set_dragon_name_flag = { X = $X$ NAME = mir } } #Allegiance
+				18 = { set_dragon_name_flag = { X = $X$ NAME = mul } } #Strong
+				19 = { set_dragon_name_flag = { X = $X$ NAME = nah } } #Fury
+				20 = { set_dragon_name_flag = { X = $X$ NAME = nax } } #Cruelty
+				21 = { set_dragon_name_flag = { X = $X$ NAME = neh } } #Never
+				22 = { set_dragon_name_flag = { X = $X$ NAME = nin } } #Sting
+				23 = { set_dragon_name_flag = { X = $X$ NAME = nir } } #Hunt
+				24 = { set_dragon_name_flag = { X = $X$ NAME = nos } } #Strike
+				25 = { set_dragon_name_flag = { X = $X$ NAME = qah } } #Armor
+				26 = { set_dragon_name_flag = { X = $X$ NAME = rel } } #Domination
+				27 = { set_dragon_name_flag = { X = $X$ NAME = rot } } #Word
+				28 = { set_dragon_name_flag = { X = $X$ NAME = sah } } #Phantom
+				29 = { set_dragon_name_flag = { X = $X$ NAME = sot } } #White
+				30 = { set_dragon_name_flag = { X = $X$ NAME = sov } } #Shock
+				31 = { set_dragon_name_flag = { X = $X$ NAME = sul } } #Day
+				32 = { set_dragon_name_flag = { X = $X$ NAME = vah } } #Spring
+				33 = { set_dragon_name_flag = { X = $X$ NAME = ved } } #Black
+				34 = { set_dragon_name_flag = { X = $X$ NAME = vey } } #Cut
+				35 = { set_dragon_name_flag = { X = $X$ NAME = vol } } #Horror
+				36 = { set_dragon_name_flag = { X = $X$ NAME = vul } } #Dark
+				37 = { set_dragon_name_flag = { X = $X$ NAME = vur } } #Valor
+				38 = { set_dragon_name_flag = { X = $X$ NAME = yol } } #Fire
+				39 = { set_dragon_name_flag = { X = $X$ NAME = zii } } #Spirit
+				40 = { set_dragon_name_flag = { X = $X$ NAME = zin } } #Honor
+			}
+		}
+
+		4 = {
+			switch = {
+				trigger = scope:part_$X$
+				1 = { set_dragon_name_flag = { X = $X$ NAME = brii } } #Beauty
+				2 = { set_dragon_name_flag = { X = $X$ NAME = brit } } #Beautiful
+				3 = { set_dragon_name_flag = { X = $X$ NAME = daan } } #Doom
+				4 = { set_dragon_name_flag = { X = $X$ NAME = drog } } #Lord
+				5 = { set_dragon_name_flag = { X = $X$ NAME = du'ul } } #Crown
+				6 = { set_dragon_name_flag = { X = $X$ NAME = feyn } } #Bane
+				7 = { set_dragon_name_flag = { X = $X$ NAME = fiik } } #Mirror
+				8 = { set_dragon_name_flag = { X = $X$ NAME = frin } } #Hot
+				9 = { set_dragon_name_flag = { X = $X$ NAME = gaaf } } #Ghost
+				10 = { set_dragon_name_flag = { X = $X$ NAME = gaar } } #Unleash/Release
+				11 = { set_dragon_name_flag = { X = $X$ NAME = golz } } #Stone
+				12 = { set_dragon_name_flag = { X = $X$ NAME = grah } } #Battle
+				13 = { set_dragon_name_flag = { X = $X$ NAME = gron } } #Bind
+				14 = { set_dragon_name_flag = { X = $X$ NAME = heyv } } #Duty
+				15 = { set_dragon_name_flag = { X = $X$ NAME = jiid } } #Moon
+				16 = { set_dragon_name_flag = { X = $X$ NAME = kaal } } #Champion
+				17 = { set_dragon_name_flag = { X = $X$ NAME = kein } } #War
+				18 = { set_dragon_name_flag = { X = $X$ NAME = kest } } #Tempest
+				19 = { set_dragon_name_flag = { X = $X$ NAME = kren } } #Break
+				20 = { set_dragon_name_flag = { X = $X$ NAME = krif } } #Fight
+				21 = { set_dragon_name_flag = { X = $X$ NAME = krii } } #Kill
+				22 = { set_dragon_name_flag = { X = $X$ NAME = kril } } #Brave
+				23 = { set_dragon_name_flag = { X = $X$ NAME = krin } } #Courageous
+				24 = { set_dragon_name_flag = { X = $X$ NAME = laas } } #Life
+				25 = { set_dragon_name_flag = { X = $X$ NAME = liiv } } #Wither
+				26 = { set_dragon_name_flag = { X = $X$ NAME = maar } } #Terror
+				27 = { set_dragon_name_flag = { X = $X$ NAME = moro } } #Glory
+				28 = { set_dragon_name_flag = { X = $X$ NAME = naak } } #Eat
+				29 = { set_dragon_name_flag = { X = $X$ NAME = odus } } #Snowy
+				30 = { set_dragon_name_flag = { X = $X$ NAME = onik } } #Wise
+				31 = { set_dragon_name_flag = { X = $X$ NAME = paar } } #Ambition
+				32 = { set_dragon_name_flag = { X = $X$ NAME = paaz } } #Fair
+				33 = { set_dragon_name_flag = { X = $X$ NAME = qeth } } #Bone
+				34 = { set_dragon_name_flag = { X = $X$ NAME = ruth } } #Rage
+				35 = { set_dragon_name_flag = { X = $X$ NAME = thur } } #Overlord
+				36 = { set_dragon_name_flag = { X = $X$ NAME = tiid } } #Time
+				37 = { set_dragon_name_flag = { X = $X$ NAME = vaaz } } #Tear
+				38 = { set_dragon_name_flag = { X = $X$ NAME = viin } } #Shine
+				39 = { set_dragon_name_flag = { X = $X$ NAME = viir } } #Dying
+				40 = { set_dragon_name_flag = { X = $X$ NAME = zind } } #Triumph
+				41 = { set_dragon_name_flag = { X = $X$ NAME = zoor } } #Legend
+			}
+		}
+
+		5 = {
+			switch = {
+				trigger = scope:part_$X$
+				1 = { set_dragon_name_flag = { X = $X$ NAME = ahzid } } #Bitter
+				2 = { set_dragon_name_flag = { X = $X$ NAME = hevno } } #Brutal
+				3 = { set_dragon_name_flag = { X = $X$ NAME = kriid } } #Slayer
+				4 = { set_dragon_name_flag = { X = $X$ NAME = munax } } #Cruel
+				5 = { set_dragon_name_flag = { X = $X$ NAME = okaaz } } #Sea
+				6 = { set_dragon_name_flag = { X = $X$ NAME = revak } } #Sacred
+				7 = { set_dragon_name_flag = { X = $X$ NAME = strun } } #Storm
+				8 = { set_dragon_name_flag = { X = $X$ NAME = viing } } #Wing
+				9 = { set_dragon_name_flag = { X = $X$ NAME = vokun } } #Shadow
+				10 = { set_dragon_name_flag = { X = $X$ NAME = yuvon } } #Gold/Golden
+			}
+		}
+
+		6 = {
+			switch = {
+				trigger = scope:part_$X$
+				1 = { set_dragon_name_flag = { X = $X$ NAME = boziik } } #Bold(ly)
+				2 = { set_dragon_name_flag = { X = $X$ NAME = kinzon } } #Sharp
+				3 = { set_dragon_name_flag = { X = $X$ NAME = nonvul } } #Noble
+				4 = { set_dragon_name_flag = { X = $X$ NAME = rovaan } } #Wander
+				5 = { set_dragon_name_flag = { X = $X$ NAME = sahrot } } #Mighty
+				6 = { set_dragon_name_flag = { X = $X$ NAME = vahlok } } #Guardian
+			}
+		}
+
+		7 = {
+			switch = {
+				trigger = scope:part_$X$
+				1 = { set_dragon_name_flag = { X = $X$ NAME = bahlaan } } #Worthy
+				2 = { set_dragon_name_flag = { X = $X$ NAME = kruziik } } #Ancient
+			}
+		}
+
+		8 = {
+			switch = {
+				trigger = scope:part_$X$
+				1 = { set_dragon_name_flag = { X = $X$ NAME = nahkriin } } #Vengeance
+			}
+		}
+	}
+}
+set_dragon_name_flag = {
+	if = { limit = { exists = scope:name$X$ scope:name$X$ = flag:$NAME$ } } #error suppression
+	save_scope_value_as = { name = name$X$ value = flag:$NAME$ }
+}
+
+### Daedric whispers - Give the right combo of trait and daedra
+# Flag
+set_combo_trait_daedra_flag = {
+	add_character_flag = stress_$TRAIT$_$DAEDRA$
+}
+
+### Might Makes Right
+# Laws - Check if a law is still good even after you lose a level of Fame or Devotion
+# Current scope must be the character
+might_makes_right_update_law_fame_devotion = {
+	if = {
+		limit = {
+			has_realm_law = crown_authority_3
+			NOT = { culture = { has_innovation = innovation_royal_prerogative } }
+			NOT = { might_makes_right_requires = { AMOUNT = 5 FLAG = flag:law } }
+		}
+		add_realm_law_skip_effects = crown_authority_2
+	}
+	if = {
+		limit = {
+			has_realm_law = crown_authority_2
+			NOT = { culture = { has_innovation = innovation_royal_prerogative } }
+			NOT = { might_makes_right_requires = { AMOUNT = 4 FLAG = flag:law } }
+		}
+		add_realm_law_skip_effects = crown_authority_1
+	}
+	if = {
+		limit = {
+			has_realm_law = crown_authority_1
+			NOT = { culture = { has_innovation = innovation_plenary_assemblies } }
+			NOT = { might_makes_right_requires = { AMOUNT = 3 FLAG = flag:law } }
+		}
+		add_realm_law_skip_effects = crown_authority_0
+	}
+}
+
+### Get the square root of a value
+# Need to set local_var:param, set_local_variable = { name = param value = 100 }
+# get_sqrt = {
+# set_local_variable = { name = x value = local_var:param }
+# set_local_variable = { name = y value = 1 }
+# set_local_variable = { name = e value = 0.001 }
+# set_local_variable = { name = condition value = { value = local_var:x subtract = local_var:y } }
+# # add_prestige = 1
+# # add_piety = local_var:x
+# while = {
+# limit = { local_var:condition > local_var:e }
+# set_local_variable = { name = x value = { value = local_var:x add = local_var:y divide = 2 } }
+# set_local_variable = { name = y value = { value = local_var:x divide = local_var:param } }
+# set_local_variable = { name = condition value = { value = local_var:x subtract = local_var:y } }
+# }
+# add_piety = local_var:x
+# add_piety = local_var:y
+# add_piety = local_var:condition
+# set_local_variable = { name = result value = local_var:x }
+# }
+# Calculate it one by one, not optimal but hey, worst case (for now) is to start at like 1000
+get_sqrt = {
+	get_sqrt_integer = yes
+	get_sqrt_precise = yes
+}
+
+get_sqrt_integer = { # Rough estimate
+	set_local_variable = { name = x value = 1 }
+	set_local_variable = { name = x_squared value = { value = local_var:x multiply = local_var:x } }
+	while = {
+		limit = { local_var:param > local_var:x_squared }
+
+		set_local_variable = { name = x value = { value = local_var:x add = 1 } }
+		set_local_variable = { name = x_squared value = { value = local_var:x multiply = local_var:x } }
+	}
+	set_local_variable = { name = result value = local_var:x }
+}
+
+get_sqrt_precise = { # Much more precise estimate, but we need to know where to start (we know the square root is between x and x-1
+	set_local_variable = { name = x value = local_var:result }
+	set_local_variable = { name = x_squared value = { value = local_var:x multiply = local_var:x } }
+	while = { # We work backwards
+		limit = { local_var:x_squared > local_var:param }
+
+		set_local_variable = { name = x value = { value = local_var:x subtract = 0.001 } }
+		set_local_variable = { name = x_squared value = { value = local_var:x multiply = local_var:x } }
+	}
+	set_local_variable = { name = result value = local_var:x }
+}
+
+### Orsinium Flavor
+update_orsinium_mountain_orc_advantage = {
+	if = {
+		limit = {
+			title:k_orsinium = {
+				is_title_created = yes
+				any_in_de_jure_hierarchy = { is_titular = no } # Has at least one de jure vassal
+			}
+		}
+
+		### Orsinium Defense Squad: +20 advantage, -5 for each de Jure duchy in Orsinium
+		title:k_orsinium = {
+			set_variable = {
+				name = nb_orsinium_mountain_orc_advantage
+				value = 5
+			}
+
+			every_in_de_jure_hierarchy = {
+				limit = { tier = tier_duchy }
+				title:k_orsinium = {
+					change_variable = {
+						name = nb_orsinium_mountain_orc_advantage
+						subtract = 1
+					}
+				}
+			}
+
+			if = {
+				limit = { var:nb_orsinium_mountain_orc_advantage > 0 }
+				every_in_de_facto_hierarchy = {
+					limit = {
+						tier = tier_barony
+						save_temporary_scope_as = current_prov
+						title:k_orsinium = { is_de_jure_liege_or_above_target = scope:current_prov }
+					}
+					title_province = {
+						set_while_counter_variable_effect = yes
+						while = {
+							limit = {
+								var:while_counter < title:k_orsinium.var:nb_orsinium_mountain_orc_advantage
+							}
+							add_province_modifier = orsinium_mountain_orc_advantage
+							increase_while_counter_variable_effect = yes
+						}
+						remove_while_counter_variable_effect = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+# Update the vassal obligations
+# Need scope:vassal and scope:liege
+vassal_update_obligations_type = {
+	if = {
+		limit = { vassal_should_use_obligation = { OBLIGATION_LEVEL = flag:prowess } }
+		vassal_contract_set_obligation_level = {
+			type = vassal_contribution_group level = 5
+		}
+	}
+	else_if = {
+		limit = { vassal_should_use_obligation = { OBLIGATION_LEVEL = flag:arcana } }
+		vassal_contract_set_obligation_level = {
+			type = vassal_contribution_group level = 4
+		}
+	}
+	else_if = {
+		limit = { vassal_should_use_obligation = { OBLIGATION_LEVEL = flag:fame } }
+		vassal_contract_set_obligation_level = {
+			type = vassal_contribution_group level = 3
+		}
+	}
+	else_if = {
+		limit = { vassal_should_use_obligation = { OBLIGATION_LEVEL = flag:devotion } }
+		vassal_contract_set_obligation_level = {
+			type = vassal_contribution_group level = 2
+		}
+	}
+	else = {
+		vassal_contract_set_obligation_level = {
+			type = vassal_contribution_group level = 1
+		}
+	}
+}
+
+# Removes your education trait
+remove_education_effect = {
+	remove_trait = education_diplomacy_1
+	remove_trait = education_diplomacy_2
+	remove_trait = education_diplomacy_3
+	remove_trait = education_diplomacy_4
+	remove_trait = education_diplomacy_5
+	remove_trait = education_martial_1
+	remove_trait = education_martial_2
+	remove_trait = education_martial_3
+	remove_trait = education_martial_4
+	remove_trait = education_martial_5
+	remove_trait = education_stewardship_1
+	remove_trait = education_stewardship_2
+	remove_trait = education_stewardship_3
+	remove_trait = education_stewardship_4
+	remove_trait = education_stewardship_5
+	remove_trait = education_intrigue_1
+	remove_trait = education_intrigue_2
+	remove_trait = education_intrigue_3
+	remove_trait = education_intrigue_4
+	remove_trait = education_intrigue_5
+	remove_trait = education_learning_1
+	remove_trait = education_learning_2
+	remove_trait = education_learning_3
+	remove_trait = education_learning_4
+	remove_trait = education_learning_5
+}
+
+### CULTURE: DEAD OR ALIVE
+# Revive a culture, make it go from dead to alive
+culture_become_alive_effect = {
+	add_to_global_variable_list = {
+		name = culture_is_alive
+		target = this
+	}
+	if = {
+		limit = { has_innovation = innovation_dead_culture }
+		remove_innovation = innovation_dead_culture
+	}
+	if = {
+		limit = { has_innovation = innovation_extinct_race }
+		remove_innovation = innovation_extinct_race
+	}
+}
+
+# Kill a culture
+culture_become_dead_effect = {
+	remove_list_global_variable = {
+		name = culture_is_alive
+		target = this
+	}
+	if = {
+		limit = { 
+			NOR = { 
+				has_innovation = innovation_dead_culture 
+				has_innovation = innovation_daedric_race # let's make an exception for cultures that aren't even meant to be in Mundus to begin with
+				has_innovation = innovation_extinct_race # some peoples are so dead that they shouldn't even be considered a Dead Culture, but rather an Extinct Race
+			}
+		}	
+		add_innovation = innovation_dead_culture
+	}
+}
+
+### EK NOTE: Mentions magocracy, but actually unlocked by a cultural tradition/innovation
+# Update the RANK_magocracy_mage_bonus_modifier
+update_magocracy_mage_bonus_modifier = {
+	remove_character_modifier = count_magocracy_mage_bonus_modifier
+	remove_character_modifier = duke_magocracy_mage_bonus_modifier
+	remove_character_modifier = king_magocracy_mage_bonus_modifier
+	remove_character_modifier = emperor_magocracy_mage_bonus_modifier
+	
+	if = {
+		limit = { culture = { has_cultural_parameter = rank_gives_bonus_to_mage_maa } }
+
+		if = {
+			limit = { highest_held_title_tier = tier_county }
+			add_character_modifier = count_magocracy_mage_bonus_modifier
+		}
+		else_if = {
+			limit = { highest_held_title_tier = tier_duchy }
+			add_character_modifier = duke_magocracy_mage_bonus_modifier
+		}
+		else_if = {
+			limit = { highest_held_title_tier = tier_kingdom }
+			add_character_modifier = king_magocracy_mage_bonus_modifier
+		}
+		else_if = {
+			limit = { highest_held_title_tier = tier_empire }
+			add_character_modifier = emperor_magocracy_mage_bonus_modifier
+		}
+	}
+}
+
+# For autocracies only, positive county opinion = tax and levy bonus ; negative county opinion = tax and levy malus
+update_autocracy_county_opinion_modifier = {
+	hidden_effect = {
+		remove_county_modifier = autocracy_county_opinion_negative_50
+		remove_county_modifier = autocracy_county_opinion_negative_49
+		remove_county_modifier = autocracy_county_opinion_negative_48
+		remove_county_modifier = autocracy_county_opinion_negative_47
+		remove_county_modifier = autocracy_county_opinion_negative_46
+		remove_county_modifier = autocracy_county_opinion_negative_45
+		remove_county_modifier = autocracy_county_opinion_negative_44
+		remove_county_modifier = autocracy_county_opinion_negative_43
+		remove_county_modifier = autocracy_county_opinion_negative_42
+		remove_county_modifier = autocracy_county_opinion_negative_41
+		remove_county_modifier = autocracy_county_opinion_negative_40
+		remove_county_modifier = autocracy_county_opinion_negative_39
+		remove_county_modifier = autocracy_county_opinion_negative_38
+		remove_county_modifier = autocracy_county_opinion_negative_37
+		remove_county_modifier = autocracy_county_opinion_negative_36
+		remove_county_modifier = autocracy_county_opinion_negative_35
+		remove_county_modifier = autocracy_county_opinion_negative_34
+		remove_county_modifier = autocracy_county_opinion_negative_33
+		remove_county_modifier = autocracy_county_opinion_negative_32
+		remove_county_modifier = autocracy_county_opinion_negative_31
+		remove_county_modifier = autocracy_county_opinion_negative_30
+		remove_county_modifier = autocracy_county_opinion_negative_29
+		remove_county_modifier = autocracy_county_opinion_negative_28
+		remove_county_modifier = autocracy_county_opinion_negative_27
+		remove_county_modifier = autocracy_county_opinion_negative_26
+		remove_county_modifier = autocracy_county_opinion_negative_25
+		remove_county_modifier = autocracy_county_opinion_negative_24
+		remove_county_modifier = autocracy_county_opinion_negative_23
+		remove_county_modifier = autocracy_county_opinion_negative_22
+		remove_county_modifier = autocracy_county_opinion_negative_21
+		remove_county_modifier = autocracy_county_opinion_negative_20
+		remove_county_modifier = autocracy_county_opinion_negative_19
+		remove_county_modifier = autocracy_county_opinion_negative_18
+		remove_county_modifier = autocracy_county_opinion_negative_17
+		remove_county_modifier = autocracy_county_opinion_negative_16
+		remove_county_modifier = autocracy_county_opinion_negative_15
+		remove_county_modifier = autocracy_county_opinion_negative_14
+		remove_county_modifier = autocracy_county_opinion_negative_13
+		remove_county_modifier = autocracy_county_opinion_negative_12
+		remove_county_modifier = autocracy_county_opinion_negative_11
+		remove_county_modifier = autocracy_county_opinion_negative_10
+		remove_county_modifier = autocracy_county_opinion_negative_09
+		remove_county_modifier = autocracy_county_opinion_negative_08
+		remove_county_modifier = autocracy_county_opinion_negative_07
+		remove_county_modifier = autocracy_county_opinion_negative_06
+		remove_county_modifier = autocracy_county_opinion_negative_05
+		remove_county_modifier = autocracy_county_opinion_negative_04
+		remove_county_modifier = autocracy_county_opinion_negative_03
+		remove_county_modifier = autocracy_county_opinion_negative_02
+		remove_county_modifier = autocracy_county_opinion_negative_01
+		
+		remove_county_modifier = autocracy_county_opinion_positive_50
+		remove_county_modifier = autocracy_county_opinion_positive_49
+		remove_county_modifier = autocracy_county_opinion_positive_48
+		remove_county_modifier = autocracy_county_opinion_positive_47
+		remove_county_modifier = autocracy_county_opinion_positive_46
+		remove_county_modifier = autocracy_county_opinion_positive_45
+		remove_county_modifier = autocracy_county_opinion_positive_44
+		remove_county_modifier = autocracy_county_opinion_positive_43
+		remove_county_modifier = autocracy_county_opinion_positive_42
+		remove_county_modifier = autocracy_county_opinion_positive_41
+		remove_county_modifier = autocracy_county_opinion_positive_40
+		remove_county_modifier = autocracy_county_opinion_positive_39
+		remove_county_modifier = autocracy_county_opinion_positive_38
+		remove_county_modifier = autocracy_county_opinion_positive_37
+		remove_county_modifier = autocracy_county_opinion_positive_36
+		remove_county_modifier = autocracy_county_opinion_positive_35
+		remove_county_modifier = autocracy_county_opinion_positive_34
+		remove_county_modifier = autocracy_county_opinion_positive_33
+		remove_county_modifier = autocracy_county_opinion_positive_32
+		remove_county_modifier = autocracy_county_opinion_positive_31
+		remove_county_modifier = autocracy_county_opinion_positive_30
+		remove_county_modifier = autocracy_county_opinion_positive_29
+		remove_county_modifier = autocracy_county_opinion_positive_28
+		remove_county_modifier = autocracy_county_opinion_positive_27
+		remove_county_modifier = autocracy_county_opinion_positive_26
+		remove_county_modifier = autocracy_county_opinion_positive_25
+		remove_county_modifier = autocracy_county_opinion_positive_24
+		remove_county_modifier = autocracy_county_opinion_positive_23
+		remove_county_modifier = autocracy_county_opinion_positive_22
+		remove_county_modifier = autocracy_county_opinion_positive_21
+		remove_county_modifier = autocracy_county_opinion_positive_20
+		remove_county_modifier = autocracy_county_opinion_positive_19
+		remove_county_modifier = autocracy_county_opinion_positive_18
+		remove_county_modifier = autocracy_county_opinion_positive_17
+		remove_county_modifier = autocracy_county_opinion_positive_16
+		remove_county_modifier = autocracy_county_opinion_positive_15
+		remove_county_modifier = autocracy_county_opinion_positive_14
+		remove_county_modifier = autocracy_county_opinion_positive_13
+		remove_county_modifier = autocracy_county_opinion_positive_12
+		remove_county_modifier = autocracy_county_opinion_positive_11
+		remove_county_modifier = autocracy_county_opinion_positive_10
+		remove_county_modifier = autocracy_county_opinion_positive_09
+		remove_county_modifier = autocracy_county_opinion_positive_08
+		remove_county_modifier = autocracy_county_opinion_positive_07
+		remove_county_modifier = autocracy_county_opinion_positive_06
+		remove_county_modifier = autocracy_county_opinion_positive_05
+		remove_county_modifier = autocracy_county_opinion_positive_04
+		remove_county_modifier = autocracy_county_opinion_positive_03
+		remove_county_modifier = autocracy_county_opinion_positive_02
+		remove_county_modifier = autocracy_county_opinion_positive_01
+	}
+	
+	if = {
+		limit = { holder = { government_has_flag = government_is_autocracy } }
+		
+		if = { # Negative opinion
+			### EK NOTE: For now there is no penalty for low popular opinion
+			# Was annoying to deal with according to feedback, and until pop opinion is a bit more interesting, it's better to can the malus
+			# limit = { county_opinion < 0 }
+			limit = { always = no }
+			if = {
+				limit = { county_opinion = -50 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_50
+			}
+			else_if = {
+				limit = { county_opinion = -49 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_49
+			}
+			else_if = {
+				limit = { county_opinion = -48 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_48
+			}
+			else_if = {
+				limit = { county_opinion = -47 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_47
+			}
+			else_if = {
+				limit = { county_opinion = -46 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_46
+			}
+			else_if = {
+				limit = { county_opinion = -45 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_45
+			}
+			else_if = {
+				limit = { county_opinion = -44 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_44
+			}
+			else_if = {
+				limit = { county_opinion = -43 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_43
+			}
+			else_if = {
+				limit = { county_opinion = -42 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_42
+			}
+			else_if = {
+				limit = { county_opinion = -41 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_41
+			}
+			else_if = {
+				limit = { county_opinion = -40 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_40
+			}
+			else_if = {
+				limit = { county_opinion = -39 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_39
+			}
+			else_if = {
+				limit = { county_opinion = -38 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_38
+			}
+			else_if = {
+				limit = { county_opinion = -37 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_37
+			}
+			else_if = {
+				limit = { county_opinion = -36 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_36
+			}
+			else_if = {
+				limit = { county_opinion = -35 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_35
+			}
+			else_if = {
+				limit = { county_opinion = -34 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_34
+			}
+			else_if = {
+				limit = { county_opinion = -33 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_33
+			}
+			else_if = {
+				limit = { county_opinion = -32 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_32
+			}
+			else_if = {
+				limit = { county_opinion = -31 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_31
+			}
+			else_if = {
+				limit = { county_opinion = -30 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_30
+			}
+			else_if = {
+				limit = { county_opinion = -29 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_29
+			}
+			else_if = {
+				limit = { county_opinion = -28 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_28
+			}
+			else_if = {
+				limit = { county_opinion = -27 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_27
+			}
+			else_if = {
+				limit = { county_opinion = -26 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_26
+			}
+			else_if = {
+				limit = { county_opinion = -25 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_25
+			}
+			else_if = {
+				limit = { county_opinion = -24 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_24
+			}
+			else_if = {
+				limit = { county_opinion = -23 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_23
+			}
+			else_if = {
+				limit = { county_opinion = -22 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_22
+			}
+			else_if = {
+				limit = { county_opinion = -21 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_21
+			}
+			else_if = {
+				limit = { county_opinion = -20 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_20
+			}
+			else_if = {
+				limit = { county_opinion = -19 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_19
+			}
+			else_if = {
+				limit = { county_opinion = -18 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_18
+			}
+			else_if = {
+				limit = { county_opinion = -17 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_17
+			}
+			else_if = {
+				limit = { county_opinion = -16 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_16
+			}
+			else_if = {
+				limit = { county_opinion = -15 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_15
+			}
+			else_if = {
+				limit = { county_opinion = -14 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_14
+			}
+			else_if = {
+				limit = { county_opinion = -13 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_13
+			}
+			else_if = {
+				limit = { county_opinion = -12 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_12
+			}
+			else_if = {
+				limit = { county_opinion = -11 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_11
+			}
+			else_if = {
+				limit = { county_opinion = -10 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_10
+			}
+			else_if = {
+				limit = { county_opinion = -9 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_09
+			}
+			else_if = {
+				limit = { county_opinion = -8 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_08
+			}
+			else_if = {
+				limit = { county_opinion = -7 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_07
+			}
+			else_if = {
+				limit = { county_opinion = -6 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_06
+			}
+			else_if = {
+				limit = { county_opinion = -5 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_05
+			}
+			else_if = {
+				limit = { county_opinion = -4 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_04
+			}
+			else_if = {
+				limit = { county_opinion = -3 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_03
+			}
+			else_if = {
+				limit = { county_opinion = -2 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_02
+			}
+			else_if = {
+				limit = { county_opinion = -1 }
+				
+				add_county_modifier = autocracy_county_opinion_negative_01
+			}
+		}
+		
+		else_if = { # Positive opinion
+			limit = { county_opinion > 0 }
+			if = {
+				limit = { county_opinion = 50 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_50
+			}
+			else_if = {
+				limit = { county_opinion = 49 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_49
+			}
+			else_if = {
+				limit = { county_opinion = 48 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_48
+			}
+			else_if = {
+				limit = { county_opinion = 47 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_47
+			}
+			else_if = {
+				limit = { county_opinion = 46 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_46
+			}
+			else_if = {
+				limit = { county_opinion = 45 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_45
+			}
+			else_if = {
+				limit = { county_opinion = 44 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_44
+			}
+			else_if = {
+				limit = { county_opinion = 43 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_43
+			}
+			else_if = {
+				limit = { county_opinion = 42 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_42
+			}
+			else_if = {
+				limit = { county_opinion = 41 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_41
+			}
+			else_if = {
+				limit = { county_opinion = 40 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_40
+			}
+			else_if = {
+				limit = { county_opinion = 39 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_39
+			}
+			else_if = {
+				limit = { county_opinion = 38 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_38
+			}
+			else_if = {
+				limit = { county_opinion = 37 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_37
+			}
+			else_if = {
+				limit = { county_opinion = 36 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_36
+			}
+			else_if = {
+				limit = { county_opinion = 35 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_35
+			}
+			else_if = {
+				limit = { county_opinion = 34 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_34
+			}
+			else_if = {
+				limit = { county_opinion = 33 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_33
+			}
+			else_if = {
+				limit = { county_opinion = 32 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_32
+			}
+			else_if = {
+				limit = { county_opinion = 31 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_31
+			}
+			else_if = {
+				limit = { county_opinion = 30 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_30
+			}
+			else_if = {
+				limit = { county_opinion = 29 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_29
+			}
+			else_if = {
+				limit = { county_opinion = 28 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_28
+			}
+			else_if = {
+				limit = { county_opinion = 27 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_27
+			}
+			else_if = {
+				limit = { county_opinion = 26 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_26
+			}
+			else_if = {
+				limit = { county_opinion = 25 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_25
+			}
+			else_if = {
+				limit = { county_opinion = 24 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_24
+			}
+			else_if = {
+				limit = { county_opinion = 23 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_23
+			}
+			else_if = {
+				limit = { county_opinion = 22 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_22
+			}
+			else_if = {
+				limit = { county_opinion = 21 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_21
+			}
+			else_if = {
+				limit = { county_opinion = 20 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_20
+			}
+			else_if = {
+				limit = { county_opinion = 19 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_19
+			}
+			else_if = {
+				limit = { county_opinion = 18 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_18
+			}
+			else_if = {
+				limit = { county_opinion = 17 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_17
+			}
+			else_if = {
+				limit = { county_opinion = 16 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_16
+			}
+			else_if = {
+				limit = { county_opinion = 15 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_15
+			}
+			else_if = {
+				limit = { county_opinion = 14 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_14
+			}
+			else_if = {
+				limit = { county_opinion = 13 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_13
+			}
+			else_if = {
+				limit = { county_opinion = 12 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_12
+			}
+			else_if = {
+				limit = { county_opinion = 11 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_11
+			}
+			else_if = {
+				limit = { county_opinion = 10 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_10
+			}
+			else_if = {
+				limit = { county_opinion = 9 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_09
+			}
+			else_if = {
+				limit = { county_opinion = 8 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_08
+			}
+			else_if = {
+				limit = { county_opinion = 7 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_07
+			}
+			else_if = {
+				limit = { county_opinion = 6 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_06
+			}
+			else_if = {
+				limit = { county_opinion = 5 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_05
+			}
+			else_if = {
+				limit = { county_opinion = 4 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_04
+			}
+			else_if = {
+				limit = { county_opinion = 3 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_03
+			}
+			else_if = {
+				limit = { county_opinion = 2 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_02
+			}
+			else_if = {
+				limit = { county_opinion = 1 }
+				
+				add_county_modifier = autocracy_county_opinion_positive_01
+			}
+		}
+	}
+}
+
+### Tribal ruler level of fame modifier
+update_tribal_ruler_prestige_level = {
+	# First, we clear the modifiers
+	if = {
+		limit = {
+			OR = {
+				has_character_modifier = tribal_expected_level_of_fame_below_5
+				has_character_modifier = tribal_expected_level_of_fame_below_4
+				has_character_modifier = tribal_expected_level_of_fame_below_3
+				has_character_modifier = tribal_expected_level_of_fame_below_2
+				has_character_modifier = tribal_expected_level_of_fame_below_1
+				
+				has_character_modifier = tribal_expected_level_of_fame_above_5
+				has_character_modifier = tribal_expected_level_of_fame_above_4
+				has_character_modifier = tribal_expected_level_of_fame_above_3
+				has_character_modifier = tribal_expected_level_of_fame_above_2
+				has_character_modifier = tribal_expected_level_of_fame_above_1
+			}
+		}
+		if = {
+			limit = { has_character_modifier = tribal_expected_level_of_fame_below_5 }
+			remove_character_modifier = tribal_expected_level_of_fame_below_5
+		}
+		else_if = {
+			limit = { has_character_modifier = tribal_expected_level_of_fame_below_4 }
+			remove_character_modifier = tribal_expected_level_of_fame_below_4
+		}
+		else_if = {
+			limit = { has_character_modifier = tribal_expected_level_of_fame_below_3 }
+			remove_character_modifier = tribal_expected_level_of_fame_below_3
+		}
+		else_if = {
+			limit = { has_character_modifier = tribal_expected_level_of_fame_below_2 }
+			remove_character_modifier = tribal_expected_level_of_fame_below_2
+		}
+		else_if = {
+			limit = { has_character_modifier = tribal_expected_level_of_fame_below_1 }
+			remove_character_modifier = tribal_expected_level_of_fame_below_1
+		}
+		else_if = {
+			limit = { has_character_modifier = tribal_expected_level_of_fame_above_5 }
+			remove_character_modifier = tribal_expected_level_of_fame_above_5
+		}
+		else_if = {
+			limit = { has_character_modifier = tribal_expected_level_of_fame_above_4 }
+			remove_character_modifier = tribal_expected_level_of_fame_above_4
+		}
+		else_if = {
+			limit = { has_character_modifier = tribal_expected_level_of_fame_above_3 }
+			remove_character_modifier = tribal_expected_level_of_fame_above_3
+		}
+		else_if = {
+			limit = { has_character_modifier = tribal_expected_level_of_fame_above_2 }
+			remove_character_modifier = tribal_expected_level_of_fame_above_2
+		}
+		else_if = {
+			limit = { has_character_modifier = tribal_expected_level_of_fame_above_1 }
+			remove_character_modifier = tribal_expected_level_of_fame_above_1
+		}
+	}
+	
+	if = {
+		limit = { government_has_flag = government_is_tribal }
+		
+		save_scope_value_as = { name = current_prestige_level value = current_prestige_level }
+		save_scope_value_as = { name = expected_prestige_level value = expected_prestige_level }
+		
+		# If tribal_ruler_prestige_level < tribal_ruler_expected_prestige_level, we get the penalties
+		if = {
+			limit = { scope:current_prestige_level <= { value = scope:expected_prestige_level subtract = 5 } }
+			add_character_modifier = tribal_expected_level_of_fame_below_5
+		}
+		else_if = {
+			limit = { scope:current_prestige_level == { value = scope:expected_prestige_level subtract = 4 } }
+			add_character_modifier = tribal_expected_level_of_fame_below_4
+		}
+		else_if = {
+			limit = { scope:current_prestige_level == { value = scope:expected_prestige_level subtract = 3 } }
+			add_character_modifier = tribal_expected_level_of_fame_below_3
+		}
+		else_if = {
+			limit = { scope:current_prestige_level == { value = scope:expected_prestige_level subtract = 2 } }
+			add_character_modifier = tribal_expected_level_of_fame_below_2
+		}
+		else_if = {
+			limit = { scope:current_prestige_level == { value = scope:expected_prestige_level subtract = 1 } }
+			add_character_modifier = tribal_expected_level_of_fame_below_1
+		}
+		# Otherwise, we get the bonuses
+		if = {
+			limit = { scope:current_prestige_level >= { value = scope:expected_prestige_level add = 5 } }
+			add_character_modifier = tribal_expected_level_of_fame_above_5
+		}
+		else_if = {
+			limit = { scope:current_prestige_level == { value = scope:expected_prestige_level add = 4 } }
+			add_character_modifier = tribal_expected_level_of_fame_above_4
+		}
+		else_if = {
+			limit = { scope:current_prestige_level == { value = scope:expected_prestige_level add = 3 } }
+			add_character_modifier = tribal_expected_level_of_fame_above_3
+		}
+		else_if = {
+			limit = { scope:current_prestige_level == { value = scope:expected_prestige_level add = 2 } }
+			add_character_modifier = tribal_expected_level_of_fame_above_2
+		}
+		else_if = {
+			limit = { scope:current_prestige_level == { value = scope:expected_prestige_level add = 1 } }
+			add_character_modifier = tribal_expected_level_of_fame_above_1
+		}
+		### EK NOTE: Fancy that, an actual use case for == - He9
+	}
+}
+
+### Hierocracies, lower the CA if the ruler doesn't control enough land of their faith
+hierocracy_lower_ca_land_same_faith_held = {
+	if = {
+		limit = {
+			has_realm_law = crown_authority_3
+			NOT = {
+				custom_description = {
+					text = high_enough_ratio_nb_provinces_same_faith_held_provinces_same_faith
+					subject = root
+					value = 75
+					ratio_nb_provinces_same_faith_held_provinces_same_faith >= 75
+				}
+			}
+		}
+		add_realm_law_skip_effects = crown_authority_2
+	}
+	if = {
+		limit = {
+			has_realm_law = crown_authority_2
+			NOT = {
+				custom_description = {
+					text = high_enough_ratio_nb_provinces_same_faith_held_provinces_same_faith
+					subject = root
+					value = 50
+					ratio_nb_provinces_same_faith_held_provinces_same_faith >= 50
+				}
+			}
+		}
+		add_realm_law_skip_effects = crown_authority_1
+	}
+	if = {
+		limit = {
+			has_realm_law = crown_authority_1
+			NOT = {
+				custom_description = {
+					text = high_enough_ratio_nb_provinces_same_faith_held_provinces_same_faith
+					subject = root
+					value = 25
+					ratio_nb_provinces_same_faith_held_provinces_same_faith >= 25
+				}
+			}
+		}
+		add_realm_law_skip_effects = crown_authority_0
+	}
+}
+
+### Tribal holdings get a tax and levies bonus depending on the nb of free holdings in the province
+# Needs to be called from a County-level landed title
+tribal_holding_get_free_holding_modifier = {
+	# Clean the modifiers
+	if = {
+		limit = {
+			any_county_province = {
+				OR = {
+					has_province_modifier = tribal_holding_1_open_holding
+					has_province_modifier = tribal_holding_2_open_holding
+					has_province_modifier = tribal_holding_3_open_holding
+					has_province_modifier = tribal_holding_4_open_holding
+					has_province_modifier = tribal_holding_5_open_holding
+					has_province_modifier = tribal_holding_6_open_holding
+					has_province_modifier = tribal_holding_7_open_holding
+					has_province_modifier = tribal_holding_8_open_holding
+					has_province_modifier = tribal_holding_9_open_holding
+				}
+			}
+		}
+		every_county_province = {
+			limit = {
+				OR = {
+					has_province_modifier = tribal_holding_1_open_holding
+					has_province_modifier = tribal_holding_2_open_holding
+					has_province_modifier = tribal_holding_3_open_holding
+					has_province_modifier = tribal_holding_4_open_holding
+					has_province_modifier = tribal_holding_5_open_holding
+					has_province_modifier = tribal_holding_6_open_holding
+					has_province_modifier = tribal_holding_7_open_holding
+					has_province_modifier = tribal_holding_8_open_holding
+					has_province_modifier = tribal_holding_9_open_holding
+				}
+			}
+			if = {
+				limit = { has_province_modifier = tribal_holding_1_open_holding }
+				remove_province_modifier = tribal_holding_1_open_holding
+			}
+			else_if = {
+				limit = { has_province_modifier = tribal_holding_2_open_holding }
+				remove_province_modifier = tribal_holding_2_open_holding
+			}
+			else_if = {
+				limit = { has_province_modifier = tribal_holding_3_open_holding }
+				remove_province_modifier = tribal_holding_3_open_holding
+			}
+			else_if = {
+				limit = { has_province_modifier = tribal_holding_4_open_holding }
+				remove_province_modifier = tribal_holding_4_open_holding
+			}
+			else_if = {
+				limit = { has_province_modifier = tribal_holding_5_open_holding }
+				remove_province_modifier = tribal_holding_5_open_holding
+			}
+			else_if = {
+				limit = { has_province_modifier = tribal_holding_6_open_holding }
+				remove_province_modifier = tribal_holding_6_open_holding
+			}
+			else_if = {
+				limit = { has_province_modifier = tribal_holding_7_open_holding }
+				remove_province_modifier = tribal_holding_7_open_holding
+			}
+			else_if = {
+				limit = { has_province_modifier = tribal_holding_8_open_holding }
+				remove_province_modifier = tribal_holding_8_open_holding
+			}
+			else_if = {
+				limit = { has_province_modifier = tribal_holding_9_open_holding }
+				remove_province_modifier = tribal_holding_9_open_holding
+			}
+		}
+	}
+	
+	# Apply the new one
+	if = {
+		limit = { any_county_province = { has_holding_type = tribal_holding } }
+		
+		every_county_province = {
+			limit  = { has_holding_type = tribal_holding }
+			save_scope_as = tribal_province
+			set_variable = { name = free_holdings value = 0 }
+		}
+	
+		every_county_province = {
+			limit = {
+				NOR = {
+					has_holding_type = castle_holding
+					has_holding_type = tribal_holding
+					has_holding_type = city_holding
+					has_holding_type = church_holding
+					has_holding_type = academy_holding
+					has_holding_type = hist_holding
+				}
+			}
+			scope:tribal_province = { change_variable = { name = free_holdings add = 1 } }
+		}
+		
+		if = {
+			limit = { scope:tribal_province = { var:free_holdings > 0 } }
+			if = {
+				limit = { scope:tribal_province = { var:free_holdings = 1 } }
+				scope:tribal_province = { add_province_modifier = tribal_holding_1_open_holding }
+			}
+			else_if = {
+				limit = { scope:tribal_province = { var:free_holdings = 2 } }
+				scope:tribal_province = { add_province_modifier = tribal_holding_2_open_holding }
+			}
+			else_if = {
+				limit = { scope:tribal_province = { var:free_holdings = 3 } }
+				scope:tribal_province = { add_province_modifier = tribal_holding_3_open_holding }
+			}
+			else_if = {
+				limit = { scope:tribal_province = { var:free_holdings = 4 } }
+				scope:tribal_province = { add_province_modifier = tribal_holding_4_open_holding }
+			}
+			else_if = {
+				limit = { scope:tribal_province = { var:free_holdings = 5 } }
+				scope:tribal_province = { add_province_modifier = tribal_holding_5_open_holding }
+			}
+			else_if = {
+				limit = { scope:tribal_province = { var:free_holdings = 6 } }
+				scope:tribal_province = { add_province_modifier = tribal_holding_6_open_holding }
+			}
+			else_if = {
+				limit = { scope:tribal_province = { var:free_holdings = 7 } }
+				scope:tribal_province = { add_province_modifier = tribal_holding_7_open_holding }
+			}
+			else_if = {
+				limit = { scope:tribal_province = { var:free_holdings = 8 } }
+				scope:tribal_province = { add_province_modifier = tribal_holding_8_open_holding }
+			}
+			else_if = {
+				limit = { scope:tribal_province = { var:free_holdings >= 9 } }
+				scope:tribal_province = { add_province_modifier = tribal_holding_9_open_holding }
+			}
+		}
+	}
+}
+
+### Feudal governments get some monthly control depending on their laws
+feudal_update_monthly_control_ca_modifier = {
+	if = {
+		limit = { has_character_modifier = feudal_ruler_control_growth_ca_0 }
+		remove_character_modifier = feudal_ruler_control_growth_ca_0
+	}
+	else_if = {
+		limit = { has_character_modifier = feudal_ruler_control_growth_ca_1 }
+		remove_character_modifier = feudal_ruler_control_growth_ca_1
+	}
+	else_if = {
+		limit = { has_character_modifier = feudal_ruler_control_growth_ca_2 }
+		remove_character_modifier = feudal_ruler_control_growth_ca_2
+	}
+	else_if = {
+		limit = { has_character_modifier = feudal_ruler_control_growth_ca_3 }
+		remove_character_modifier = feudal_ruler_control_growth_ca_3
+	}
+	
+	if = {
+		limit = { $CA$ = 0 }
+		# Doesn't do anything for now so let's not give it
+		# add_character_modifier = feudal_ruler_control_growth_ca_0
+	}
+	else_if = {
+		limit = { $CA$ = 1 }
+		add_character_modifier = feudal_ruler_control_growth_ca_1
+	}
+	else_if = {
+		limit = { $CA$ = 2 }
+		add_character_modifier = feudal_ruler_control_growth_ca_2
+	}
+	else_if = {
+		limit = { $CA$ = 3 }
+		add_character_modifier = feudal_ruler_control_growth_ca_3
+	}
+}
+
+# fake_duel = { #tests skill against given value
+# 	skill = arcana
+# 	value = 10
+# 	target = this
+# }
+
+# fake_duel = { tests skill against target's skill
+# 	skill = arcana
+# 	value = 0
+# 	target = scope:character
+# }
+
+fake_duel = {
+	if = {
+		limit = { this = $target$ }
+		custom_description_no_bullet = {
+			text = $skill$_duel
+			save_scope_value_as = {
+				name = fake_duel_value
+				value = {
+					value = $skill$
+					subtract = $value$
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = { exists = $target$ }
+		custom_description_no_bullet = {
+			text = $skill$_duel_against
+			object = $target$
+			save_scope_value_as = {
+				name = fake_duel_value
+				value = {
+					value = $skill$
+					subtract = $target$.$skill$
+				}
+			}
+		}
+	}
+	#else debug - incorrectly set target, should be no or character
+}
+
+ek_remember_recent_conquest_victory_effect = {
+	if = {
+		limit = {
+			exists = scope:defender
+		}
+		set_variable = {
+			name = major_war_victory
+			value = scope:defender
+			years = 5
+		}
+	}
+}
+
+ek_get_lowest_player_skill_effect = {
+	random_list = {
+		1 = {
+			trigger = {
+				AND = {
+					diplomacy <= martial 
+					diplomacy <= stewardship
+					diplomacy <= intrigue
+					diplomacy <= learning
+					diplomacy <= prowess
+					diplomacy <= arcana
+				}
+			}
+			save_scope_value_as = {
+				name = lowest_player_skill
+				value = flag:diplomacy
+			}
+		}
+		1 = {
+			trigger = {
+				AND = {
+					martial <= diplomacy
+					martial <= stewardship
+					martial <= intrigue
+					martial <= learning
+					martial <= prowess
+					martial <= arcana
+				}
+			}
+			save_scope_value_as = {
+				name = lowest_player_skill
+				value = flag:martial
+			}
+		}
+		1 = {
+			trigger = {
+				AND = {
+					stewardship <= diplomacy
+					stewardship <= martial
+					stewardship <= intrigue
+					stewardship <= learning
+					stewardship <= prowess
+					stewardship <= arcana
+				}
+			}
+			save_scope_value_as = {
+				name = lowest_player_skill
+				value = flag:stewardship
+			}
+		}
+		1 = {
+			trigger = {
+				AND = {
+					intrigue <= diplomacy
+					intrigue <= martial
+					intrigue <= stewardship
+					intrigue <= learning
+					intrigue <= prowess
+					intrigue <= arcana
+				}
+			}
+			save_scope_value_as = {
+				name = lowest_player_skill
+				value = flag:intrigue
+			}
+		}
+		1 = {
+			trigger = {
+				AND = {
+					learning <= diplomacy
+					learning <= martial
+					learning <= stewardship
+					learning <= intrigue
+					learning <= prowess
+					learning <= arcana
+				}
+			}
+			save_scope_value_as = {
+				name = lowest_player_skill
+				value = flag:learning
+			}
+		}
+		1 = {
+			trigger = {
+				AND = {
+					prowess <= diplomacy
+					prowess <= martial
+					prowess <= stewardship
+					prowess <= intrigue
+					prowess <= learning
+					prowess <= arcana
+				}
+			}
+			save_scope_value_as = {
+				name = lowest_player_skill
+				value = flag:prowess
+			}
+		}
+		1 = {
+			trigger = {
+				AND = {
+					arcana <= diplomacy
+					arcana <= martial
+					arcana <= stewardship
+					arcana <= intrigue
+					arcana <= learning
+					arcana <= prowess
+				}
+			}
+			save_scope_value_as = {
+				name = lowest_player_skill
+				value = flag:arcana
+			}
+		}
+	}
+}
+
+ek_get_highest_player_skill_effect = {
+	random_list = {
+		1 = {
+			trigger = {
+				AND = {
+					diplomacy >= martial 
+					diplomacy >= stewardship
+					diplomacy >= intrigue
+					diplomacy >= learning
+					diplomacy >= prowess
+					diplomacy >= arcana
+				}
+			}
+			save_scope_value_as = {
+				name = highest_player_skill
+				value = flag:diplomacy
+			}
+		}
+		1 = {
+			trigger = {
+				AND = {
+					martial >= diplomacy
+					martial >= stewardship
+					martial >= intrigue
+					martial >= learning
+					martial >= prowess
+					martial >= arcana
+				}
+			}
+			save_scope_value_as = {
+				name = highest_player_skill
+				value = flag:martial
+			}
+		}
+		1 = {
+			trigger = {
+				AND = {
+					stewardship >= diplomacy
+					stewardship >= martial
+					stewardship >= intrigue
+					stewardship >= learning
+					stewardship >= prowess
+					stewardship >= arcana
+				}
+			}
+			save_scope_value_as = {
+				name = highest_player_skill
+				value = flag:stewardship
+			}
+		}
+		1 = {
+			trigger = {
+				AND = {
+					intrigue >= diplomacy
+					intrigue >= martial
+					intrigue >= stewardship
+					intrigue >= learning
+					intrigue >= prowess
+					intrigue >= arcana
+				}
+			}
+			save_scope_value_as = {
+				name = highest_player_skill
+				value = flag:intrigue
+			}
+		}
+		1 = {
+			trigger = {
+				AND = {
+					learning >= diplomacy
+					learning >= martial
+					learning >= stewardship
+					learning >= intrigue
+					learning >= prowess
+					learning >= arcana
+				}
+			}
+			save_scope_value_as = {
+				name = highest_player_skill
+				value = flag:learning
+			}
+		}
+		1 = {
+			trigger = {
+				AND = {
+					prowess >= diplomacy
+					prowess >= martial
+					prowess >= stewardship
+					prowess >= intrigue
+					prowess >= learning
+					prowess >= arcana
+				}
+			}
+			save_scope_value_as = {
+				name = highest_player_skill
+				value = flag:prowess
+			}
+		}
+		1 = {
+			trigger = {
+				AND = {
+					arcana >= diplomacy
+					arcana >= martial
+					arcana >= stewardship
+					arcana >= intrigue
+					arcana >= learning
+					arcana >= prowess
+				}
+			}
+			save_scope_value_as = {
+				name = highest_player_skill
+				value = flag:arcana
+			}
+		}
+	}
+}
+
+ek_rank_up_education_effect = {
+	if = {
+		limit = { has_education_rank_4_trigger = no }
+		if = {
+			limit = { has_trait = education_diplomacy }
+			change_trait_rank = {
+				trait = education_diplomacy
+				rank = 1
+			}
+		}
+		else_if = {
+			limit = { has_trait = education_martial }
+			change_trait_rank = {
+				trait = education_martial
+				rank = 1
+			}
+		}
+		else_if = {
+			limit = { has_trait = education_stewardship }
+			change_trait_rank = {
+				trait = education_stewardship
+				rank = 1
+			}
+		}
+		else_if = {
+			limit = { has_trait = education_intrigue }
+			change_trait_rank = {
+				trait = education_intrigue
+				rank = 1
+			}
+		}
+		else_if = {
+			limit = { has_trait = education_learning }
+			change_trait_rank = {
+				trait = education_learning
+				rank = 1
+			}
+		}
+		else_if = {
+			limit = { has_trait = education_martial_prowess }
+			change_trait_rank = {
+				trait = education_martial_prowess
+				rank = 1
+			}
+		}
+		else_if = {
+			limit = { has_trait = education_magical_ability }
+			change_trait_rank = {
+				trait = education_magical_ability
+				rank = 1
+			}
+		}
+	}
+}
+
+clone_sexuality = {
+	if = {
+		limit = {
+		scope:recipient = { has_sexuality = bisexual }
+		}
+		scope:clone = {
+			set_sexuality = bisexual
+		}
+	}
+	if = {
+		limit = {
+			scope:recipient = {has_sexuality = homosexual}
+		}
+		scope:clone = {
+			set_sexuality = homosexual
+		}
+	}
+	if = {
+		limit = {
+			scope:recipient = {has_sexuality = heterosexual}
+		}
+		scope:clone = {
+			set_sexuality = heterosexual
+		}
+	}
+	if = {
+		limit = {
+			scope:recipient = {has_sexuality = asexual}
+		}
+		scope:clone = {
+			set_sexuality = asexual
+		}
+	}
+}
+
+remove_health_traits = {
+
+	#There are 32 health traits
+
+	if = {
+		limit = {
+			scope:recipient = { has_trait = pregnant }
+		}
+		scope:clone = {
+			remove_trait = pregnant
+		}
+	}
+	if = {
+		limit = {
+			scope:recipient = { has_trait = depressed_1 }
+		}
+		scope:clone = {
+			remove_trait = depressed_1
+		}
+	}
+	if = {
+		limit = {
+			scope:recipient = { has_trait = lunatic_1 }
+		}
+		scope:clone = {
+			remove_trait = lunatic_1
+		}
+	}
+	if = {
+		limit = {
+			scope:recipient = { has_trait = possessed_1 }
+		}
+		scope:clone = {
+			remove_trait = possessed_1
+		}
+	}
+	if = {
+		limit = {
+			scope:recipient = { has_trait = ill }
+		}
+		scope:clone = {
+			remove_trait = ill
+		}
+	}
+	if = {
+		limit = {
+			scope:recipient = { has_trait = pneumonic }
+		}
+		scope:clone = {
+			remove_trait = pneumonic
+		}
+	}
+	if = {
+		limit = {
+			scope:recipient = { has_trait = great_pox }
+		}
+		scope:clone = {
+			remove_trait = great_pox
+		}
+	}
+	if = {
+		limit = {
+			scope:recipient = { has_trait = early_great_pox }
+		}
+		scope:clone = {
+			remove_trait = early_great_pox
+		}
+	}
+	if = {
+		limit = {
+			scope:recipient = { has_trait = lovers_pox }
+		}
+		scope:clone = {
+			remove_trait = lovers_pox
+		}
+	}
+	if = {
+		limit = {
+			scope:recipient = { has_trait = leper }
+		}
+		scope:clone = {
+			remove_trait = leper
+		}
+	}
+	if = {
+		limit = {
+			scope:recipient = { has_trait = wounded_1 }
+		}
+		scope:clone = {
+			remove_trait = wounded_1
+		}
+	}
+	if = {
+		limit = {
+			scope:recipient = { has_trait = wounded_2 }
+		}
+		scope:clone = {
+			remove_trait = wounded_2
+		}
+	}
+	if = {
+		limit = {
+			scope:recipient = { has_trait = wounded_3 }
+		}
+		scope:clone = {
+			remove_trait = wounded_3
+		}
+	}
+	if = {
+		limit = {
+			scope:recipient = { has_trait = maimed }
+		}
+		scope:clone = {
+			remove_trait = maimed
+		}
+	}
+	if = {
+		limit = {
+			scope:recipient = { has_trait = one_eyed }
+		}
+		scope:clone = {
+			remove_trait = one_eyed
+		}
+	}
+	if = {
+		limit = {
+			scope:recipient = { has_trait = one_legged }
+		}
+		scope:clone = {
+			remove_trait = one_legged
+		}
+	}
+	if = {
+		limit = {
+			scope:recipient = { has_trait = disfigured }
+		}
+		scope:clone = {
+			remove_trait = disfigured
+		}
+	}
+	if = {
+		limit = {
+			scope:recipient = { has_trait = infirm }
+		}
+		scope:clone = {
+			remove_trait = infirm
+		}
+	}
+	if = {
+		limit = {
+			scope:recipient = { has_trait = incapable }
+		}
+		scope:clone = {
+			remove_trait = incapable
+		}
+	}
+	if = {
+		limit = {
+			scope:recipient = { has_trait = gout_ridden }
+		}
+		scope:clone = {
+			remove_trait = gout_ridden
+		}
+	}
+	if = {
+		limit = {
+			scope:recipient = { has_trait = consumption }
+		}
+		scope:clone = {
+			remove_trait = consumption
+		}
+	}
+	if = {
+		limit = {
+			scope:recipient = { has_trait = cancer }
+		}
+		scope:clone = {
+			remove_trait = cancer
+		}
+	}
+	if = {
+		limit = {
+			scope:recipient = { has_trait = typhus }
+		}
+		scope:clone = {
+			remove_trait = typhus
+		}
+	}
+	if = {
+		limit = {
+			scope:recipient = { has_trait = bubonic_plague }
+		}
+		scope:clone = {
+			remove_trait = bubonic_plague
+		}
+	}
+	if = {
+        limit = { has_trait = sanies_lupinus }
+        remove_trait = sanies_lupinus
+    }
+	if = {
+		limit = { has_trait = sanguinare_vampiris }
+		remove_trait = sanguinare_vampiris
+	}
+	if = {
+		limit = {
+			scope:recipient = { has_trait = smallpox }
+		}
+		scope:clone = {
+			remove_trait = smallpox
+		}
+	}
+	if = {
+		limit = {
+			scope:recipient = { has_trait = measles }
+		}
+		scope:clone = {
+			remove_trait = measles
+		}
+	}
+	if = {
+		limit = {
+			scope:recipient = { has_trait = dysentery }
+		}
+		scope:clone = {
+			remove_trait = dysentery
+		}
+	}
+	if = {
+		limit = {
+			scope:recipient = { has_trait = ergotism }
+		}
+		scope:clone = {
+			remove_trait = ergotism
+		}
+	}
+	if = {
+		limit = {
+			scope:recipient = { has_trait = sickly }
+		}
+		scope:clone = {
+			remove_trait = sickly
+		}
+	}
+	if = {
+		limit = {
+			scope:recipient = { has_trait = scarred }
+		}
+		scope:clone = {
+			remove_trait = scarred
+		}
+	}
+	if = {
+		limit = {
+			scope:recipient = { has_trait = eunuch }
+		}
+		scope:clone = {
+			remove_trait = eunuch
+		}
+	}
+	if = {
+		limit = {
+			scope:recipient = { has_trait = blind }
+		}
+		scope:clone = {
+			remove_trait = blind
+		}
+	}	
+}
+
+clone_stats = {
+	scope:clone = {
+		add_diplomacy_skill = {value = scope:recipient.diplomacy subtract = diplomacy}
+		add_martial_skill = {value = scope:recipient.martial subtract = martial}
+		add_stewardship_skill = {value = scope:recipient.stewardship subtract = stewardship}
+		add_intrigue_skill = {value = scope:recipient.intrigue subtract = intrigue}
+		add_learning_skill = {value = scope:recipient.learning subtract = learning}
+		add_prowess_skill = {value = scope:recipient.prowess subtract = prowess}
+	}
+}
+
+contract_sanies_lupinus = {
+	trigger_event = {
+		id = ek_health.1001 
+		days = { 7 14 }
+	}
+}
+
+contract_sanguinare_vampiris = {
+	trigger_event = {
+		id = ek_health.1002
+		days = { 7 14 }
+	}
+}
+
+
+pay_short_term_gold_tribute_effect = {
+	pay_short_term_gold = {
+		gold = {
+			value = $GOLD_VALUE$
+		}
+		target = scope:attacker
+		yearly_income = yes
+	}
+}
+
+## negotiate Alliance script effects
+
+try_remove_beastfolk_alliance_opinion_effect = {
+	if = {
+		limit = {
+			has_opinion_modifier = {
+				modifier = beastfolk_negotiated_alliance_opinion
+				target = $TARGET$
+			}
+		}
+		remove_opinion = {
+			modifier = beastfolk_negotiated_alliance_opinion
+			target = $TARGET$
+		}
+	}
+}			
+
+take_torture_trophy_effect = {
+	scope:actor = {
+		save_scope_as = owner
+		create_artifact = {
+			name = artifact_torture_trophy_of_victim_name
+			description = artifact_torture_trophy_of_victim_desc
+			visuals = human_skull
+			type = pedestal
+			modifier = artifact_dread_baseline_add_1_modifier
+			max_durability = 10
+			save_scope_as = newly_created_artifact
+		}
+		if = {
+			limit = {
+				scope:recipient = {
+					highest_held_title_tier = tier_duchy
+				}
+			}
+			hidden_effect = {
+				scope:newly_created_artifact = {
+					remove_artifact_modifier = artifact_dread_baseline_add_1_modifier
+					add_artifact_modifier = artifact_dread_baseline_add_2_modifier
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				scope:recipient = {
+					highest_held_title_tier = tier_kingdom
+				}
+			}
+			hidden_effect = {
+				scope:newly_created_artifact = {
+					add_artifact_modifier = artifact_dread_decay_neg_mult_2_modifier
+					add_artifact_modifier = artifact_monthly_prestige_4_modifier
+					remove_artifact_modifier = artifact_dread_baseline_add_2_modifier
+					add_artifact_modifier = artifact_dread_baseline_add_2_modifier
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				scope:recipient = {
+					highest_held_title_tier = tier_empire
+				}
+			}
+			hidden_effect = {
+				scope:newly_created_artifact = {
+					add_artifact_modifier = artifact_dread_decay_neg_mult_3_modifier
+					add_artifact_modifier = artifact_monthly_prestige_5_modifier
+					remove_artifact_modifier = artifact_dread_baseline_add_2_modifier
+					add_artifact_modifier = artifact_dread_baseline_add_3_modifier
+				}
+			}
+		}
+		else = {
+			hidden_effect = {
+				scope:newly_created_artifact = {
+					add_artifact_modifier = artifact_dread_decay_neg_mult_1_modifier
+					add_artifact_modifier = artifact_monthly_prestige_3_modifier
+				}
+			}
+		}
+
+		scope:newly_created_artifact = {
+			save_scope_as = this_artifact
+		}
+		scope:recipient = {
+			save_scope_as = old_owner
+		}
+		hidden_effect = {
+			send_interface_toast = {	
+				title = artifact.0012.t
+				left_icon = scope:this_artifact
+				right_icon = scope:old_owner
+				custom_tooltip = artifact.0012.tooltip
+			}
+		}
+	}
+}
+
+remove_birthsign = {
+
+	if = {
+		limit = {
+			has_trait = sign_apprentice
+		}
+		remove_trait = sign_apprentice
+	}
+
+	if = {
+		limit = {
+			has_trait = sign_atronach
+		}
+		remove_trait = sign_atronach
+	}
+
+	if = {
+		limit = {
+			has_trait = sign_lady
+		}
+		remove_trait = sign_lady
+	}
+
+	if = {
+		limit = {
+			has_trait = sign_lord
+		}
+		remove_trait = sign_lord
+	}
+
+	if = {
+		limit = {
+			has_trait = sign_lover
+		}
+		remove_trait = sign_lover
+	}
+
+	if = {
+		limit = {
+			has_trait = sign_mage
+		}
+		remove_trait = sign_mage
+	}
+
+	if = {
+		limit = {
+			has_trait = sign_serpent
+		}
+		remove_trait = sign_serpent
+	}
+
+	if = {
+		limit = {
+			has_trait = sign_ritual
+		}
+		remove_trait = sign_ritual
+	}
+
+	if = {
+		limit = {
+			has_trait = sign_shadow
+		}
+		remove_trait = sign_shadow
+	}
+
+	if = {
+		limit = {
+			has_trait = sign_steed
+		}
+		remove_trait = sign_steed
+	}
+
+	if = {
+		limit = {
+			has_trait = sign_thief
+		}
+		remove_trait = sign_thief
+	}
+
+	if = {
+		limit = {
+			has_trait = sign_tower
+		}
+		remove_trait = sign_tower
+	}
+
+	if = {
+		limit = {
+			has_trait = sign_warrior
+		}
+		remove_trait = sign_warrior
+	}
+		
+}
+
+restore_mane_scripted_effect = {
+	save_scope_as = reformer
+	#Create Mane character
+	hidden_effect = {
+		create_character = {
+			employer = root
+			template = mane_leader_character
+			random_traits = no
+			save_scope_as = new_mane
+		}
+	}
+	scope:new_mane.faith = {
+		change_fervor = { value = 15 }
+		if = {
+			limit = { has_doctrine = doctrine_no_head }
+			hidden_effect = { remove_doctrine = doctrine_no_head }
+			add_doctrine = doctrine_mystical_birthright_head
+		}
+	}
+	if = {
+		limit = { scope:new_mane.faith = faith:twomoonsdance }
+		scope:new_mane = { set_house = character:mane_001.house } #Setting Two Moons Dynasty
+	}
+	else_if = {
+		limit = { scope:new_mane.faith = faith:manypathsdance }
+		scope:new_mane = { set_house = character:torval_ancient_001.house } #Setting Many Paths Dynasty
+	}
+	else_if = {
+		limit = { scope:new_mane.faith = faith:order_new_moon }
+		scope:new_mane = { set_house = character:new_moon_ancient_001.house } #Setting New Moon Dynasty
+	}
+	create_title_and_vassal_change = {
+		type = returned
+		save_scope_as = change
+		add_claim_on_loss = no
+	}
+	if = {
+		limit = {
+			scope:new_mane.faith = faith:twomoonsdance
+		}
+		title:d_mane = {
+			change_title_holder = {
+				holder = scope:new_mane
+				change = scope:change
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			scope:new_mane.faith = faith:manypathsdance
+		}
+		title:d_many_paths_mane = {
+			change_title_holder = {
+				holder = scope:new_mane
+				change = scope:change
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			scope:new_mane.faith = faith:order_new_moon
+		}
+		title:d_new_moon_mane = {
+			change_title_holder = {
+				holder = scope:new_mane
+				change = scope:change
+			}
+		}
+	}
+	else = {
+		faith = { save_scope_as = my_faith }
+		create_dynamic_title = {
+			tier = duchy
+			name = REL_HEAD_TITLE_NAME
+		}
+		scope:new_title = { set_capital_county = title:c_torval }
+		hidden_effect = {
+			scope:new_title = {
+				set_landless_title = yes
+				set_destroy_if_invalid_heir = yes
+				set_no_automatic_claims = yes
+				set_definitive_form = yes
+				set_always_follows_primary_heir = yes
+				change_title_holder = {
+					holder = scope:new_mane
+					change = scope:change
+				}
+			}
+		}
+		scope:my_faith = { set_religious_head_title = scope:new_title }
+		scope:new_title = { generate_coa = religious_title }
+	}
+	title:c_torval = {
+		change_title_holder = {
+			holder = scope:new_mane
+			change = scope:change
+		}
+	}
+	title:d_torval = {
+		change_title_holder = {
+			holder = scope:new_mane
+			change = scope:change
+		}
+	}
+	resolve_title_and_vassal_change = scope:change
+	scope:new_mane = {
+		set_realm_capital = title:c_torval
+		change_government = hierocracy_government		
+	}
+}
+
+#Based on vanilla destroy papacy effect
+destroy_mane_scripted_effect = {
+	save_scope_as = mane_destroyer
+	if = {
+		limit = { exists = title:d_mane.holder }
+		title:d_mane.holder = { save_scope_as = destroyed_mane }
+	}
+	add_piety = massive_piety_gain
+	root.faith = {
+		change_fervor = {
+			value = 50
+			desc = fervor_gain_religious_war #EK TODO: unique desc, look at og effect in vanilla
+		}
+	}
+
+	# Destroy the papacy title if it exists.
+	if = {
+		limit = {
+			exists = title:d_mane
+		}
+		destroy_title = title:d_mane
+	}
+
+	# Catholicism is now sad.
+	faith:twomoonsdance = {
+		change_fervor = {
+			value = -100
+			desc = fervor_loss_great_holy_war
+		}
+		if = {
+			limit = { has_doctrine = doctrine_mystical_birthright_head }
+			remove_doctrine = doctrine_mystical_birthright_head
+			hidden_effect = { add_doctrine = doctrine_no_head }
+		}
+	}
+}
