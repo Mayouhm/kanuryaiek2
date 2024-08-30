@@ -235,8 +235,8 @@
 ####c_tagon
 
 635 = { #b_tagon
-	culture = kanuryai
-	religion = satakal
+	culture = kanuri
+	religion = final_after
 	
 	holding = tribal_holding
 }
@@ -410,8 +410,8 @@
 #####c_kasa
 
 668 = { #b_kasa
-	culture = kanuryai
-	religion = satakal
+	culture = kanuri
+	religion = final_after
 	
 	holding = tribal_holding
 }
@@ -516,8 +516,8 @@
 #####c_khamsa
 
 689 = { #b_khamsa
-	culture = yokudan
-	religion = satakal
+	culture = kanuri
+	religion = final_after
 	
 	holding = castle_holding
 }

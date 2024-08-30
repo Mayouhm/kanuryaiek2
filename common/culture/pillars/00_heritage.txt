@@ -11,7 +11,7 @@ heritage_aldmeri = { #Altmeri
 		}
 	}
 	audio_parameter = mena
-	
+
 	parameters = {
 		species_elf = yes
 	}

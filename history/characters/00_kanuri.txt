@@ -1,0 +1,14 @@
+﻿#TAHIR DYNASTY
+
+tahir_1000 = {
+	name = "Hadim"
+	dynasty = tahir_dynasty
+	religion = final_after
+	culture = kanuri
+	dna = hadim_dna_entry
+
+
+
+	3318.1.1 = { birth = yes }
+	3380.1.1 = { death = yes }
+}

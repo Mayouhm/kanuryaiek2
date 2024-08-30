@@ -37,7 +37,7 @@
 
 #	race_kanuryai = {
 #		template = "race_altmer_pure_1"
-#		using = "kanuryai"
+#		using = "kanuryai_replace"
 #
 #		skin_color = {
 #			10 = { 0.3 0.55 0.7 0.75}

@@ -34,7 +34,7 @@
  language_dwemeris_desc:0 "The Deep Folk were highly literate and carved at length in their enigmatic tongue. It is said that proficient speakers can stir Tonal Magic"
 
  language_old_falmeris_name:0 "Ald Falmeris"
- language_old_falmeris_desc:0 "Ald Falmeris is as curious and elusive a language as the people that once spoke it, the long lost Snow Elves. Remaining inscriptions reveal a surprising resemblance to the Ayleidoon tongue, which is remarkable considering that little historical evidence connects the two Elven races. Stranger still, much of its vocabulary cannot be accounted for as either Ayleidoon or Aldmeri in origin."
+ language_old_falmeris_desc:0 "Ald Falmeris is as curious and elusive a language as the people that once spoke it, the long lost Snow Elves. Remaining inscriptions reveal a surprising resemblance to the Ayleidoon tongue, which is remarkable considering that little historical evidence connects the two Elven races. Stranger still, much of its vocabulary cannot be accounted for as either Ayleidoon or kanuryai in origin."
  
  language_goblin_name:0 "Goblinspeak"
  language_goblin_desc:0 "The Goblins' language is an isolate, descending neither from the Merish language of the #LORE [compendium_dawn_era]#! nor the earliest Mannish languages. Because it is so different in such fundamental ways, the people of Tamriel have propagated the misconception that Goblins communicate in gibberish and overall convey no more than simple ideas. However, those who take the time to learn the Goblin-ken's language find that it is different, but by no means inferior or even more simple than other languages on Nirn."
@@ -61,7 +61,7 @@
  language_lilmothiit_desc:0 "Unique among languages in Tamriel, the Lilmothiit tongue makes no distinction between the sexes, but instead employs a number of other registers in its spoken form to address others according to their relative status, age, current location relative to their prowl, travelling experience, and so on. Most outsiders attempting to learn it have a hard time adjusting to this, and tend to use simple "standard" Lilmothiit that makes them sound boorish and a little naive, which some Lilmothiit, at least, find endearing."
 
  language_maormeris_name:0 "Maormeris"
- language_maormeris_desc:0 "The Aldmeris dialect of the Maormer, colloquially called Pyandoneaic at times. The tongue of the southern reavers is seldom known in Tamriel due to limited interaction."
+ language_maormeris_desc:0 "The kanuryais dialect of the Maormer, colloquially called Pyandoneaic at times. The tongue of the southern reavers is seldom known in Tamriel due to limited interaction."
 
  language_nedic_name:0 "Nedic"
  language_nedic_desc:0 "The ancient Nedes spoke innumerable dialects, some of which are close to languages spoken to this day while others are so different as to boggle the mind and complicate attempts at categorization. The prevalent belief is that the Nedic languages descend from the primordial Ehlnofex of the et'Ada, and that though the various Nedic dialects share a common ancestry with the Elven languages, they developed in metaphysical opposition to them."
@@ -88,7 +88,7 @@
  language_orcish_desc:0 "Orcish is perhaps the most misunderstood and scorned idiom in Tamriel. It is a specialist skill to know the tongue of the Orsimer due to prejudice (some likened it to “learning Centaurian or Giantish”) and their distrust. Thankfully, stronghold exiles with didactic leanings have contributed to disseminating the language and - hopefully - furthering the acceptance of their kin in Tamriel."
  
  language_quey_name:0 "Quey"
- language_quey_desc:0 "Lying halfway between Tamriel and Akavir, the thalassocratic Chimer of Cathnoquey understandably have their own vernacular. Just like its speakers went further away in their Exodus, Quey has strayed further yet from Aldmeris than either Chimeris or Dunmeris back in Dawn's Beauty."
+ language_quey_desc:0 "Lying halfway between Tamriel and Akavir, the thalassocratic Chimer of Cathnoquey understandably have their own vernacular. Just like its speakers went further away in their Exodus, Quey has strayed further yet from kanuryais than either Chimeris or Dunmeris back in Dawn's Beauty."
  
  language_reachtongue_name:0 "Reachtongue"
  language_reachtongue_desc:0 "The fractious Reachfolk have their own parlances, despite constant warring, alliances, trade and intermarriage. Although there isn't any official standard, the Witchfolk are shrewd, and have grasped how to overcome dialectal differences on the fly. Generations of envoys have tacitly created a standard variant of Reachtongue."
@@ -117,5 +117,5 @@
  language_tamrielic_yoku_name:0 "Tamrielic Yoku"
  language_tamrielic_yoku_desc:0 "The Yoku spoken in Hammerfell can be qualified as 'Tamrielic'. It has substantial influence from Cyrodilic as one can guess but also from Altmer and even Nedic sources but ultimately Yokudan in character. Forebears tend to fully embrace it whilst Crowns make a point of learning Classical Yoku #italic 'to keep the old ways alive'#!."
 
- language_kanuryai_name:0 "Kanuryai"
+ language_kanuryai_name:0 "Kanuri"
  language_tamrielic_yoku_desc:0 "The language of the Kanuryai shares many similarities with Altmeri. However, it is the opposite of Yoku in many ways."
