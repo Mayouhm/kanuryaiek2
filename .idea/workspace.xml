@@ -6,13 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9cbc5e8d-104b-4ed7-ba34-5201386806c3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/coat_of_arms/coat_of_arms/89_hostalta_coa.txt" beforeDir="false" afterPath="$PROJECT_DIR$/common/coat_of_arms/coat_of_arms/89_hostalta_coa.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/culture/cultures/ek_kanuri.txt" beforeDir="false" afterPath="$PROJECT_DIR$/common/culture/cultures/ek_kanuri.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/culture/name_lists/ek_kanuri.txt" beforeDir="false" afterPath="$PROJECT_DIR$/common/culture/name_lists/ek_kanuri.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/dynasties/kanuri_dynasties.txt" beforeDir="false" afterPath="$PROJECT_DIR$/common/dynasties/kanuri_dynasties.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/ethnicities/001_ek_ethnicities_mer_kanuryai.txt" beforeDir="false" afterPath="$PROJECT_DIR$/common/ethnicities/001_ek_ethnicities_mer_kanuryai.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/history/characters/00_kanuri.txt" beforeDir="false" afterPath="$PROJECT_DIR$/history/characters/00_kanuri.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/localization/english/names/ek_character_names_l_english.yml" beforeDir="false" afterPath="$PROJECT_DIR$/localization/english/names/ek_character_names_l_english.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

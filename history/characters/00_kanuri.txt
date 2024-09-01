@@ -60,6 +60,7 @@ slimanian_101 = {
 	dynasty = slimanian_dynasty
 	religion = final_after
 	culture = kanuri
+	father = slimanian_100
 
 	trait = education_stewardship_4
 	trait = diligent
@@ -81,7 +82,7 @@ slimanian_102 = {
 	dynasty = slimanian_dynasty
 	religion = final_after
 	culture = kanuri
-	father = placeholdername2
+	father = slimanian_101
 
 	trait = education_diplomacy_2
 	trait = craven
