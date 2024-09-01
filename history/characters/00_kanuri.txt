@@ -8,7 +8,94 @@ tahir_1000 = {
 	dna = hadim_dna_entry
 
 
-
 	3318.1.1 = { birth = yes }
 	3380.1.1 = { death = yes }
 }
+
+#OLD EMPERORS OF KANURYA
+akal_100 = {
+	name = "Diyan"
+	dynasty = akal_dynasty
+	religion = final_after
+	culture = kanuri
+
+	trait = education_learning_4
+	trait = brave
+	trait = ambitious
+	trait = zealous
+	trait = desert_warrior
+	trait = strong
+	trait = lifespan_5
+	trait = education_magical_ability_3
+
+	54.1.1 = { birth = yes }
+	370.3.10 = { give_nickname = nick_the_great }
+	412.1.1 = { death = yes }
+}
+
+slimanian_100 = {
+	name = "Khamzaal"
+	dynasty = slimanian_dynasty
+	religion = final_after
+	culture = kanuri
+
+	trait = education_martial_4
+	trait = brave
+	trait = ambitious
+	trait = paranoid
+	trait = desert_warrior
+	trait = lifespan_4
+
+	354.1.1 = { birth = yes }
+	512.1.1 = {
+		death = {
+			death_reason = death_stroke
+		}
+	}
+}
+
+
+slimanian_101 = {
+	name = "Aminal"
+	dynasty = slimanian_dynasty
+	religion = final_after
+	culture = kanuri
+
+	trait = education_stewardship_4
+	trait = diligent
+	trait = greedy
+	trait = patient
+	trait = beauty_good_1
+	trait = lifespan_3
+
+	450.1.1 = { birth = yes }
+	560.1.1 = {
+		death = {
+			death_reason = death_drowned
+		}
+	}
+}
+
+slimanian_102 = {
+	name = "Omanal"
+	dynasty = slimanian_dynasty
+	religion = final_after
+	culture = kanuri
+	father = placeholdername2
+
+	trait = education_diplomacy_2
+	trait = craven
+	trait = gluttonous
+	trait = gregarious
+	trait = lifespan_3
+
+	545.1.1 = { birth = yes }
+	575.1.1 = {
+		death = {
+			death_reason = death_hanged_and_disemboweled_by_mob
+		}
+	}
+}
+
+
+

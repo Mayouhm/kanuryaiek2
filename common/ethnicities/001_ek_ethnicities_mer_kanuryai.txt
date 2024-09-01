@@ -187,6 +187,7 @@ race_kanuryai = {
 
 	eye_color = {
 		12 = { 0.84 1.0 0.1 1.0 }  # yellow
+		#12 = { 0.24 1.0 0.7 1.0 }  # trying to white
 	}
 	
 

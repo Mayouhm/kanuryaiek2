@@ -37,7 +37,7 @@
         10 = race_kanuryai_2
     }
 
-    coa_gfx = { redguard_group_coa_gfx }
+    coa_gfx = { kanuri_group_coa_gfx }
     building_gfx = { ek_aldmer_building_gfx }
     clothing_gfx = { ek_redguard_clothing_gfx }
     unit_gfx = { altmer_unit_gfx }

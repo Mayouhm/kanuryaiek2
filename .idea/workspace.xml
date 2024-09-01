@@ -6,13 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="9cbc5e8d-104b-4ed7-ba34-5201386806c3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/culture/cultures/ek_kanuryai.txt" beforeDir="false" afterPath="$PROJECT_DIR$/common/culture/cultures/ek_kanuri.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/culture/pillars/00_heritage.txt" beforeDir="false" afterPath="$PROJECT_DIR$/common/culture/pillars/00_heritage.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/coat_of_arms/coat_of_arms/89_hostalta_coa.txt" beforeDir="false" afterPath="$PROJECT_DIR$/common/coat_of_arms/coat_of_arms/89_hostalta_coa.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/culture/cultures/ek_kanuri.txt" beforeDir="false" afterPath="$PROJECT_DIR$/common/culture/cultures/ek_kanuri.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/culture/name_lists/ek_kanuri.txt" beforeDir="false" afterPath="$PROJECT_DIR$/common/culture/name_lists/ek_kanuri.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/dynasties/kanuri_dynasties.txt" beforeDir="false" afterPath="$PROJECT_DIR$/common/dynasties/kanuri_dynasties.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/ethnicities/001_ek_ethnicities_mer_kanuryai.txt" beforeDir="false" afterPath="$PROJECT_DIR$/common/ethnicities/001_ek_ethnicities_mer_kanuryai.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/history/provinces/e_yokuda.txt" beforeDir="false" afterPath="$PROJECT_DIR$/history/provinces/e_yokuda.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/localization/english/culture/cultures_l_english.yml" beforeDir="false" afterPath="$PROJECT_DIR$/localization/english/culture/cultures_l_english.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/localization/english/culture/traditions/ek_cultural_heritages_l_english.yml" beforeDir="false" afterPath="$PROJECT_DIR$/localization/english/culture/traditions/ek_cultural_heritages_l_english.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/localization/english/culture/traditions/ek_cultural_languages_l_english.yml" beforeDir="false" afterPath="$PROJECT_DIR$/localization/english/culture/traditions/ek_cultural_languages_l_english.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/history/characters/00_kanuri.txt" beforeDir="false" afterPath="$PROJECT_DIR$/history/characters/00_kanuri.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/localization/english/names/ek_character_names_l_english.yml" beforeDir="false" afterPath="$PROJECT_DIR$/localization/english/names/ek_character_names_l_english.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,17 +36,21 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/User/Documents/Paradox Interactive/Crusader Kings III/mod/sinistral/common/dna_data",
+    "last_opened_file_path": "C:/Users/User/Documents/Paradox Interactive/Crusader Kings III/mod/sinistral/common/coat_of_arms/coat_of_arms",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\User\Documents\Paradox Interactive\Crusader Kings III\mod\sinistral\common\dna_data" />
-      <recent name="C:\Users\User\Documents\Paradox Interactive\Crusader Kings III\mod\sinistral\history\characters" />
-      <recent name="C:\Users\User\Documents\Paradox Interactive\Crusader Kings III\mod\sinistral\common\dynasties" />
-      <recent name="C:\Users\User\Documents\Paradox Interactive\Crusader Kings III\mod\sinistral\localization\english\names" />
-      <recent name="C:\Users\User\Documents\Paradox Interactive\Crusader Kings III\mod\sinistral\localization\english\culture\religion" />
+      <recent name="C:\Users\User\Documents\Paradox Interactive\Crusader Kings III\mod\sinistral\common\coat_of_arms\coat_of_arms" />
+      <recent name="C:\Users\User\Documents\Paradox Interactive\Crusader Kings III\mod\sinistral\history\titles" />
+      <recent name="C:\Users\User\Documents\Paradox Interactive\Crusader Kings III\mod\sinistral\localization\english\titles" />
+      <recent name="C:\Users\User\Documents\Paradox Interactive\Crusader Kings III\mod\sinistral\localization\english\culture" />
+      <recent name="C:\Users\User\Documents\Paradox Interactive\Crusader Kings III\mod\sinistral\common\landed_titles" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Documents\Paradox Interactive\Crusader Kings III\mod\sinistral\gfx\portraits\portrait_modifiers" />
+      <recent name="C:\Users\User\Documents\Paradox Interactive\Crusader Kings III\mod\sinistral\gfx\portraits" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
