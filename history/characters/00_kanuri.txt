@@ -16,7 +16,7 @@ tahir_1000 = {
 akal_100 = {
 	name = "Diyan"
 	dynasty = akal_dynasty
-	religion = final_after
+	religion = lefthand_path
 	culture = kanuri
 
 	trait = education_learning_4

@@ -9,6 +9,11 @@
 		"dynn_Maghit"
 		"dynn_Salgon_al"
 		"dynn_Slimanian"
+		"dynn_Mesillian"
+		"dynn_Feydal"
+		"dynn_Tahhamin"
+		"dynn_Sian"
+		"dynn_Seran"
 	}
 
 	dynasty_names = {
@@ -21,22 +26,28 @@
 		"dynn_Maghit"
 		"dynn_Salgon_al"
 		"dynn_Slimanian"
+		"dynn_Mesillian"
+		"dynn_Feydal"
+		"dynn_Bardin"
+		"dynn_Tahhamin"
+		"dynn_Sian"
+		"dynn_Seran"
 	}
 
 	male_names = {
-		Achaemen Antarah Dalarian Diyan Ghassan Habil
-		Hyfin Kanur Lakhm Omanal Sam Shem_Sam Sami_Sam
-		Tamerlane Yafith Xerxes
-
-
+		Achaemen Antarah Dalarian Dhubyan Diyan Ghassan
+		Habil Hyfin Kanur Lakhm Omanal Sam Shem_Sam
+		Sami_Sam Sian Tamerlane Tovya Verus Wailimo Xerxes
+		Yafith
 	}
 	female_names = {
-		Abla Ashtar Diyana Ilyria Kanurya Layla Paransif
-		Sameht Shams Tanerline Vanya
+		Abla Ashtar Diyana Gladis Ilyria Isef Ishan
+		Kanurya Kuhayna Layla Lina Paransif Sameht
+		Shams Sian Tanerline Vanya
 	}
 
 	#dynasty_of_location_suffix = "dynnp_-al"
-
+a
 	founder_named_dynasties = yes
 	patronym_prefix_male = "dynnpat_pre_in"
 	patronym_prefix_female = "dynnpat_pre_in"
