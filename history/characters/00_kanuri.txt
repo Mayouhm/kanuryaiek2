@@ -2,7 +2,7 @@
 
 tahir_1000 = {
 	name = "Hadim"
-	dynasty = tahir_dynasty
+	dynasty = 200025
 	religion = final_after
 	culture = kanuri
 	dna = hadim_dna_entry
@@ -46,7 +46,7 @@ slimanian_100 = {
 	trait = desert_warrior
 	trait = lifespan_4
 
-	354.1.1 = { birth = yes }
+	314.1.1 = { birth = yes }
 	512.1.1 = {
 		death = {
 			death_reason = death_stroke
@@ -69,7 +69,7 @@ slimanian_101 = {
 	trait = beauty_good_1
 	trait = lifespan_3
 
-	450.1.1 = { birth = yes }
+	350.1.1 = { birth = yes }
 	560.1.1 = {
 		death = {
 			death_reason = death_drowned
@@ -78,11 +78,33 @@ slimanian_101 = {
 }
 
 slimanian_102 = {
-	name = "Omanal"
+	name = Sam
 	dynasty = slimanian_dynasty
 	religion = final_after
 	culture = kanuri
 	father = slimanian_101
+
+	trait = education_martial_5
+	trait = brave
+	trait = sadistic
+	trait = trusting
+	trait = lifespan_3
+	trait = legendary_blademaster
+
+	494.1.1 = { birth = yes }
+	550.1.1 = {
+		death = {
+			death_reason = death_hanged_and_disemboweled_by_mob
+		}
+	}
+}
+
+slimanian_103 = {
+	name = "Omanal"
+	dynasty = slimanian_dynasty
+	religion = final_after
+	culture = kanuri
+	father = slimanian_102
 
 	trait = education_diplomacy_2
 	trait = craven

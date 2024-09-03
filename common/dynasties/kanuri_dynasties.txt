@@ -9,7 +9,7 @@
 
 #Yokudan: 200.000 - 209.999
 
-tahir_dynasty = {
+200025 = {
 	#prefix = "dynn_al-"
 	name = "dynn_Tahir"
 	culture = kanuri

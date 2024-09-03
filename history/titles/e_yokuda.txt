@@ -35,7 +35,7 @@ c_tagon = {
 	167.1.1 = { holder = akal_100 }
 	440.1.1 = { holder = slimanian_100}
 	542.1.1 = { holder = slimanian_101}
-	560.1.1 = { holder = slimanian_102}
+	560.1.1 = { holder = slimanian_103}
 	575.1.1 = { holder = sesnit_100 }
 	617.1.1 = { holder = torn_100 }
 	737.1.1 = { holder = tagon_100 }
