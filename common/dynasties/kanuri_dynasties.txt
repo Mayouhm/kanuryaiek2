@@ -26,3 +26,9 @@ akal_dynasty = {
 	name = "dynn_Akal"
 	culture = kanuri
 }
+
+bardin_dynasty = {
+	#prefix = "dynn_al-"
+	name = "dynn_Bardin"
+	culture = kanuri
+}

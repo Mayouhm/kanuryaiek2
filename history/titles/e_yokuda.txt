@@ -15,12 +15,16 @@ e_yokuda = {
 }
 
 k_ravan = {
+	42.2.12 = { holder = bardin }
+	130.1.1 = { holder = 0 }
 	760.1.1 = { holder = tavan_97 }
 	775.1.1 = { holder = tavan_98 }
 	780.1.1 = { holder = 0 }
 }
 
 d_ravan = {
+	40.2.12 = { holder = bardin }
+	130.1.1 = { holder = 0 }
 	760.1.1 = { holder = tavan_97 }
 	775.1.1 = { holder = tavan_98 }
 	822.1.1 = { holder = tavan_100 }
@@ -42,6 +46,7 @@ c_tagon = {
 }
 
 c_ravan = {
+	16.10.4 = { holder = bardin }
 	760.1.1 = { holder = tavan_97 }
 	775.1.1 = { holder = tavan_98 }
 	822.1.1 = { holder = tavan_100 }

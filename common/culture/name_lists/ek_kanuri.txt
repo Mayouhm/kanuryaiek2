@@ -14,6 +14,7 @@
 		"dynn_Tahhamin"
 		"dynn_Sian"
 		"dynn_Seran"
+		dynn_Murab
 	}
 
 	dynasty_names = {
@@ -32,6 +33,7 @@
 		"dynn_Tahhamin"
 		"dynn_Sian"
 		"dynn_Seran"
+		"dynn_Murab"
 	}
 
 	male_names = {

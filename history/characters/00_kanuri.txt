@@ -120,5 +120,28 @@ slimanian_103 = {
 	}
 }
 
+bardin = {
+    name = "Tovis"
+    dynasty = bardin_dynasty
+    religion = idealmasters
+    culture = kanuri
+
+    trait = education_diplomacy_2
+    trait = craven
+    trait = sadistic
+    trait = chaste
+    trait = necromancer
+    trait = lich_character
+
+    -918.10.26 = { birth = yes }
+	-649.1.1 = {
+		effect = {
+			set_predetermined_decay_effect = { DECAY = 0.3 }
+			#add_necromancy_perk_effect = { LEVEL = 5 }
+		}
+	}
+    130.1.1 = { death = yes }
+}
+
 
 
