@@ -119,7 +119,7 @@
 		startup_culture_effect = { CULTURE = horsemen }
 		startup_culture_effect = { CULTURE = silverhoof }
 		# Kanuryai
-		startup_culture_effect = { CULTURE = kanuryai }
+		startup_culture_effect = { CULTURE = kanuri }
 		
 		### Set which cultures are alive (have some territory)
 		every_culture_global = {
@@ -254,7 +254,7 @@
 		set_culture_native_to = { REGION = solstheim CULTURE = culture:amz_vtharden }
 		## Yokuda
 		set_culture_native_to = { REGION = yokuda CULTURE = culture:yokudan }
-		set_culture_native_to = { REGION = yokuda CULTURE = culture:kanuryai }
+		set_culture_native_to = { REGION = yokuda CULTURE = culture:kanuri }
 		## Summerset Isles
 		# Auridon
 		set_culture_native_to = { REGION = auridon CULTURE = culture:auridon }

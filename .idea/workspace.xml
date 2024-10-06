@@ -5,13 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9cbc5e8d-104b-4ed7-ba34-5201386806c3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/localization/english/patron_window_l_english.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/coat_of_arms/coat_of_arms/90_dynasties.txt" beforeDir="false" afterPath="$PROJECT_DIR$/common/coat_of_arms/coat_of_arms/90_dynasties.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/culture/cultures/ek_kanuri.txt" beforeDir="false" afterPath="$PROJECT_DIR$/common/culture/cultures/ek_kanuri.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/culture/name_lists/ek_kanuri.txt" beforeDir="false" afterPath="$PROJECT_DIR$/common/culture/name_lists/ek_kanuri.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/dna_data/ek_misc_dna.txt" beforeDir="false" afterPath="$PROJECT_DIR$/common/dna_data/ek_misc_dna.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/dynasties/kanuri_dynasties.txt" beforeDir="false" afterPath="$PROJECT_DIR$/common/dynasties/kanuri_dynasties.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/on_action/ek_game_start_culture.txt" beforeDir="false" afterPath="$PROJECT_DIR$/common/on_action/ek_game_start_culture.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/religion/religions/ek_aedric_aldmeri_faiths.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/religion/religions/ek_aurbic_kanuri_faiths.txt" beforeDir="false" afterPath="$PROJECT_DIR$/common/religion/religions/ek_aedric_kanuri_faiths.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/scripted_effects/ek_misc_scripted_effects.txt" beforeDir="false" afterPath="$PROJECT_DIR$/common/scripted_effects/ek_misc_scripted_effects.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gfx/interface/icons/faith/custom2.dds" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/history/characters/00_kanuri.txt" beforeDir="false" afterPath="$PROJECT_DIR$/history/characters/00_kanuri.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/history/cultures/kanuryai.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/history/provinces/e_yokuda.txt" beforeDir="false" afterPath="$PROJECT_DIR$/history/provinces/e_yokuda.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/history/titles/e_yokuda.txt" beforeDir="false" afterPath="$PROJECT_DIR$/history/titles/e_yokuda.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/localization/english/culture/cultures_l_english.yml" beforeDir="false" afterPath="$PROJECT_DIR$/localization/english/culture/cultures_l_english.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/localization/english/dynasties/dynasty_name_kanuri_l_english.yml" beforeDir="false" afterPath="$PROJECT_DIR$/localization/english/dynasties/dynasty_name_kanuri_l_english.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/localization/english/names/ek_character_names_l_english.yml" beforeDir="false" afterPath="$PROJECT_DIR$/localization/english/names/ek_character_names_l_english.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/localization/english/religion/aedric_aldmeri_l_english.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/localization/english/religion/aurbric_kanuri_l_english.yml" beforeDir="false" afterPath="$PROJECT_DIR$/localization/english/religion/aedric_kanuri_l_english.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/localization/english/religion/ek_gods_l_english.yml" beforeDir="false" afterPath="$PROJECT_DIR$/localization/english/religion/ek_gods_l_english.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,25 +44,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Documents/Paradox Interactive/Crusader Kings III/mod/sinistral/gfx/interface/icons/faith&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/User/Documents/Paradox Interactive/Crusader Kings III/mod/friendsnmoreek2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\User\Documents\Paradox Interactive\Crusader Kings III\mod\sinistral\gfx\interface\icons\faith" />
       <recent name="C:\Users\User\Documents\Paradox Interactive\Crusader Kings III\mod\sinistral\localization\english\religion" />
-      <recent name="C:\Users\User\Documents\Paradox Interactive\Crusader Kings III\mod\sinistral\common\religion\religions" />
-      <recent name="C:\Users\User\Documents\Paradox Interactive\Crusader Kings III\mod\sinistral\common\coat_of_arms\coat_of_arms" />
-      <recent name="C:\Users\User\Documents\Paradox Interactive\Crusader Kings III\mod\sinistral\history\titles" />
+      <recent name="C:\Users\User\Documents\Paradox Interactive\Crusader Kings III\mod\sinistral\common\religion\holy_sites" />
+      <recent name="C:\Users\User\Documents\Paradox Interactive\Crusader Kings III\mod\sinistral\common\scripted_triggers" />
+      <recent name="C:\Users\User\Documents\Paradox Interactive\Crusader Kings III\mod\sinistral\common\religion\doctrines" />
+      <recent name="C:\Users\User\Documents\Paradox Interactive\Crusader Kings III\mod\sinistral\common\dynasties" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Documents\Paradox Interactive\Crusader Kings III\mod\sinistral\gfx\interface\icons\faith" />
       <recent name="C:\Users\User\Documents\Paradox Interactive\Crusader Kings III\mod\sinistral\localization\english" />
       <recent name="C:\Users\User\Documents\Paradox Interactive\Crusader Kings III\mod\sinistral\gfx\portraits\portrait_modifiers" />
       <recent name="C:\Users\User\Documents\Paradox Interactive\Crusader Kings III\mod\sinistral\gfx\portraits" />

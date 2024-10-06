@@ -1,17 +1,19 @@
-﻿# Yokudan Range: 200.000 - 299.999
-
-	#Yokudan: 200.000 - 209.999
-	#Forebear: 210.000 - 219.999
-	#Crown: 220.000 - 229.999
-	#Alik'r: 240.000 - 249.999
-	#Abecean: 250.000 - 259.999
-	#Horsemen: 260.000 - 269.999
-
-#Yokudan: 200.000 - 209.999
+﻿# KANURI
 
 200025 = {
 	#prefix = "dynn_al-"
 	name = "dynn_Tahir"
+	culture = kanuri
+}
+
+hurra_dynasty = {
+	#prefix = "dynn_al-"
+	name = "dynn_Hurra"
+	culture = kanuri
+}
+
+moni_dynasty = {
+	name = "dynn_Moni"
 	culture = kanuri
 }
 
@@ -21,9 +23,9 @@ slimanian_dynasty = {
 	culture = kanuri
 }
 
-akal_dynasty = {
+sefian_dynasty = {
 	#prefix = "dynn_al-"
-	name = "dynn_Akal"
+	name = "dynn_Sefian"
 	culture = kanuri
 }
 

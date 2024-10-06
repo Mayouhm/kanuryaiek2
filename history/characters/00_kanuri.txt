@@ -8,16 +8,107 @@ tahir_1000 = {
 	dna = hadim_dna_entry
 
 
+	trait = education_intrigue_3
+	trait = greedy
+	trait = arrogant
+	trait = gregarious
+	trait = arcana_good_2
+
+	portrait_override = {	# Will override the character's appearance
+		portrait_modifier_overrides={
+			custom_hair=male_hair_western_02
+			custom_beards=male_empty
+
+		}
+	}
+
 	3318.1.1 = { birth = yes }
 	3380.1.1 = { death = yes }
 }
 
-#OLD EMPERORS OF KANURYA
-akal_100 = {
-	name = "Diyan"
-	dynasty = akal_dynasty
-	religion = lefthand_path
+# HURRA DYNASTY
+
+hurra_1000 = {
+	name = "Lalla"
+	dynasty = hurra_dynasty
+	religion = mephala_cult
 	culture = kanuri
+	female = yes
+
+	trait = education_martial_3
+	trait = ambitious
+	trait = wrathful
+	trait = humble
+	trait = giant
+	trait = viking
+
+
+	3296.1.1 = { birth = yes }
+	3340.1.1 = { trait = viking }
+	3380.1.1 = { death = yes }
+}
+
+# Moni
+moni_1000 = {
+	name = "Hebranum"
+	dynasty = moni_dynasty
+	religion = final_after
+	culture = kanuri
+
+	trait = lifespan_5
+
+	trait = education_learning_4
+	trait = education_magical_ability_4
+
+	trait = content
+	trait = eccentric
+	trait = diligent
+	trait = rakish
+
+	2507.11.2 = { birth = yes }
+	3122.2.11 = { death = yes }
+}
+
+
+moni_1001 = {
+	name = "Ishan"
+	dynasty = moni_dynasty
+	religion = final_after
+	culture = kanuri
+	female = yes
+	dna = moni_1001_dna_entry
+	mother = moni_1000
+
+	trait = lifespan_4
+
+	trait = education_learning_4
+	trait = education_magical_ability_2
+	trait = whole_of_body
+
+	2973.4.16 = { birth = yes }
+	3380.1.1 = { death = yes }
+}
+
+moni_1002 = {
+	name = "Antarah"
+	dynasty = moni_dynasty
+	religion = final_after
+	culture = kanuri
+	mother = moni_1001
+
+	3212.11.28 = { birth = yes }
+	3380.1.1 = { birth = yes }
+}
+
+
+
+#OLD EMPERORS OF KANURYA
+sefian_100 = {
+	name = "Diyan"
+	dynasty = sefian_dynasty
+	religion = final_after
+	culture = kanuri
+	dna = diyan_dna_entry
 
 	trait = education_learning_4
 	trait = brave
@@ -34,7 +125,7 @@ akal_100 = {
 }
 
 slimanian_100 = {
-	name = "Khamzaal"
+	name = "Samawil"
 	dynasty = slimanian_dynasty
 	religion = final_after
 	culture = kanuri
@@ -43,6 +134,7 @@ slimanian_100 = {
 	trait = brave
 	trait = ambitious
 	trait = paranoid
+	trait = loyal
 	trait = desert_warrior
 	trait = lifespan_4
 
@@ -56,7 +148,7 @@ slimanian_100 = {
 
 
 slimanian_101 = {
-	name = "Aminal"
+	name = "Anemon"
 	dynasty = slimanian_dynasty
 	religion = final_after
 	culture = kanuri
@@ -94,13 +186,13 @@ slimanian_102 = {
 	494.1.1 = { birth = yes }
 	550.1.1 = {
 		death = {
-			death_reason = death_hanged_and_disemboweled_by_mob
+			death_reason = death_duel
 		}
 	}
 }
 
 slimanian_103 = {
-	name = "Omanal"
+	name = "Ohmanil"
 	dynasty = slimanian_dynasty
 	religion = final_after
 	culture = kanuri
@@ -132,6 +224,14 @@ bardin = {
     trait = chaste
     trait = necromancer
     trait = lich_character
+
+	portrait_override = {	# Will override the character's appearance
+		portrait_modifier_overrides={
+			custom_hair =no_hair
+			custom_beards=male_empty
+			custom_headgear=male_empty
+		}
+	}
 
     -918.10.26 = { birth = yes }
 	-649.1.1 = {

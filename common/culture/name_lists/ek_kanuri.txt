@@ -1,51 +1,44 @@
 ﻿name_list_kanuri = {
-	cadet_dynasty_names = {
-		{ "dynn_Aziz" "dynnp_-al" }
-		{ "dynn_Oman" "dynnp_-al" }
-		"dynn_Qal_al"
-		"dynn_Hakam_al"
-		"dynn_Xerxes"
-		"dynn_Achaemen"
-		"dynn_Maghit"
-		"dynn_Salgon_al"
-		"dynn_Slimanian"
-		"dynn_Mesillian"
-		"dynn_Feydal"
-		"dynn_Tahhamin"
-		"dynn_Sian"
-		"dynn_Seran"
-		dynn_Murab
+	dynasty_names = {
+		"dynn_Amdis" "dynn_Amediya" "dynn_Amenes" "dynn_Ameris" "dynn_Amesmnes" "dynn_Amespes" "dynn_Amestris" "dynn_Amesyages" "dynn_Ametes" "dynn_Amxes" "dynn_Apadane" "dynn_Apapes" "dynn_Apayages" "dynn_Apdane" "dynn_Apmeges" "dynn_Apmeses" "dynn_Apris" "dynn_Apsatis" "dynn_Apsites" "dynn_Apxares" "dynn_Arasatis" "dynn_Araspes" "dynn_Ariarathres" "dynn_Ariaratris" "dynn_Ariaspes" "dynn_Ariatris" "dynn_Arisatis" "dynn_Arisites" "dynn_Arsates" "dynn_Arsidis" "dynn_Arsidiya" "dynn_Arsimnes" "dynn_Arsines" "dynn_Arstes" "dynn_Artadis" "dynn_Artases" "dynn_Artaspes" "dynn_Artassa" "dynn_Artatri" "dynn_Artpama" "dynn_Artris" "dynn_Astres" "dynn_Astsa" "dynn_Astyages" "dynn_Astyris" "dynn_Atomes" "dynn_Atones" "dynn_Atoxares" "dynn_Atres" "dynn_Atris" "dynn_Atsatis" "dynn_Attis" "dynn_Bartis" "dynn_Basites" "dynn_Bassa" "dynn_Bayages" "dynn_Cambdane" "dynn_Cambses" "dynn_Camnes" "dynn_Camsites" "dynn_Camssa" "dynn_Caris" "dynn_Casatis" "dynn_Casites" "dynn_Cassages" "dynn_Cassanges" "dynn_Cassanres" "dynn_Cassanssa" "dynn_Cassanthres" "dynn_Cassaris" "dynn_Cassatis" "dynn_Catis" "dynn_Cyadiya" "dynn_Cyaxanes" "dynn_Cyaxsatis" "dynn_Cymnes" "dynn_Cyres" "dynn_Cyses" "dynn_Hysites" "dynn_Hystamnes" "dynn_Hystpama" "dynn_Hystsites" "dynn_Hysxes" "dynn_Hyxane" "dynn_Madis" "dynn_Mama" "dynn_Mames" "dynn_Mamnes" "dynn_Manes" "dynn_Manxares" "dynn_Manxares" "dynn_Manyages" "dynn_Mapama" "dynn_Mases" "dynn_Maxane" "dynn_Maxares" "dynn_Osris" "dynn_Ostasites" "dynn_Ostayages" "dynn_Ostnes" "dynn_Ostnmes" "dynn_Ostses" "dynn_Oxadis" "dynn_Oxages" "dynn_Oxathmnes" "dynn_Oxathres" "dynn_Oxaxes" "dynn_Oxges" "dynn_Oxsatis" "dynn_Oxssa" "dynn_Oxtis" "dynn_Oxtris" "dynn_Pardane" "dynn_Parymes" "dynn_Parypama" "dynn_Paryssa" "dynn_Parytes" "dynn_Pates" "dynn_Paxes" "dynn_Peges" "dynn_Peima" "dynn_Peixes" "dynn_Peiyages" "dynn_Pepes" "dynn_Petris" "dynn_Roges" "dynn_Roma" "dynn_Roxane" "dynn_Roxares" "dynn_Roxdane" "dynn_Roxyages" "dynn_Smersatis" "dynn_Smertes" "dynn_Smerxane" "dynn_Smetris" "dynn_Teiges" "dynn_Teipama" "dynn_Xema" "dynn_Xerdane" "dynn_Xerris" "dynn_Xersatis" "dynn_Xerses" "dynn_Xertris" "dynn_Xerxane" "dynn_Xerxares" "dynn_Xerxes" "dynn_Xetes" "dynn_Xetris"
 	}
 
-	dynasty_names = {
-		{ "dynn_Aziz" "dynnp_-al" }
-		{ "dynn_Oman" "dynnp_-al" }
-		{ "dynn_Qal" "dynnp_-al" }
-		"dynn_Hakam_al"
-		"dynn_Xerxes"
-		"dynn_Achaemen"
-		"dynn_Maghit"
-		"dynn_Salgon_al"
-		"dynn_Slimanian"
-		"dynn_Mesillian"
-		"dynn_Feydal"
-		"dynn_Bardin"
-		"dynn_Tahhamin"
-		"dynn_Sian"
-		"dynn_Seran"
-		"dynn_Murab"
+	cadet_dynasty_names = {
+		"dynn_Amdis" "dynn_Amediya" "dynn_Amenes" "dynn_Ameris" "dynn_Amesmnes" "dynn_Amespes" "dynn_Amestris" "dynn_Amesyages" "dynn_Ametes" "dynn_Amxes" "dynn_Apadane" "dynn_Apapes" "dynn_Apayages" "dynn_Apdane" "dynn_Apmeges" "dynn_Apmeses" "dynn_Apris" "dynn_Apsatis" "dynn_Apsites" "dynn_Apxares" "dynn_Arasatis" "dynn_Araspes" "dynn_Ariarathres" "dynn_Ariaratris" "dynn_Ariaspes" "dynn_Ariatris" "dynn_Arisatis" "dynn_Arisites" "dynn_Arsates" "dynn_Arsidis" "dynn_Arsidiya" "dynn_Arsimnes" "dynn_Arsines" "dynn_Arstes" "dynn_Artadis" "dynn_Artases" "dynn_Artaspes" "dynn_Artassa" "dynn_Artatri" "dynn_Artpama" "dynn_Artris" "dynn_Astres" "dynn_Astsa" "dynn_Astyages" "dynn_Astyris" "dynn_Atomes" "dynn_Atones" "dynn_Atoxares" "dynn_Atres" "dynn_Atris" "dynn_Atsatis" "dynn_Attis" "dynn_Bartis" "dynn_Basites" "dynn_Bassa" "dynn_Bayages" "dynn_Cambdane" "dynn_Cambses" "dynn_Camnes" "dynn_Camsites" "dynn_Camssa" "dynn_Caris" "dynn_Casatis" "dynn_Casites" "dynn_Cassages" "dynn_Cassanges" "dynn_Cassanres" "dynn_Cassanssa" "dynn_Cassanthres" "dynn_Cassaris" "dynn_Cassatis" "dynn_Catis" "dynn_Cyadiya" "dynn_Cyaxanes" "dynn_Cyaxsatis" "dynn_Cymnes" "dynn_Cyres" "dynn_Cyses" "dynn_Hysites" "dynn_Hystamnes" "dynn_Hystpama" "dynn_Hystsites" "dynn_Hysxes" "dynn_Hyxane" "dynn_Madis" "dynn_Mama" "dynn_Mames" "dynn_Mamnes" "dynn_Manes" "dynn_Manxares" "dynn_Manxares" "dynn_Manyages" "dynn_Mapama" "dynn_Mases" "dynn_Maxane" "dynn_Maxares" "dynn_Osris" "dynn_Ostasites" "dynn_Ostayages" "dynn_Ostnes" "dynn_Ostnmes" "dynn_Ostses" "dynn_Oxadis" "dynn_Oxages" "dynn_Oxathmnes" "dynn_Oxathres" "dynn_Oxaxes" "dynn_Oxges" "dynn_Oxsatis" "dynn_Oxssa" "dynn_Oxtis" "dynn_Oxtris" "dynn_Pardane" "dynn_Parymes" "dynn_Parypama" "dynn_Paryssa" "dynn_Parytes" "dynn_Pates" "dynn_Paxes" "dynn_Peges" "dynn_Peima" "dynn_Peixes" "dynn_Peiyages" "dynn_Pepes" "dynn_Petris" "dynn_Roges" "dynn_Roma" "dynn_Roxane" "dynn_Roxares" "dynn_Roxdane" "dynn_Roxyages" "dynn_Smersatis" "dynn_Smertes" "dynn_Smerxane" "dynn_Smetris" "dynn_Teiges" "dynn_Teipama" "dynn_Xema" "dynn_Xerdane" "dynn_Xerris" "dynn_Xersatis" "dynn_Xerses" "dynn_Xertris" "dynn_Xerxane" "dynn_Xerxares" "dynn_Xerxes" "dynn_Xetes" "dynn_Xetris"
 	}
 
 	male_names = {
-		Achaemen Antarah Dalarian Dhubyan Diyan Ghassan
-		Habil Hyfin Kanur Lakhm Omanal Sam Shem_Sam
-		Sami_Sam Sian Tamerlane Tovya Verus Wailimo Xerxes
-		Yafith
+		Acamas Anemon Argas Argenum Arnum Arran Arstul
+		Aryaamo Avis Benolin Berion Blaid Blein Bowron
+		Bradwin Braln Cabrelas Caladran Calin Camandar
+		Caren Cingulnya Cladin Colaadron Diyan Dolin
+		Edor Eilgun Elaboran Elanwan Elirel Enarin
+		Endern Endnum Erant Erion Ernum Galdain Gandor
+		Ginderin Godaillon Gogain Gorain Goren Gren
+		Grenum Hebranum Heculoa Hemorohes Homrin
+		Iphidamas Isanmetil Ivenorum Jyklos Kardan
+		Lagnum Larnil Larrin Linundil Lirgarlan Maliran
+		Mallan Malleroth Mater Menwil Merant Merelan
+		Meret Mirel Monwe Neiral Norevalion Noryesar Numanil
+		Ohmanil Ordrin Orglan Orgnas Orgnum Orgrain
+		Orinsul Ornon Padawan Parondo Pelius Penwil
+		Perras Qraalel Rodros Sairon Samawil Tanon Tovis
+		Ugaridge Uldor Ulondil Undan Uumernenil Valaran
+		Vare
 	}
+
 	female_names = {
-		Abla Ashtar Diyana Gladis Ilyria Isef Ishan
-		Kanurya Kuhayna Layla Lina Paransif Sameht
-		Shams Sian Tanerline Vanya
+		Adeo Agansa Aglene Aliane Anenelle Angenere
+		Argena Ayalea Benans Brala Bre Briged Caladria
+		Cectyda Chryseis Cinurmion Conena Despina Dylora
+		Edora Eladana Elaise Enare Erlna Galine Gandra
+		Ganema Gese Gevele Goria Grunda Guinel Hetsha
+		Ilyria Irinwe Isalla Ishan Ismenida Ismi Ivenora
+		Jahlasri Jansa Karia Lagna Libala Lioles Lonena
+		Lorasa Lusie Malla Miliance Moriana Nalla Neidir
+		Nelrene Nirdrine Ohalorne Orga Orgna Panardil
+		Pedawe Sadoine Sameht Staada Stela Terirwen
+		Udico Umuor Virindi Yalorasse
 	}
 
 	#dynasty_of_location_suffix = "dynnp_-al"

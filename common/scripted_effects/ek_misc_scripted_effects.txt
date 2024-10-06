@@ -66,6 +66,7 @@
 
 startup_culture_effect = {
 	save_culture_in_global_list = { CULTURE = culture:$CULTURE$ }
+	save_culture_in_global_list = { CULTURE = culture:kanuri }
 	culture_key_setup = { CULTURE = $CULTURE$ }
 }
 

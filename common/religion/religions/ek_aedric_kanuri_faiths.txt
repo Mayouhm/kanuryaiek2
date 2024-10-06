@@ -1,5 +1,5 @@
 ﻿kanuri_religion = {
-	family = rf_aurbis
+	family = rf_aedra
 
 	doctrine = aurbic_hostility_doctrine
 
@@ -31,8 +31,8 @@
 	#Funeral tradition
 	doctrine = doctrine_funeral_cremation
 
-	# In this moment, I am euphoric. Not because of any phony god's blessing. But because, I am enlightened by my intelligence.
-	doctrine = doctrine_pilgrimage_forbidden
+	#
+	doctrine = doctrine_pilgrimage_encouraged
 	
 	### EK Doctrines
 	# doctrine = doctrine_adultery_accepted
@@ -41,14 +41,13 @@
 	doctrine = doctrine_homosexuality_accepted
 	doctrine = doctrine_lycanthropy_outlawed
 	doctrine = doctrine_vampirism_outlawed
-	doctrine = doctrine_necromancy_accepted
+	doctrine = doctrine_necromancy_outlawed
 	
 	doctrine = doctrine_main_pantheon_type_monolatrism
-	doctrine = doctrine_pantheon_no_monolatry_pantheon
-	doctrine = doctrine_sp_none
-	doctrine = doctrine_pantheon_aspect_knowledge
-	
-	# "But our brethren, the Dwemer, scorned the Daedra, and mocked our foolish rituals, and preferred instead their gods of Reason and Logic"
+	doctrine = doctrine_pantheon_satakal
+	doctrine = doctrine_sp_lorkhan
+
+	#
 	doctrine = doctrine_hidden_daedra_shunned
 	
 	reserved_male_names = {
@@ -71,101 +70,101 @@
 
 	localization = {
 		#HighGod
-		HighGodName  = god_akel_name
-		HighGodName2 = god_akel_name
-		HighGodNamePossessive = god_akel_name_possessive
+		HighGodName  = god_satakal_name
+		HighGodName2 = god_satakal_name
+		HighGodNamePossessive = god_satakal_name_possessive
 		HighGodNameSheHe = CHARACTER_SHEHE_THEY
 		HighGodHerselfHimself = CHARACTER_THEMSELVES
 		HighGodHerHis = CHARACTER_HERHIS_THEIR
-		HighGodNameAlternate = god_akel_name
-		HighGodNameAlternatePossessive = god_akel_name_possessive
+		HighGodNameAlternate = god_satakal_name
+		HighGodNameAlternatePossessive = god_satakal_name_possessive
 
 		#Creator
-		CreatorName = god_akel_name
-		CreatorNamePossessive = god_akel_name_possessive
+		CreatorName = god_sep_name
+		CreatorNamePossessive = god_sep_name_possessive
 		CreatorSheHe = CHARACTER_SHEHE_THEY
 		CreatorHerHis = CHARACTER_HERHIS_THEIR
 		CreatorHerHim = CHARACTER_HERHIM_THEM
 
 		#HealthGod
-		HealthGodName = god_akel_name
-		HealthGodNamePossessive = god_akel_name_possessive
+		HealthGodName = god_satakal_name
+		HealthGodNamePossessive = god_satakal_name_possessive
 		HealthGodSheHe = CHARACTER_SHEHE_THEY
 		HealthGodHerHis = CHARACTER_HERHIS_THEIR
 		HealthGodHerHim = CHARACTER_HERHIM_THEM
 
 		#FertilityGod
-		FertilityGodName = god_akel_name
-		FertilityGodNamePossessive = god_akel_name_possessive
+		FertilityGodName = god_satakal_name
+		FertilityGodNamePossessive = god_satakal_name_possessive
 		FertilityGodSheHe = CHARACTER_SHEHE_THEY
 		FertilityGodHerHis = CHARACTER_HERHIS_THEIR
 		FertilityGodHerHim = CHARACTER_HERHIM_THEM
 
 		#WealthGod
-		WealthGodName = god_akel_name
-		WealthGodNamePossessive = god_akel_name_possessive
+		WealthGodName = god_satakal_name
+		WealthGodNamePossessive = god_satakal_name_possessive
 		WealthGodSheHe = CHARACTER_SHEHE_THEY
 		WealthGodHerHis = CHARACTER_HERHIS_THEIR
 		WealthGodHerHim = CHARACTER_HERHIM_THEM
 
 		#HouseholdGod
-		HouseholdGodName = god_akel_name
-		HouseholdGodNamePossessive = god_akel_name_possessive
+		HouseholdGodName = god_satakal_name
+		HouseholdGodNamePossessive = god_satakal_name_possessive
 		HouseholdGodSheHe = CHARACTER_SHEHE_THEY
 		HouseholdGodHerHis = CHARACTER_HERHIS_THEIR
 		HouseholdGodHerHim = CHARACTER_HERHIM_THEM
 
 		#FateGod
-		FateGodName = god_akel_name
-		FateGodNamePossessive = god_akel_name_possessive
+		FateGodName = god_satakal_name
+		FateGodNamePossessive = god_satakal_name_possessive
 		FateGodSheHe = CHARACTER_SHEHE_THEY
 		FateGodHerHis = CHARACTER_HERHIS_THEIR
 		FateGodHerHim = CHARACTER_HERHIM_THEM
 
 		#KnowledgeGod
-		KnowledgeGodName = god_akel_name
-		KnowledgeGodNamePossessive = god_akel_name_possessive
+		KnowledgeGodName = god_satakal_name
+		KnowledgeGodNamePossessive = god_satakal_name_possessive
 		KnowledgeGodSheHe = CHARACTER_SHEHE_THEY
 		KnowledgeGodHerHis = CHARACTER_HERHIS_THEIR
 		KnowledgeGodHerHim = CHARACTER_HERHIM_THEM
 
 		#WarGod
-		WarGodName = god_akel_name
-		WarGodNamePossessive = god_akel_name_possessive
+		WarGodName = god_satakal_name
+		WarGodNamePossessive = god_satakal_name_possessive
 		WarGodSheHe = CHARACTER_SHEHE_THEY
 		WarGodHerHis = CHARACTER_HERHIS_THEIR
 		WarGodHerHim = CHARACTER_HERHIM_THEM
 
 		#TricksterGod
-		TricksterGodName = god_akel_name
-		TricksterGodNamePossessive = god_akel_name_possessive
+		TricksterGodName = god_satakal_name
+		TricksterGodNamePossessive = god_satakal_name_possessive
 		TricksterGodSheHe = CHARACTER_SHEHE_THEY
 		TricksterGodHerHis = CHARACTER_HERHIS_THEIR
 		TricksterGodHerHim = CHARACTER_HERHIM_THEM
 
 		#NightGod
-		NightGodName = god_akel_name
-		NightGodNamePossessive = god_akel_name_possessive
+		NightGodName = god_satakal_name
+		NightGodNamePossessive = god_satakal_name_possessive
 		NightGodSheHe = CHARACTER_SHEHE_THEY
 		NightGodHerHis = CHARACTER_HERHIS_THEIR
 		NightGodHerHim = CHARACTER_HERHIM_THEM
 
 		#WaterGod
-		WaterGodName = god_akel_name
-		WaterGodNamePossessive = god_akel_name_possessive
+		WaterGodName = god_satakal_name
+		WaterGodNamePossessive = god_satakal_name_possessive
 		WaterGodSheHe = CHARACTER_SHEHE_THEY
 		WaterGodHerHis = CHARACTER_HERHIS_THEIR
 		WaterGodHerHim = CHARACTER_HERHIM_THEM
 
-		PantheonTerm = god_akel_name
-		PantheonTerm2 = god_akel_name
-		PantheonTerm3 = god_akel_name
+		PantheonTerm = god_satakal_name
+		PantheonTerm2 = god_satakal_name
+		PantheonTerm3 = god_satakal_name
 		PantheonTermHasHave = pantheon_term_has
 		GoodGodNames = {
-			god_akel_name
+			god_satakal_name
 		}
-		DevilName = god_akel_name
-		DevilNamePossessive = god_akel_name_possessive
+		DevilName = god_satakal_name
+		DevilNamePossessive = god_satakal_name_possessive
 		DevilSheHe = CHARACTER_SHEHE_HE
 		DevilHerHis = CHARACTER_HERHIS_HIS
 		DevilHerselfHimself = CHARACTER_HIMSELF
@@ -173,52 +172,52 @@
 			god_the_divines_name
 			god_daedric_princes_name
 		}
-		HouseOfWorship  = sithis_house_of_worship
-		HouseOfWorship2 = sithis_house_of_worship
-		HouseOfWorship3 = sithis_house_of_worship
-		HouseOfWorshipPlural = sithis_house_of_worship_plural
-		ReligiousSymbol  = sithis_religious_symbol
-		ReligiousSymbol2 = sithis_religious_symbol
-		ReligiousSymbol3 = sithis_religious_symbol
-		ReligiousText  = sithis_religious_symbol
-		ReligiousText2 = sithis_religious_symbol
-		ReligiousText3 = sithis_religious_symbol
-		ReligiousHeadName = sithis_religious_head_title
-		ReligiousHeadTitleName = sithis_religious_head_title_name
-		DevoteeMale = sithis_devotee_male
-		DevoteeMalePlural = sithis_devotee_male_plural
-		DevoteeFemale = sithis_devotee_female
-		DevoteeFemalePlural = sithis_devotee_female_plural
-		DevoteeNeuter = sithis_devotee_male
-		DevoteeNeuterPlural = sithis_devotee_male_plural
-		PriestMale = sithis_priest_male
-		PriestMalePlural = sithis_priest_male_plural
-		PriestFemale = sithis_priest_female
-		PriestFemalePlural = sithis_priest_female_plural
-		PriestNeuter = sithis_priest_male
-		PriestNeuterPlural = sithis_priest_male_plural
-		AltPriestTermPlural = sithis_priest_alternate_plural
-		BishopMale = sithis_bishop_male
-		BishopMalePlural = sithis_bishop_male_plural
-		BishopFemale = sithis_bishop_female
-		BishopFemalePlural = sithis_bishop_female_plural
-		BishopNeuter = sithis_bishop_male
-		BishopNeuterPlural = sithis_bishop_male_plural
-		DivineRealm  = void_name
-		DivineRealm2 = void_name
-		DivineRealm3 = void_name
-		PositiveAfterLife  = void_name
-		PositiveAfterLife2 = void_name
-		PositiveAfterLife3 = void_name
-		NegativeAfterLife = void_name
-		NegativeAfterLife2 = void_name
-		NegativeAfterLife3 = void_name
-		DeathDeityName = god_akel_name
-		DeathDeityNamePossessive = god_akel_name_possessive
+		HouseOfWorship  = aldmeri_house_of_worship
+		HouseOfWorship2 = aldmeri_house_of_worship
+		HouseOfWorship3 = aldmeri_house_of_worship
+		HouseOfWorshipPlural = aldmeri_house_of_worship_plural
+		ReligiousSymbol  = aldmeri_religious_symbol
+		ReligiousSymbol2 = aldmeri_religious_symbol
+		ReligiousSymbol3 = aldmeri_religious_symbol
+		ReligiousText  = kanuri_religious_symbol
+		ReligiousText2 = kanuri_religious_symbol
+		ReligiousText3 = kanuri_religion_religious_symbol
+		ReligiousHeadName = aldmeri_religious_head_title
+		ReligiousHeadTitleName = aldmeri_religious_head_title_name
+		DevoteeMale = kanuri_religion_devotee_male
+		DevoteeMalePlural = kanuri_religion_devotee_male_plural
+		DevoteeFemale = kanuri_religion_devotee_female
+		DevoteeFemalePlural = kanuri_religion_devotee_female_plural
+		DevoteeNeuter = kanuri_religion_devotee_male
+		DevoteeNeuterPlural = kanuri_religion_devotee_male_plural
+		PriestMale = kanuri_religion_priest_male
+		PriestMalePlural = kanuri_religion_priest_male_plural
+		PriestFemale = kanuri_religion_priest_female
+		PriestFemalePlural = kanuri_religion_priest_female_plural
+		PriestNeuter = kanuri_religion_priest_male
+		PriestNeuterPlural = kanuri_religion_priest_male_plural
+		AltPriestTermPlural = kanuri_religion_priest_alternate_plural
+		BishopMale = kanuri_religion_bishop_male
+		BishopMalePlural = kanuri_religion_bishop_male_plural
+		BishopFemale = kanuri_religion_bishop_female
+		BishopFemalePlural = kanuri_religion_bishop_female_plural
+		BishopNeuter = kanuri_religion_bishop_male
+		BishopNeuterPlural = kanuri_religion_bishop_male_plural
+		DivineRealm  = finalafter_name
+		DivineRealm2 = finalafter_name
+		DivineRealm3 = finalafter_name
+		PositiveAfterLife  = finalafter_name
+		PositiveAfterLife2 = finalafter_name
+		PositiveAfterLife3 = finalafter_name
+		NegativeAfterLife = finalafter_name
+		NegativeAfterLife2 = finalafter_name
+		NegativeAfterLife3 = finalafter_name
+		DeathDeityName = god_satakal_name
+		DeathDeityNamePossessive = god_satakal_name_possessive
 		DeathDeitySheHe = CHARACTER_SHEHE_HE
 		DeathDeityHerHis = CHARACTER_HERHIS_HIS
-		WitchGodName = god_akel_name
-		WitchGodNamePossessive = god_akel_name_possessive
+		WitchGodName = god_satakal_name
+		WitchGodNamePossessive = god_satakal_name_possessive
 		WitchGodHerHis = CHARACTER_HERHIS_HIS
 		WitchGodSheHe = CHARACTER_SHEHE_HE
 		WitchGodHerHim = CHARACTER_HERHIM_HIM
@@ -240,10 +239,10 @@
 			# former sins: shrewd scholar education_learning_4
 
 			holy_site = hs_satakalaam
-			holy_site = hs_leki_blade
+			holy_site = hs_red_mountain
 			holy_site = hs_totambu
 			holy_site = hs_nohotogrha
-			holy_site = hs_herne
+			holy_site = hs_moni
 			
 			doctrine = doctrine_virtue_cynical
 			doctrine = doctrine_virtue_brave
@@ -256,119 +255,128 @@
 			doctrine = doctrine_funeral_cremation
 
 			#Tenets
-			doctrine = tenet_ancestor_worship
+			doctrine = tenet_exalted_heroism
 			doctrine = tenet_inner_journey
-			doctrine = tenet_necromancy_worship
+			doctrine = tenet_sanctity_of_life
+
+			doctrine = doctrine_shezarr_worship_full
 			
 			localization = {
 				#HighGod
-				HighGodName  = god_akel_name
-				HighGodName2 = god_akel_name
-				HighGodNamePossessive = god_akel_name_possessive
+				HighGodName  = god_satakal_name
+				HighGodName2 = god_satakal_name
+				HighGodNamePossessive = god_satakal_name_possessive
 				HighGodNameSheHe = CHARACTER_SHEHE_THEY
 				HighGodHerselfHimself = CHARACTER_THEMSELVES
 				HighGodHerHis = CHARACTER_HERHIS_THEIR
-				HighGodNameAlternate = god_akel_name
-				HighGodNameAlternatePossessive = god_akel_name_possessive
+				HighGodNameAlternate = god_satakal_name
+				HighGodNameAlternatePossessive = god_satakal_name_possessive
 
 				#Creator
-				CreatorName = god_akel_name
-				CreatorNamePossessive = god_akel_name_possessive
+				CreatorName = god_satakal_name
+				CreatorNamePossessive = god_satakal_name_possessive
 				CreatorSheHe = CHARACTER_SHEHE_THEY
 				CreatorHerHis = CHARACTER_HERHIS_THEIR
 				CreatorHerHim = CHARACTER_HERHIM_THEM
 
 				#HealthGod
-				HealthGodName = god_akel_name
-				HealthGodNamePossessive = god_akel_name_possessive
+				HealthGodName = god_satakal_name
+				HealthGodNamePossessive = god_satakal_name_possessive
 				HealthGodSheHe = CHARACTER_SHEHE_THEY
 				HealthGodHerHis = CHARACTER_HERHIS_THEIR
 				HealthGodHerHim = CHARACTER_HERHIM_THEM
 
 				#FertilityGod
-				FertilityGodName = god_akel_name
-				FertilityGodNamePossessive = god_akel_name_possessive
+				FertilityGodName = god_satakal_name
+				FertilityGodNamePossessive = god_satakal_name_possessive
 				FertilityGodSheHe = CHARACTER_SHEHE_THEY
 				FertilityGodHerHis = CHARACTER_HERHIS_THEIR
 				FertilityGodHerHim = CHARACTER_HERHIM_THEM
 
 				#WealthGod
-				WealthGodName = god_akel_name
-				WealthGodNamePossessive = god_akel_name_possessive
+				WealthGodName = god_satakal_name
+				WealthGodNamePossessive = god_satakal_name_possessive
 				WealthGodSheHe = CHARACTER_SHEHE_THEY
 				WealthGodHerHis = CHARACTER_HERHIS_THEIR
 				WealthGodHerHim = CHARACTER_HERHIM_THEM
 
 				#HouseholdGod
-				HouseholdGodName = god_akel_name
-				HouseholdGodNamePossessive = god_akel_name_possessive
+				HouseholdGodName = god_satakal_name
+				HouseholdGodNamePossessive = god_satakal_name_possessive
 				HouseholdGodSheHe = CHARACTER_SHEHE_THEY
 				HouseholdGodHerHis = CHARACTER_HERHIS_THEIR
 				HouseholdGodHerHim = CHARACTER_HERHIM_THEM
 
 				#FateGod
-				FateGodName = god_akel_name
-				FateGodNamePossessive = god_akel_name_possessive
+				FateGodName = god_satakal_name
+				FateGodNamePossessive = god_satakal_name_possessive
 				FateGodSheHe = CHARACTER_SHEHE_THEY
 				FateGodHerHis = CHARACTER_HERHIS_THEIR
 				FateGodHerHim = CHARACTER_HERHIM_THEM
 
 				#KnowledgeGod
-				KnowledgeGodName = god_akel_name
-				KnowledgeGodNamePossessive = god_akel_name_possessive
+				KnowledgeGodName = god_satakal_name
+				KnowledgeGodNamePossessive = god_satakal_name_possessive
 				KnowledgeGodSheHe = CHARACTER_SHEHE_THEY
 				KnowledgeGodHerHis = CHARACTER_HERHIS_THEIR
 				KnowledgeGodHerHim = CHARACTER_HERHIM_THEM
 
 				#WarGod
-				WarGodName = god_akel_name
-				WarGodNamePossessive = god_akel_name_possessive
+				WarGodName = god_satakal_name
+				WarGodNamePossessive = god_satakal_name_possessive
 				WarGodSheHe = CHARACTER_SHEHE_THEY
 				WarGodHerHis = CHARACTER_HERHIS_THEIR
 				WarGodHerHim = CHARACTER_HERHIM_THEM
 
 				#TricksterGod
-				TricksterGodName = god_lorkhan_name
-				TricksterGodNamePossessive = god_lorkhan_name_possessive
+				TricksterGodName = god_sep_name
+				TricksterGodNamePossessive = god_sep_name_possessive
 				TricksterGodSheHe = CHARACTER_SHEHE_THEY
 				TricksterGodHerHis = CHARACTER_HERHIS_THEIR
 				TricksterGodHerHim = CHARACTER_HERHIM_THEM
 
 				#NightGod
-				NightGodName = god_akel_name
-				NightGodNamePossessive = god_akel_name_possessive
+				NightGodName = god_satakal_name
+				NightGodNamePossessive = god_satakal_name_possessive
 				NightGodSheHe = CHARACTER_SHEHE_THEY
 				NightGodHerHis = CHARACTER_HERHIS_THEIR
 				NightGodHerHim = CHARACTER_HERHIM_THEM
 
 				#WaterGod
-				WaterGodName = god_akel_name
-				WaterGodNamePossessive = god_akel_name_possessive
+				WaterGodName = god_satakal_name
+				WaterGodNamePossessive = god_satakal_name_possessive
 				WaterGodSheHe = CHARACTER_SHEHE_THEY
 				WaterGodHerHis = CHARACTER_HERHIS_THEIR
 				WaterGodHerHim = CHARACTER_HERHIM_THEM
 
-				PantheonTerm = god_akel_name
-				PantheonTerm2 = god_akel_name
-				PantheonTerm3 = god_akel_name
+				PantheonTerm = god_satakal_name
+				PantheonTerm2 = god_satakal_name
+				PantheonTerm3 = god_satakal_name
 				PantheonTermHasHave = pantheon_term_has
 				GoodGodNames = {
-					god_akel_name
+					god_satakal_name
+					god_morwha_name
+					god_sep_name
 				}
-				DevilName = god_akel_name
-				DevilNamePossessive = god_akel_name_possessive
+				DevilName = god_satakal_name
+				DevilNamePossessive = god_satakal_name_possessive
 				DevilSheHe = CHARACTER_SHEHE_HE
 				DevilHerHis = CHARACTER_HERHIS_HIS
 				DevilHerselfHimself = CHARACTER_HIMSELF
 				EvilGodNames = {
-					god_daedric_princes_name
+					god_diagna_name
+					god_ruptga_name
+					god_tallpapa_name
+					god_tuwhacca_name
+					god_zeht_name
+					god_hoonding_name
 				}
-				DeathDeityName = god_akel_name
-				DeathDeityNamePossessive = god_akel_name_possessive
+				DeathDeityName = god_satakal_name
+				DeathDeityNamePossessive = god_satakal_name_possessive
 				DeathDeitySheHe = CHARACTER_SHEHE_IT
 				DeathDeityHerHis = CHARACTER_HERHIS_ITS
-				WitchGodName = god_lhkan_name
-				WitchGodNamePossessive = god_lhkan_name_possessive
+				WitchGodName = god_sep_name
+				WitchGodNamePossessive = god_sep_name_possessive
 				WitchGodHerHis = CHARACTER_HERHIS_ITS
 				WitchGodSheHe = CHARACTER_SHEHE_IT
 				WitchGodHerHim = CHARACTER_HERHIM_IT

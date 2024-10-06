@@ -1330,7 +1330,5 @@
  CHARACTER_HERHIS_THEMSELF:0 "themself"
 
  # Kanuri
- god_akel_name:0 "Ak-El"
-   god_akel_name_possessive: "Ak-El's"
  finalafter_name:0 "the Final After"
    finalafter_name_possessive:0 "the Final After's"

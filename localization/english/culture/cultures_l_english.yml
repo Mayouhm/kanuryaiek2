@@ -96,12 +96,12 @@
     corelanya_desc:2 "An old Altmer clan in Hammerfell, the Corelanya clashed with the Yokudans when they first arrived in Hammerfell."
     corelanya_opinion:0 "$corelanya$ Opinion"
 
- #KANURYAI
+ #KANURI
  kanuri:0 "Kanuri"
-    kanuri_prefix:0 "Kanuri"
-    kanuri_collective_noun:1 "Kanuro"
-    kanuri_desc:2 "The Kanuryai are the elves of Yokuda."
-    kanuri_opinion:0 "kanuri$ Opinion"
+    kanuri_prefix:0 "Kanuro"
+    kanuri_collective_noun:1 "Kanuryai"
+    kanuri_desc:0 "The Kanuryai are the dark-skinned elves of Yokuda. \n\nOnce they held an empire that ruled over all of Old Yokuda. Now, they're facing extinction."
+    kanuri_opinion:0 "$kanuri$ Opinion"
 
 # MAORMERI
  maormer:0 "Maormeri" 

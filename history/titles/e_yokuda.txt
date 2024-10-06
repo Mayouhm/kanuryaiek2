@@ -1,9 +1,9 @@
 e_yokuda = {
-	167.1.1 = { holder = akal_100 }
+	167.1.1 = { holder = sefian_100 }
 	412.1.1 = {holder = 0}
 	440.1.1 = { holder = slimanian_100}
 	542.1.1 = { holder = slimanian_101}
-	560.1.1 = { holder = slimanian_102}
+	560.1.1 = { holder = slimanian_103}
 	575.1.1 = {holder = 0}
 	575.1.2 = { holder = sesnit_100 }
 	617.1.1 = { holder = torn_100 }
@@ -36,7 +36,7 @@ d_kanesh = {
 }
 
 c_tagon = {
-	167.1.1 = { holder = akal_100 }
+	167.1.1 = { holder = sefian_100 }
 	440.1.1 = { holder = slimanian_100}
 	542.1.1 = { holder = slimanian_101}
 	560.1.1 = { holder = slimanian_103}
@@ -72,7 +72,9 @@ c_lagon = {
 }
 
 c_irranhu = {
-	3359.1.1 = { holder = jilani_1000 }
+	3359.1.1 = { government = pirate_government
+				 liege = d_yoku_freeport
+				 holder = hurra_1000 }
 	3363.1.1 = { government = pirate_government
 				 holder = ashhadr_1000 } 
 }
@@ -208,5 +210,6 @@ c_coru_scar = {
 }
 
 c_moni = {
-	3350.1.1 = { holder = yokudanlowborn_1008 }
+	2607.11.2 = { holder = moni_1000 }
+	3122.2.11 = { holder = moni_1001 }
 }

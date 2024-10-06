@@ -235,8 +235,8 @@
 ####c_tagon
 
 635 = { #b_tagon
-	culture = kanuri
-	religion = final_after
+	culture = yokudan
+	religion = satakal
 	
 	holding = tribal_holding
 }
@@ -298,7 +298,7 @@
 ####c_irranhu
 
 646 = { #b_irranhu
-	culture = yokudan
+	culture = kanuri
 	religion = mephala_cult
 	
 	holding = castle_holding
@@ -349,8 +349,8 @@
 ####c_moni
 
 656 = { #b_moni
-	culture = yokudan
-	religion = satakal
+	culture = kanuri
+	religion = final_after
 	
 	holding = church_holding
 }
